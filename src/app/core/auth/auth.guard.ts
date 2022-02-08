@@ -11,8 +11,7 @@ export class AuthGuard implements CanActivateChild {
     public _router: Router) { }
 
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this._userService.isLoggedIn()) {
-      console.log('hello')
+    if (!this._userService.isLoggedIn()) {
       this._router.navigateByUrl('/sign-in');
       this._userService.deleteToken();
       return false

@@ -41,9 +41,10 @@ export class SignUpComponent implements OnInit {
   onSubmit() {
     let model = this.userModel();
     this._userService.create(model).subscribe(res => {
-      this.showSucessMessage = true;
-      setTimeout(() => this.showSucessMessage = false, 4000);
-      // this._router.navigateByUrl('/dashboard');
+      return this._userService.login(model).subscribe(res => {
+        this._userService.setToken(res['token']);
+        this._router.navigateByUrl('/ui/profile');
+      })
     },
       err => {
         if (err.status === 422) {
