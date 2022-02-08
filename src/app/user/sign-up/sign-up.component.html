@@ -1,0 +1,50 @@
+<div>
+  <h1>Sign-up</h1>
+</div>
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+  <input
+    type="text"
+    name="fullName"
+    placeholder="Full Name"
+    formControlName="fullName"
+    required
+  />
+  <!-- <div *ngIf="fullName.invalid">
+    <label class="validation-message">This field is required.</label>
+  </div> -->
+  <input
+    type="text"
+    name="email"
+    placeholder="Email"
+    formControlName="email"
+    required
+  />
+  <!-- <div *ngIf="email.invalid">
+    <label class="validation-message">This field is required.</label>
+    <label class="validation-message">Invalid email address.</label>
+  </div> -->
+  <input
+    type="password"
+    name="password"
+    placeholder="Password"
+    formControlName="password"
+    minlength="4"
+    required
+  />
+  <!-- <div *ngIf="password.invalid">
+    <label class="validation-message">This field is required.</label>
+    <label class="validation-message">Enter atleast 4 characters.</label>
+  </div> -->
+  <div class="flex">
+    <button type="submit" class="submit">Sign up</button>
+    <button type="button" routerLink="/sign-in" class="button">Sign In</button>
+  </div>
+</form>
+
+<!-- Success message -->
+<div class="success" *ngIf="showSucessMessage">Saved successfully</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+  {{ serverErrorMessages }}
+</div>

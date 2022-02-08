@@ -1,0 +1,35 @@
+<div>
+  <h1>Sign-in</h1>
+</div>
+<form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+  <input
+    type="text"
+    name="email"
+    placeholder="Email"
+    formControlName="email"
+    required
+  />
+  <!-- <div>
+    <label class="validation-message">Invalid email address.</label>
+  </div> -->
+  <input
+    type="password"
+    name="password"
+    placeholder="Password"
+    formControlName="password"
+    required
+    minlength="4"
+  />
+  <!-- <div>
+    <label class="validation-message">Minimum 4 characters.</label>
+  </div> -->
+  <div class="flex">
+    <button type="submit" class="submit">Sign In</button>
+    <button type="button" routerLink="/sign-up" class="button">Sign up</button>
+  </div>
+</form>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+  {{ serverErrorMessages }}
+</div>

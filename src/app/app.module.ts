@@ -1,18 +1,32 @@
+import { AuthInterceptor } from './core/auth/auth.interceptor';
+import { AuthGuard } from './core/auth/auth.guard';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { ThirdPartyModule } from './core/modules/third-party.module';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
+    CommonModule,
+    AppRoutingModule,
     BrowserModule,
-    AppRoutingModule
+    RouterModule,
+    ThirdPartyModule,
+    HttpClientModule
   ],
-  providers: [],
+  declarations: [
+    AppComponent,
+  ],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
