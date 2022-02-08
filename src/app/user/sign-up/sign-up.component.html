@@ -9,9 +9,6 @@
     formControlName="fullName"
     required
   />
-  <!-- <div *ngIf="fullName.invalid">
-    <label class="validation-message">This field is required.</label>
-  </div> -->
   <input
     type="text"
     name="email"
@@ -19,10 +16,6 @@
     formControlName="email"
     required
   />
-  <!-- <div *ngIf="email.invalid">
-    <label class="validation-message">This field is required.</label>
-    <label class="validation-message">Invalid email address.</label>
-  </div> -->
   <input
     type="password"
     name="password"
@@ -31,10 +24,6 @@
     minlength="4"
     required
   />
-  <!-- <div *ngIf="password.invalid">
-    <label class="validation-message">This field is required.</label>
-    <label class="validation-message">Enter atleast 4 characters.</label>
-  </div> -->
   <div class="flex">
     <button type="submit" class="submit">Sign up</button>
     <button type="button" routerLink="/sign-in" class="button">Sign In</button>
