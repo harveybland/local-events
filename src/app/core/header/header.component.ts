@@ -1,3 +1,4 @@
+import { JwtStorageService } from './../service/jwt-storage.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  loggedIn: boolean = false;
+
+  constructor(private _jwtService: JwtStorageService) { }
 
   ngOnInit() {
+    if (!this._jwtService.isLoggedIn()) {
+      this.loggedIn = true;
+    }
   }
 
 }

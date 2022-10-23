@@ -1,3 +1,4 @@
+import { JwtStorageService } from './../service/jwt-storage.service';
 import { UserService } from 'src/app/user/user.service';
 import { HttpInterceptor, HttpRequest, HttpHandler } from "@angular/common/http";
 import { Injectable } from '@angular/core';
@@ -7,7 +8,7 @@ import { Router } from "@angular/router";
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-    constructor(private _userService: UserService,
+    constructor(private _jwtService: JwtStorageService,
         private _router: Router
     ) { }
 
@@ -16,7 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
             return next.handle(req.clone())
         else {
             const clonedreq = req.clone({
-                headers: req.headers.set("Authorization", "bearer " + this._userService.getToken())
+                headers: req.headers.set("Authorization", "bearer " + this._jwtService.getToken())
             })
             return next.handle(clonedreq).pipe(
                 tap(

@@ -1,3 +1,4 @@
+import { JwtStorageService } from './../../core/service/jwt-storage.service';
 import { Router } from '@angular/router';
 import { UserService } from './../../user/user.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,6 +13,7 @@ export class ProfileComponent implements OnInit {
   userDetails: any;
 
   constructor(private _userService: UserService,
+    private _jwtService: JwtStorageService,
     public _router: Router) { }
 
   ngOnInit() {
@@ -25,7 +27,7 @@ export class ProfileComponent implements OnInit {
   }
 
   onLogout() {
-    this._userService.deleteToken();
+    this._jwtService.deleteToken();
     this._router.navigate(['/sign-in']);
   }
 

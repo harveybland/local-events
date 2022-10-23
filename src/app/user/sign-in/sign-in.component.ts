@@ -1,3 +1,4 @@
+import { JwtStorageService } from './../../core/service/jwt-storage.service';
 import { Router } from '@angular/router';
 import { UserService } from './../user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -26,10 +27,11 @@ export class SignInComponent implements OnInit {
   serverErrorMessages: string;
 
   constructor(private _userService: UserService,
+    private _jwtService: JwtStorageService,
     public _router: Router) { }
 
   ngOnInit() {
-    if (this._userService.isLoggedIn()) {
+    if (this._jwtService.isLoggedIn()) {
       this._router.navigateByUrl('/ui/profile');
     }
   }
@@ -37,7 +39,7 @@ export class SignInComponent implements OnInit {
   onSubmit() {
     let model = this.loginModel();
     this._userService.login(model).subscribe(res => {
-      this._userService.setToken(res['token']);
+      this._jwtService.setToken(res['token']);
       this._router.navigateByUrl('/ui/profile');
     }, err => {
       this.serverErrorMessages = err.error.message;

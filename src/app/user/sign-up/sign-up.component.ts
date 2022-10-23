@@ -1,3 +1,4 @@
+import { JwtStorageService } from './../../core/service/jwt-storage.service';
 import { UserService } from './../user.service';
 import { User } from './../../core/interface/user.model';
 import { Component, OnInit } from '@angular/core';
@@ -36,11 +37,12 @@ export class SignUpComponent implements OnInit {
   serverErrorMessages: string;
 
   constructor(private _userService: UserService,
+    private _jwtService: JwtStorageService,
     public _router: Router
   ) { }
 
   ngOnInit() {
-    if (this._userService.isLoggedIn()) {
+    if (this._jwtService.isLoggedIn()) {
       this._router.navigateByUrl('/ui/profile');
     }
   }
@@ -49,7 +51,7 @@ export class SignUpComponent implements OnInit {
     let model = this.userModel();
     this._userService.create(model).subscribe(res => {
       return this._userService.login(model).subscribe(res => {
-        this._userService.setToken(res['token']);
+        this._jwtService.setToken(res['token']);
         this._router.navigateByUrl('/ui/profile');
       })
     },

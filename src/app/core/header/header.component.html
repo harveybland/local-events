@@ -5,9 +5,9 @@
       <a routerLink="/main/events">Events</a>
     </div>
     <div>
-      <a routerLink="/ui/profile">Profile</a>
-      <a routerLink="/sign-in">Sign in</a>
-      <a routerLink="/sign-up">Sign up</a>
+      <a routerLink="/ui/profile" *ngIf="!loggedIn">Profile</a>
+      <a routerLink="/sign-in" *ngIf="loggedIn">Sign in</a>
+      <a routerLink="/sign-up" *ngIf="loggedIn">Sign up</a>
     </div>
   </nav>
 </div>

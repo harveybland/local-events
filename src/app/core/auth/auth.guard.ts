@@ -1,3 +1,4 @@
+import { JwtStorageService } from './../service/jwt-storage.service';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
@@ -7,13 +8,13 @@ import { UserService } from 'src/app/user/user.service';
 })
 export class AuthGuard implements CanActivateChild {
 
-  constructor(private _userService: UserService,
+  constructor(private _jwtService: JwtStorageService,
     public _router: Router) { }
 
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (!this._userService.isLoggedIn()) {
+    if (!this._jwtService.isLoggedIn()) {
       this._router.navigateByUrl('/sign-in');
-      this._userService.deleteToken();
+      this._jwtService.deleteToken();
       return false
     }
     return true;
