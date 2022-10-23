@@ -1,3 +1,4 @@
+import { CoreModule } from './../core/modules/core.module';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ThirdPartyModule } from '../core/modules/third-party.module';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -31,6 +32,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     ThirdPartyModule,
+    CoreModule,
     RouterModule.forChild(routes)
   ],
   declarations: [

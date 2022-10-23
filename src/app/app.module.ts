@@ -1,3 +1,4 @@
+import { CoreModule } from './core/modules/core.module';
 import { AuthInterceptor } from './core/auth/auth.interceptor';
 import { AuthGuard } from './core/auth/auth.guard';
 import { CommonModule } from '@angular/common';
@@ -17,6 +18,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     BrowserModule,
     RouterModule,
     ThirdPartyModule,
+    CoreModule,
     HttpClientModule
   ],
   declarations: [

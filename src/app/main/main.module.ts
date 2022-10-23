@@ -1,25 +1,24 @@
 import { CoreModule } from './../core/modules/core.module';
-import { AuthGuard } from './../core/auth/auth.guard';
-import { ProfileComponent } from './profile/profile.component';
+import { EventsListComponent } from './eventsList/eventsList.component';
+import { RouterModule, Routes } from '@angular/router';
 import { ThirdPartyModule } from './../core/modules/third-party.module';
-import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserProfileComponent } from './userProfile.component';
+import { MainComponent } from './main.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: UserProfileComponent,
+    component: MainComponent,
     children: [
       {
-        path: 'profile',
-        component: ProfileComponent
+        path: 'events',
+        component: EventsListComponent
       },
       {
         path: '**',
         pathMatch: 'full',
-        redirectTo: 'profile'
+        redirectTo: 'events'
       }
     ]
   }
@@ -33,8 +32,7 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [
-    UserProfileComponent,
-    ProfileComponent
+    MainComponent
   ]
 })
-export class UserProfileModule { }
+export class MainModule { }

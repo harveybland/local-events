@@ -11,7 +11,10 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
 
-  fullName = new FormControl('', [
+  firstname = new FormControl('', [
+    Validators.required
+  ]);
+  surname = new FormControl('', [
     Validators.required
   ]);
   email = new FormControl('', [
@@ -23,7 +26,8 @@ export class SignUpComponent implements OnInit {
   ]);
 
   signUpForm: FormGroup = new FormGroup({
-    fullName: this.fullName,
+    firstname: this.firstname,
+    surname: this.surname,
     email: this.email,
     password: this.password
   });
@@ -36,6 +40,9 @@ export class SignUpComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (this._userService.isLoggedIn()) {
+      this._router.navigateByUrl('/ui/profile');
+    }
   }
 
   onSubmit() {
@@ -57,7 +64,8 @@ export class SignUpComponent implements OnInit {
 
   userModel() {
     return {
-      fullName: this.signUpForm.controls.fullName.value,
+      firstname: this.signUpForm.controls.firstname.value,
+      surname: this.signUpForm.controls.surname.value,
       email: this.signUpForm.controls.email.value,
       password: this.signUpForm.controls.password.value,
     }
