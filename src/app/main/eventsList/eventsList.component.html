@@ -1,3 +1,5 @@
 <div>
-
+    <ul *ngFor="let item of event$ | async" class="event-list">
+        <li>{{ item.title }} - {{ item.description }}</li>
+    </ul>
 </div>

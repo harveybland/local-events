@@ -1,3 +1,4 @@
+import { MainService } from './../main.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsListComponent implements OnInit {
 
-  constructor() { }
+  event$ = this._mainService.event$;
+
+  constructor(private _mainService: MainService) { }
 
   ngOnInit() {
+    this._mainService.getEvents().subscribe();
   }
 
 }

@@ -32,7 +32,8 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [
-    MainComponent
+    MainComponent,
+    EventsListComponent
   ]
 })
 export class MainModule { }
