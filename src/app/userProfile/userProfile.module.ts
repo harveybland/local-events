@@ -39,7 +39,8 @@ const routes: Routes = [
   ],
   declarations: [
     UserProfileComponent,
-    ProfileComponent
+    ProfileComponent,
+    MyEventsComponent
   ]
 })
 export class UserProfileModule { }

@@ -16,15 +16,22 @@ export class User {
     password: string
 }
 
+
 export class profile {
     status: boolean;
     user: []
 }
 
+export class userEvent {
+    firstname: string;
+    surname: string;
+    event: Event[]
+}
+
 //Events
 export class Event {
     _id: number;
-    title: string;
-    description: string;
-    locationName: string;
+    title?: string;
+    description?: string;
+    locationName?: string;
 }

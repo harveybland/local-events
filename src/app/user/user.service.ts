@@ -1,4 +1,6 @@
-import { Login, User, token, profile, Event } from './../core/interface/user.model';
+import { map } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
+import { Login, User, token, profile, Event, userEvent } from './../core/interface/user.model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -8,6 +10,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class UserService {
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) }
+
+  private _userEvent$ = new BehaviorSubject<userEvent[]>([]);
+  userEvent$ = this._userEvent$.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -24,7 +29,7 @@ export class UserService {
   }
 
   userEvents(id: string) {
-    return this.http.get<Event>(`http://localhost:3000/api/userEvents/${id}`)
+    return this.http.get<userEvent>(`http://localhost:3000/api/userEvents/${id}`)
   }
 
   // helpers
