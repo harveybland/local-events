@@ -1,4 +1,4 @@
-import { Login, User, token, profile } from './../core/interface/user.model';
+import { Login, User, token, profile, Event } from './../core/interface/user.model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -21,6 +21,10 @@ export class UserService {
 
   userProfile() {
     return this.http.get<profile>('http://localhost:3000/api/userprofile')
+  }
+
+  userEvents(id: string) {
+    return this.http.get<Event>(`http://localhost:3000/api/userEvents/${id}`)
   }
 
   // helpers

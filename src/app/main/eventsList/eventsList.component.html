@@ -1,5 +1,10 @@
 <div>
-    <ul *ngFor="let item of event$ | async" class="event-list">
-        <li>{{ item.title }} - {{ item.description }}</li>
-    </ul>
+    <div *ngFor="let item of event$ | async" class="event-list">
+        <div class="event">
+            <p>{{ item.title }}</p>
+            <p>{{ item.description }} </p>
+            <p> {{ item.locationName}}</p>
+            <a [routerLink]="['/event', item._id]">View</a>
+        </div>
+    </div>
 </div>

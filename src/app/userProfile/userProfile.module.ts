@@ -1,3 +1,4 @@
+import { MyEventsComponent } from './myEvents/myEvents.component';
 import { CoreModule } from './../core/modules/core.module';
 import { AuthGuard } from './../core/auth/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
@@ -15,6 +16,10 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent
+      },
+      {
+        path: 'myEvents',
+        component: MyEventsComponent
       },
       {
         path: '**',

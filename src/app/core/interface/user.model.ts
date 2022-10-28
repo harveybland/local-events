@@ -23,6 +23,8 @@ export class profile {
 
 //Events
 export class Event {
+    _id: number;
     title: string;
     description: string;
+    locationName: string;
 }
