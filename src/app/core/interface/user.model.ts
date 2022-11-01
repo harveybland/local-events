@@ -9,6 +9,11 @@ export class token {
 }
 
 // User
+export class SignUp {
+    email: string;
+    password: string
+}
+
 export class User {
     firstname: string;
     surname: string;
@@ -23,9 +28,10 @@ export class profile {
 }
 
 export class userEvent {
-    firstname: string;
-    surname: string;
-    event: Event[]
+    firstName?: string;
+    surname?: string;
+    Events: Event[]
+
 }
 
 //Events

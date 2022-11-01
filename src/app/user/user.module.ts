@@ -1,3 +1,4 @@
+import { PersonalUserComponent } from './personalUser/personalUser.component';
 import { CoreModule } from './../core/modules/core.module';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ThirdPartyModule } from '../core/modules/third-party.module';
@@ -14,11 +15,15 @@ const routes: Routes = [
     children: [
       {
         path: 'sign-up',
-        component: SignUpComponent
+        component: SignUpComponent,
       },
       {
         path: 'sign-in',
         component: SignInComponent
+      },
+      {
+        path: 'personal',
+        component: PersonalUserComponent
       },
       {
         path: '**',
@@ -38,7 +43,8 @@ const routes: Routes = [
   declarations: [
     UserComponent,
     SignUpComponent,
-    SignInComponent
+    SignInComponent,
+    PersonalUserComponent
   ]
 })
 export class UserModule { }

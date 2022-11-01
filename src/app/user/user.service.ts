@@ -1,6 +1,7 @@
-import { map } from 'rxjs/operators';
+import { ConfigService } from './../core/config/config.service';
+import { map, tap } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
-import { Login, User, token, profile, Event, userEvent } from './../core/interface/user.model';
+import { Login, User, token, profile, userEvent, SignUp } from './../core/interface/user.model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -11,56 +12,22 @@ export class UserService {
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) }
 
-  private _userEvent$ = new BehaviorSubject<userEvent[]>([]);
-  userEvent$ = this._userEvent$.asObservable();
+  constructor(private http: HttpClient,
+    private _configService: ConfigService) { }
 
-  constructor(private http: HttpClient) { }
-
-  create(user: User) {
-    return this.http.post<User>('http://localhost:3000/api/register', user, this.noAuthHeader)
+  create(user: SignUp) {
+    return this.http.post<SignUp>(this._configService.register(), user, this.noAuthHeader)
   }
 
   login(login: Login) {
-    return this.http.post<token>('http://localhost:3000/api/authenticate', login, this.noAuthHeader)
+    return this.http.post<token>(this._configService.login(), login, this.noAuthHeader)
   }
 
   userProfile() {
-    return this.http.get<profile>('http://localhost:3000/api/userprofile')
+    return this.http.get<profile>(this._configService.userProfile())
   }
 
   userEvents(id: string) {
-    return this.http.get<userEvent>(`http://localhost:3000/api/userEvents/${id}`)
+    return this.http.get<userEvent>(this._configService.userEvents(id))
   }
-
-  // helpers
-  // setToken(token: string) {
-  //   localStorage.setItem('token', token);
-  // }
-
-  // getToken() {
-  //   return localStorage.getItem('token');
-  // }
-
-  // deleteToken() {
-  //   localStorage.removeItem('token');
-  // }
-
-  // getUserPayload() {
-  //   let token = this.getToken();
-  //   if (token) {
-  //     let userPayload = atob(token.split('.')[1])
-  //     return JSON.parse(userPayload)
-  //   }
-  //   else
-  //     return null
-  // }
-
-  // isLoggedIn() {
-  //   let userPayload = this.getUserPayload();
-  //   if (userPayload)
-  //     return userPayload.exp > Date.now() / 1000;
-  //   else
-  //     return false
-  // }
-
 }

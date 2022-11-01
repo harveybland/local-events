@@ -1,8 +1,8 @@
-<div>
-    <div *ngFor="let item of event$ | async" class="event-list">
-        <div class="event">
+<div class="event-list">
+    <div *ngFor="let item of event$ | async" class="event">
+        <h1>{{ item.title }}</h1>
+        <div class="text">
             <div>
-                <p>{{ item.title }}</p>
                 <p>{{ item.description }} </p>
                 <p> {{ item.locationName}}</p>
             </div>

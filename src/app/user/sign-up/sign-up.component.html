@@ -2,8 +2,8 @@
   <h1>Sign-up</h1>
 </div>
 <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-  <input type="text" name="firstname" placeholder="Firstname" formControlName="firstname" required />
-  <input type="text" name="surname" placeholder="Surname" formControlName="surname" required />
+  <!-- <input type="text" name="firstname" placeholder="Firstname" formControlName="firstname" required />
+  <input type="text" name="surname" placeholder="Surname" formControlName="surname" required /> -->
   <input type="text" name="email" placeholder="Email" formControlName="email" required />
   <input type="password" name="password" placeholder="Password" formControlName="password" minlength="4" required />
   <div class="flex">

@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyEventsComponent implements OnInit {
 
-  // userEvent$ = this._userService.userEvent$;
   userEvents: any;
 
   constructor(private _userService: UserService,
@@ -17,8 +16,9 @@ export class MyEventsComponent implements OnInit {
 
   ngOnInit() {
     let id = '635a67c5a85c219264f0dbe6';
-    this._userService.userEvents(id).subscribe(data => {
-      this.userEvents = data;
+    this._userService.userEvents(id).subscribe(res => {
+      console.log(res)
+      this.userEvents = res;
     });
   }
 

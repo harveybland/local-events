@@ -1,18 +1,20 @@
 <div>
   <div class="event-list">
-    <!-- <div class="event">
+    <div class="event">
       <div>
-        <p>{{ item.title }}</p>
-        <p>{{ item.description }} </p>
-        <p> {{ item.locationName}}</p>
+        <p>{{ userEvents.firstname }}</p>
+        <!-- <p>{{ userEvents.surname }} </p> -->
+        <!-- <p> {{ item.locationName}}</p> -->
       </div>
       <div>
-        <a [routerLink]="['/event', item._id]">View</a>
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+        <!-- <a [routerLink]="[item._id]">View</a> -->
       </div>
-    </div> -->
+    </div>
   </div>
 </div>
 
-<div class="event-list">
+<div class="event-list" *ngIf="!userEvents">
   <div class="event">You have no Events</div>
 </div>

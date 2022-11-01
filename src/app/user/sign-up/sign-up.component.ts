@@ -12,12 +12,12 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
 
-  firstname = new FormControl('', [
-    Validators.required
-  ]);
-  surname = new FormControl('', [
-    Validators.required
-  ]);
+  // firstname = new FormControl('', [
+  //   Validators.required
+  // ]);
+  // surname = new FormControl('', [
+  //   Validators.required
+  // ]);
   email = new FormControl('', [
     Validators.required,
     Validators.email
@@ -27,8 +27,8 @@ export class SignUpComponent implements OnInit {
   ]);
 
   signUpForm: FormGroup = new FormGroup({
-    firstname: this.firstname,
-    surname: this.surname,
+    // firstname: this.firstname,
+    // surname: this.surname,
     email: this.email,
     password: this.password
   });
@@ -52,7 +52,7 @@ export class SignUpComponent implements OnInit {
     this._userService.create(model).subscribe(res => {
       return this._userService.login(model).subscribe(res => {
         this._jwtService.setToken(res['token']);
-        this._router.navigateByUrl('/ui/profile');
+        this._router.navigateByUrl('/personal');
       })
     },
       err => {
@@ -66,8 +66,8 @@ export class SignUpComponent implements OnInit {
 
   userModel() {
     return {
-      firstname: this.signUpForm.controls.firstname.value,
-      surname: this.signUpForm.controls.surname.value,
+      // firstname: this.signUpForm.controls.firstname.value,
+      // surname: this.signUpForm.controls.surname.value,
       email: this.signUpForm.controls.email.value,
       password: this.signUpForm.controls.password.value,
     }
