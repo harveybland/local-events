@@ -15,8 +15,8 @@ export class SignUp {
 }
 
 export class User {
-    firstname: string;
-    surname: string;
+    firstname?: string;
+    surname?: string;
     email: string;
     password: string
 }
@@ -30,7 +30,7 @@ export class profile {
 export class userEvent {
     firstName?: string;
     surname?: string;
-    Events: Event[]
+    events?: Event[]
 
 }
 

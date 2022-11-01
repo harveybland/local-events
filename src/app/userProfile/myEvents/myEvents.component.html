@@ -1,16 +1,33 @@
 <div>
+  <h2>Events in progress</h2>
   <div class="event-list">
-    <div class="event">
-      <div>
-        <p>{{ userEvents.firstname }}</p>
-        <!-- <p>{{ userEvents.surname }} </p> -->
-        <!-- <p> {{ item.locationName}}</p> -->
-      </div>
+    <div *ngFor="let item of userEvents.events" class="event">
+      {{ item.title }}
+      {{ item.description }}
       <div>
         <button class="edit">Edit</button>
         <button class="delete">Delete</button>
-        <!-- <a [routerLink]="[item._id]">View</a> -->
+        <a [routerLink]="[item._id]">View</a>
       </div>
+    </div>
+    <div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <h2>Past Events</h2>
+  <div class="event-list">
+    <div *ngFor="let item of userEvents.events" class="event">
+      {{ item.title }}
+      {{ item.description }}
+      <div>
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+        <a [routerLink]="[item._id]">View</a>
+      </div>
+    </div>
+    <div>
     </div>
   </div>
 </div>
