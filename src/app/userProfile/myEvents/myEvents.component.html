@@ -20,6 +20,9 @@
         </div>
       </div>
     </div>
+    <div *ngIf="userEvents">
+      <div>You have no Events</div>
+    </div>
   </div>
   <h1>Past Events</h1>
   <div class="event-list">
@@ -37,9 +40,9 @@
         </div>
       </div>
     </div>
+    <div *ngIf="pastEvents">
+      <div>You have no Events</div>
+    </div>
   </div>
 
-  <div class="event-list" *ngIf="!userEvents">
-    <div class="event">You have no Events</div>
-  </div>
 </section>
