@@ -17,6 +17,16 @@ body {
   height: 98vh;
 }
 
+.max-width {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
 a {
   color: #92badd;
   display: inline-block;

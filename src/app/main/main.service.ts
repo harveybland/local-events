@@ -23,4 +23,8 @@ export class MainService {
     }))
   }
 
+  getEvent(id: string) {
+    return this.http.get<Event>(this._configService.event(id))
+  }
+
 }

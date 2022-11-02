@@ -1,3 +1,4 @@
+import { CreateViewEventComponent } from './createViewEvent/createViewEvent.component';
 import { MyEventsComponent } from './myEvents/myEvents.component';
 import { CoreModule } from './../core/modules/core.module';
 import { AuthGuard } from './../core/auth/auth.guard';
@@ -22,6 +23,10 @@ const routes: Routes = [
         component: MyEventsComponent
       },
       {
+        path: 'createEvent',
+        component: CreateViewEventComponent
+      },
+      {
         path: '**',
         pathMatch: 'full',
         redirectTo: 'profile'
@@ -40,7 +45,8 @@ const routes: Routes = [
   declarations: [
     UserProfileComponent,
     ProfileComponent,
-    MyEventsComponent
+    MyEventsComponent,
+    CreateViewEventComponent
   ]
 })
 export class UserProfileModule { }

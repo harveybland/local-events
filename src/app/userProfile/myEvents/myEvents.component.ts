@@ -10,17 +10,23 @@ import { Component, OnInit } from '@angular/core';
 export class MyEventsComponent implements OnInit {
 
   userEvents: any;
+  pastEvents: any;
+  userDetails: any;
+  id: any;
 
   constructor(private _userService: UserService,
     public _router: Router) { }
 
   ngOnInit() {
-    let id = '635bb9af9e504abe7a75a93e';
-    // let id = '636146e1643433c7c02b1991';
-    this._userService.userEvents(id).subscribe(res => {
-      console.log(res)
-      this.userEvents = res;
-    });
+    this._userService.userProfile().subscribe(res => {
+      this.userDetails = res['user'];
+      this.id = this.userDetails._id;
+      this._userService.userEvents(this.id).subscribe(res => {
+        this.userEvents = res['events'].filter(t => t.isDeleted === false);
+        this.pastEvents = res['events'].filter(t => t.isDeleted === true);
+      });
+    })
+
   }
 
 }

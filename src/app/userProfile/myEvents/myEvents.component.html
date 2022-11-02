@@ -1,37 +1,45 @@
-<div>
-  <h2>Events in progress</h2>
-  <div class="event-list">
-    <div *ngFor="let item of userEvents.events" class="event">
-      {{ item.title }}
-      {{ item.description }}
-      <div>
-        <button class="edit">Edit</button>
-        <button class="delete">Delete</button>
-        <a [routerLink]="[item._id]">View</a>
-      </div>
-    </div>
+<section class="max-width">
+  <div class="top">
+    <h1>Events in progress</h1>
     <div>
+      <a>Create</a>
     </div>
   </div>
-</div>
-
-<div>
-  <h2>Past Events</h2>
   <div class="event-list">
-    <div *ngFor="let item of userEvents.events" class="event">
-      {{ item.title }}
-      {{ item.description }}
-      <div>
-        <button class="edit">Edit</button>
-        <button class="delete">Delete</button>
-        <a [routerLink]="[item._id]">View</a>
+    <div *ngFor="let item of userEvents" class="event">
+      <h1>{{ item.title }}</h1>
+      <div class="text">
+        <div>
+          <p>{{ item.description }} </p>
+          <p> {{ item.locationName}}</p>
+        </div>
+        <div>
+          <button class="edit">Edit</button>
+          <button class="delete">Delete</button>
+          <a [routerLink]="[item._id]">View</a>
+        </div>
       </div>
     </div>
-    <div>
+  </div>
+  <h1>Past Events</h1>
+  <div class="event-list">
+    <div *ngFor="let item of pastEvents" class="event">
+      <h1>{{ item.title }}</h1>
+      <div class="text">
+        <div>
+          <p>{{ item.description }} </p>
+          <p> {{ item.locationName}}</p>
+        </div>
+        <div>
+          <button class="edit">Edit</button>
+          <button class="delete">Recover</button>
+          <a [routerLink]="[item._id]">View</a>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="event-list" *ngIf="!userEvents">
-  <div class="event">You have no Events</div>
-</div>
+  <div class="event-list" *ngIf="!userEvents">
+    <div class="event">You have no Events</div>
+  </div>
+</section>

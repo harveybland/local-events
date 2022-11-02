@@ -1,26 +1,30 @@
-<table *ngIf="userDetails" class="table-fill">
-  <thead>
-    <tr>
-      <th colspan="2" class="text-center">User Profile</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>First Name</td>
-      <td>{{ userDetails.firstname }}</td>
-    </tr>
-    <tr>
-      <td>Last Name</td>
-      <td>{{ userDetails.surname }}</td>
-    </tr>
-    <tr>
-      <td>Email</td>
-      <td>{{ userDetails.email }}</td>
-    </tr>
-    <tr>
-      <td colspan="2" class="text-center">
-        <button type="button" (click)="onLogout()">Log out</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <table *ngIf="userDetails" class="table-fill">
+      <thead>
+        <tr>
+          <th colspan="2" class="text-center">User Profile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>First Name</td>
+          <td>{{ userDetails.firstname }}</td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td>{{ userDetails.surname }}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>{{ userDetails.email }}</td>
+        </tr>
+        <tr>
+          <td colspan="2" class="text-center">
+            <button type="button" (click)="onLogout()">Log out</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

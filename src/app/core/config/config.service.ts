@@ -30,4 +30,8 @@ export class ConfigService {
     return 'http://localhost:3000/api/events'
   }
 
+  event(id: string) {
+    return `http://localhost:3000/api/event/${id}`
+  }
+
 }

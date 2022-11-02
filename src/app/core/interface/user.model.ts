@@ -30,7 +30,7 @@ export class profile {
 export class userEvent {
     firstName?: string;
     surname?: string;
-    events?: Event[]
+    events: Event[]
 
 }
 
@@ -40,4 +40,5 @@ export class Event {
     title?: string;
     description?: string;
     locationName?: string;
+    isDeleted?: boolean | undefined;
 }
