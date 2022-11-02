@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class EventComponent implements OnInit {
 
   eventId: any;
+  form: any;
 
   constructor(private _activatedRoute: ActivatedRoute,
     private _mainService: MainService
@@ -24,7 +25,7 @@ export class EventComponent implements OnInit {
       switchMap(id => {
         this.eventId = id;
         return this._mainService.getEvent(id).pipe(tap(model => {
-          console.log(model)
+          this.form = model;
         }))
       })).subscribe();
   }
