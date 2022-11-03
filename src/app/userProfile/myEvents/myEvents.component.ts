@@ -1,3 +1,4 @@
+import { UserProfileService } from './../userProfile.service';
 import { Router } from '@angular/router';
 import { UserService } from './../../user/user.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,30 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyEventsComponent implements OnInit {
 
-  myEvents$ = this._userService.myEvents$
-  pastEvents$ = this._userService.pastEvents$
+  myEvents$ = this._userProfileService.myEvents$
+  pastEvents$ = this._userProfileService.pastEvents$
 
-  userEvents: any;
-  pastEvents: any;
   userDetails: any;
   id: any;
 
-  constructor(private _userService: UserService,
+  constructor(private _userProfileService: UserProfileService,
     public _router: Router) { }
 
   ngOnInit() {
-    console.log(!this.myEvents$)
-    this._userService.userProfile().subscribe(res => {
+    this._userProfileService.userProfile().subscribe(res => {
       this.userDetails = res['user'];
       this.id = this.userDetails._id;
-      this._userService.userEvents(this.id).subscribe();
-
-      // res => {
-      //   console.log(res)
-      //   this.userEvents = res['events'].filter(t => t.isDeleted === false);
-      //   this.pastEvents = res['events'].filter(t => t.isDeleted === true);
-      // });
-
+      this._userProfileService.userEvents(this.id).subscribe();
     })
 
   }

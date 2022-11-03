@@ -1,6 +1,6 @@
+import { UserProfileService } from './../userProfile.service';
 import { JwtStorageService } from './../../core/service/jwt-storage.service';
 import { Router } from '@angular/router';
-import { UserService } from './../../user/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,12 +12,12 @@ export class ProfileComponent implements OnInit {
 
   userDetails: any;
 
-  constructor(private _userService: UserService,
+  constructor(private _userProfileService: UserProfileService,
     private _jwtService: JwtStorageService,
     public _router: Router) { }
 
   ngOnInit() {
-    this._userService.userProfile().subscribe(res => {
+    this._userProfileService.userProfile().subscribe(res => {
       this.userDetails = res['user']
     })
   }
