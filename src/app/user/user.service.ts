@@ -1,7 +1,7 @@
 import { ConfigService } from './../core/config/config.service';
 import { map, tap } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
-import { Login, User, token, profile, userEvent, SignUp } from './../core/interface/user.model';
+import { Login, User, token, profile, userEvent, SignUp, EventModal } from './../core/interface/user.model';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -9,6 +9,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
+
+  private _myEvents: EventModal[] = [];
+  private _myEvents$ = new BehaviorSubject<EventModal[]>(this._myEvents);
+  myEvents$ = this._myEvents$.asObservable();
 
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) }
 
@@ -28,6 +32,9 @@ export class UserService {
   }
 
   userEvents(id: string) {
-    return this.http.get<userEvent>(this._configService.userEvents(id))
+    return this.http.get<EventModal[]>(this._configService.userEvents(id)).pipe(map(resp => {
+      console.log(resp)
+      this._myEvents$.next(resp)
+    }))
   }
 }

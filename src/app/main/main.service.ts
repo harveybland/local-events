@@ -2,7 +2,7 @@ import { ConfigService } from './../core/config/config.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Event } from 'src/app/core/interface/user.model'
+import { EventModal } from 'src/app/core/interface/user.model'
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -10,7 +10,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class MainService {
 
-  private _event$ = new BehaviorSubject<Event[]>([]);
+  private _event$ = new BehaviorSubject<EventModal[]>([]);
   event$ = this._event$.asObservable();
 
   constructor(private _configService: ConfigService,
@@ -18,13 +18,13 @@ export class MainService {
     private http: HttpClient) { }
 
   getEvents() {
-    return this.http.get<Event[]>(this._configService.events()).pipe(map(resp => {
+    return this.http.get<EventModal[]>(this._configService.events()).pipe(map(resp => {
       this._event$.next(resp)
     }))
   }
 
   getEvent(id: string) {
-    return this.http.get<Event>(this._configService.event(id))
+    return this.http.get<EventModal>(this._configService.event(id))
   }
 
 }

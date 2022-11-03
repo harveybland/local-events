@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyEventsComponent implements OnInit {
 
+  myEvents$ = this._userService.myEvents$
+
   userEvents: any;
   pastEvents: any;
   userDetails: any;
@@ -21,10 +23,14 @@ export class MyEventsComponent implements OnInit {
     this._userService.userProfile().subscribe(res => {
       this.userDetails = res['user'];
       this.id = this.userDetails._id;
-      this._userService.userEvents(this.id).subscribe(res => {
-        this.userEvents = res['events'].filter(t => t.isDeleted === false);
-        this.pastEvents = res['events'].filter(t => t.isDeleted === true);
-      });
+      this._userService.userEvents(this.id).subscribe();
+
+      // res => {
+      //   console.log(res)
+      //   this.userEvents = res['events'].filter(t => t.isDeleted === false);
+      //   this.pastEvents = res['events'].filter(t => t.isDeleted === true);
+      // });
+
     })
 
   }

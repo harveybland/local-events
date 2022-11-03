@@ -35,7 +35,7 @@ export class userEvent {
 }
 
 //Events
-export class Event {
+export class EventModal {
     _id: number;
     title?: string;
     description?: string;

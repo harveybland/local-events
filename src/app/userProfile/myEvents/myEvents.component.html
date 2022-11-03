@@ -1,4 +1,4 @@
-<section class="max-width">
+<!-- <section class="max-width">
   <div class="top">
     <h1>Events in progress</h1>
     <div>
@@ -44,5 +44,8 @@
       <div>You have no Events</div>
     </div>
   </div>
+</section> -->
 
-</section>
+<div *ngFor="let item of myEvents$ | async">
+  <div>{{ item.title }}</div>
+</div>
