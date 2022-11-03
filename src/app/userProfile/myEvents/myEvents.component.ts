@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class MyEventsComponent implements OnInit {
 
   myEvents$ = this._userService.myEvents$
+  pastEvents$ = this._userService.pastEvents$
 
   userEvents: any;
   pastEvents: any;
@@ -20,6 +21,7 @@ export class MyEventsComponent implements OnInit {
     public _router: Router) { }
 
   ngOnInit() {
+    console.log(!this.myEvents$)
     this._userService.userProfile().subscribe(res => {
       this.userDetails = res['user'];
       this.id = this.userDetails._id;

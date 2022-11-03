@@ -1,4 +1,4 @@
-<!-- <section class="max-width">
+<section class="max-width">
   <div class="top">
     <h1>Events in progress</h1>
     <div>
@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="event-list">
-    <div *ngFor="let item of userEvents" class="event">
+    <div *ngFor="let item of myEvents$ | async" class="event">
       <h1>{{ item.title }}</h1>
       <div class="text">
         <div>
@@ -20,13 +20,13 @@
         </div>
       </div>
     </div>
-    <div *ngIf="userEvents">
+    <!-- <div>
       <div>You have no Events</div>
-    </div>
+    </div> -->
   </div>
   <h1>Past Events</h1>
   <div class="event-list">
-    <div *ngFor="let item of pastEvents" class="event">
+    <div *ngFor="let item of pastEvents$ | async" class="event">
       <h1>{{ item.title }}</h1>
       <div class="text">
         <div>
@@ -40,12 +40,8 @@
         </div>
       </div>
     </div>
-    <div *ngIf="pastEvents">
+    <!-- <div *ngIf="pastEvents">
       <div>You have no Events</div>
-    </div>
+    </div> -->
   </div>
-</section> -->
-
-<div *ngFor="let item of myEvents$ | async">
-  <div>{{ item.title }}</div>
-</div>
+</section>

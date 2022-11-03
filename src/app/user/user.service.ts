@@ -14,6 +14,10 @@ export class UserService {
   private _myEvents$ = new BehaviorSubject<EventModal[]>(this._myEvents);
   myEvents$ = this._myEvents$.asObservable();
 
+  private _pastEvents: EventModal[] = [];
+  private _pastEvents$ = new BehaviorSubject<EventModal[]>(this._pastEvents);
+  pastEvents$ = this._pastEvents$.asObservable();
+
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) }
 
   constructor(private http: HttpClient,
@@ -33,8 +37,8 @@ export class UserService {
 
   userEvents(id: string) {
     return this.http.get<EventModal[]>(this._configService.userEvents(id)).pipe(map(resp => {
-      console.log(resp)
-      this._myEvents$.next(resp)
+      this._myEvents$.next(resp.filter(f => f.isDeleted === false))
+      this._pastEvents$.next(resp.filter(t => t.isDeleted === true))
     }))
   }
 }
