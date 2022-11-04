@@ -1,9 +1,10 @@
 nav {
   display: flex;
   justify-content: space-between;
-  background-color: #14bdad;
   align-items: center;
-  padding: 20px 30px;
+  padding: 20px 10px;
+  border-bottom: 1px solid;
+  margin: 0 90px;
   a {
     color: #000;
     margin: 0 20px;

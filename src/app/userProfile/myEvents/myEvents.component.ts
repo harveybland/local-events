@@ -20,6 +20,7 @@ export class MyEventsComponent implements OnInit {
     public _router: Router) { }
 
   ngOnInit() {
+    console.log(this.pastEvents$)
     this._userProfileService.userProfile().subscribe(res => {
       this.userDetails = res['user'];
       this.id = this.userDetails._id;
