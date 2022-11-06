@@ -40,7 +40,7 @@ export class SignInComponent implements OnInit {
     let model = this.loginModel();
     this._userService.login(model).subscribe(res => {
       this._jwtService.setToken(res['token']);
-      this._router.navigateByUrl('/ui/profile');
+      this._router.navigateByUrl('/main/home');
     }, err => {
       this.serverErrorMessages = err.error.message;
 

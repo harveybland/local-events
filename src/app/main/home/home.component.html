@@ -1,0 +1,26 @@
+<div>
+  <div>
+    <h2>Latest Event</h2>
+    <div class="latest">
+      <div *ngFor="let item of latestEvent$ | async">
+        <a [routerLink]="[item._id]">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }} </p>
+          <p> {{ item.locationName}}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h2>This weekend near you</h2>
+    <div class="closest">
+      <div *ngFor="let item of event$ | async">
+        <a [routerLink]="[item._id]">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }} </p>
+          <p> {{ item.locationName}}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

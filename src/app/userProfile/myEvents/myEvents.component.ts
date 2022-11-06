@@ -1,6 +1,5 @@
 import { UserProfileService } from './../userProfile.service';
 import { Router } from '@angular/router';
-import { UserService } from './../../user/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -20,7 +19,6 @@ export class MyEventsComponent implements OnInit {
     public _router: Router) { }
 
   ngOnInit() {
-    console.log(this.pastEvents$)
     this._userProfileService.userProfile().subscribe(res => {
       this.userDetails = res['user'];
       this.id = this.userDetails._id;

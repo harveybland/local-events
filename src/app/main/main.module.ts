@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { EventComponent } from './event/event.component';
 import { CoreModule } from './../core/modules/core.module';
 import { EventsListComponent } from './eventsList/eventsList.component';
@@ -12,6 +13,10 @@ const routes: Routes = [
     path: '',
     component: MainComponent,
     children: [
+      {
+        path: 'home',
+        component: HomeComponent
+      },
       {
         path: 'events',
         component: EventsListComponent
@@ -38,7 +43,8 @@ const routes: Routes = [
   ],
   declarations: [
     MainComponent,
-    EventsListComponent
+    EventsListComponent,
+    HomeComponent
   ]
 })
 export class MainModule { }

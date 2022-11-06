@@ -1,0 +1,15 @@
+.main {
+  display: flex;
+  min-height: 100vh;
+}
+
+.side-bar {
+  width: 200px;
+}
+
+.body {
+  flex: 1;
+  .route {
+    padding: 0 40px;
+  }
+}

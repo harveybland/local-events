@@ -1,0 +1,26 @@
+.side-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 10px;
+  border-right: 1px solid #eee;
+  height: 100%;
+  a {
+    color: #000;
+    .logo {
+      width: 100px;
+      display: block;
+    }
+  }
+}
+
+.side-menu {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0;
+  a {
+    margin: 10px 0;
+  }
+}

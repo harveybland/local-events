@@ -1,15 +1,11 @@
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  padding: 20px 10px;
-  border-bottom: 1px solid;
-  margin: 0 90px;
+  padding: 20px 40px 20px 0;
+  border-bottom: 1px solid #eee;
   a {
     color: #000;
     margin: 0 20px;
-    .logo {
-      width: 100px;
-    }
   }
 }

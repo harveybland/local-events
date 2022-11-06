@@ -1,0 +1,39 @@
+h2 {
+  margin: 20px 0 15px;
+}
+
+.latest {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 20px;
+  div {
+    padding: 20px;
+    border-radius: 10px;
+    a {
+      color: #fff;
+      h3 {
+        font-size: 1.4rem;
+      }
+    }
+  }
+  div:nth-child(1) {
+    background-color: #31abbd;
+  }
+  div:nth-child(2) {
+    background-color: #ff7551;
+  }
+}
+
+.closest {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  div {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #252936;
+    a {
+      color: #fff;
+    }
+  }
+}
