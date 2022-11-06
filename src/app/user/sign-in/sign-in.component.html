@@ -1,29 +1,18 @@
-<div>
+<div class="account">
   <h1>Sign-in</h1>
-</div>
-<form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
-  <input
-    type="text"
-    name="email"
-    placeholder="Email"
-    formControlName="email"
-    required
-  />
-  <input
-    type="password"
-    name="password"
-    placeholder="Password"
-    formControlName="password"
-    required
-    minlength="4"
-  />
-  <div class="flex">
-    <button type="submit" class="submit">Sign In</button>
-    <button type="button" routerLink="/sign-up" class="button">Sign up</button>
-  </div>
-</form>
+  <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+    <div class="flex flex-col">
+      <input type="text" name="email" placeholder="Email" formControlName="email" required />
+      <input type="password" name="password" placeholder="Password" formControlName="password" required minlength="4" />
+    </div>
+    <div class="flex">
+      <button type="submit" class="submit">Sign In</button>
+      <button type="button" routerLink="/sign-up" class="signUp">Sign up</button>
+    </div>
+  </form>
 
-<!-- Error message -->
-<div class="alert" *ngIf="serverErrorMessages">
-  {{ serverErrorMessages }}
+  <!-- Error message -->
+  <div class="alert" *ngIf="serverErrorMessages">
+    {{ serverErrorMessages }}
+  </div>
 </div>

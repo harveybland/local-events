@@ -1,18 +1,20 @@
-<div>
+<div class="account">
   <h1>Sign-up</h1>
-</div>
-<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-  <!-- <input type="text" name="firstname" placeholder="Firstname" formControlName="firstname" required />
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <!-- <input type="text" name="firstname" placeholder="Firstname" formControlName="firstname" required />
   <input type="text" name="surname" placeholder="Surname" formControlName="surname" required /> -->
-  <input type="text" name="email" placeholder="Email" formControlName="email" required />
-  <input type="password" name="password" placeholder="Password" formControlName="password" minlength="4" required />
-  <div class="flex">
-    <button type="submit" class="submit">Sign up</button>
-    <button type="button" routerLink="/sign-in" class="button">Sign In</button>
-  </div>
-</form>
+    <div class="flex flex-col">
+      <input type="text" name="email" placeholder="Email" formControlName="email" required />
+      <input type="password" name="password" placeholder="Password" formControlName="password" minlength="4" required />
+    </div>
+    <div class="flex">
+      <button type="submit" class="submit">Sign up</button>
+      <button type="button" routerLink="/sign-in" class="signIn">Sign In</button>
+    </div>
+  </form>
 
-<!-- Error message -->
-<div class="alert" *ngIf="serverErrorMessages">
-  {{ serverErrorMessages }}
+  <!-- Error message -->
+  <div class="alert" *ngIf="serverErrorMessages">
+    {{ serverErrorMessages }}
+  </div>
 </div>
