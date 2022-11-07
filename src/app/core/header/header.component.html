@@ -1,7 +1,8 @@
 <nav>
   <div>
-    <a routerLink="/ui/myEvents" *ngIf="!loggedIn">My Events</a>
-    <a routerLink="/ui/profile" *ngIf="!loggedIn">Profile</a>
+    <a routerLink="/ui/myEvents" routerLinkActive="header--active" *ngIf="!loggedIn">My Events</a>
+    <!-- <a routerLink="/ui/profile" routerLinkActive="header--active" *ngIf="!loggedIn">Favourites</a> -->
+    <a routerLink="/ui/profile" routerLinkActive="header--active" *ngIf="!loggedIn">Profile</a>
     <a routerLink="/sign-in" *ngIf="loggedIn">Sign in</a>
     <a routerLink="/sign-up" *ngIf="loggedIn">Sign up</a>
   </div>

@@ -3,7 +3,7 @@
     <h2>Latest Event</h2>
     <div class="latest">
       <div *ngFor="let item of latestEvent$ | async">
-        <a [routerLink]="[item._id]">
+        <a [routerLink]="'/main/events/' + [item._id]">
           <h3>{{ item.title }}</h3>
           <p>{{ item.description }} </p>
           <p> {{ item.locationName}}</p>
@@ -15,7 +15,7 @@
     <h2>This weekend near you</h2>
     <div class="closest">
       <div *ngFor="let item of event$ | async">
-        <a [routerLink]="[item._id]">
+        <a [routerLink]="'/main/events/' + [item._id]">
           <h3>{{ item.title }}</h3>
           <p>{{ item.description }} </p>
           <p> {{ item.locationName}}</p>

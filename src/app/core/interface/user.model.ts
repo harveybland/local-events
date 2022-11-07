@@ -40,5 +40,7 @@ export class EventModal {
     title?: string;
     description?: string;
     locationName?: string;
-    isDeleted?: boolean | undefined;
+    isDeleted?: boolean;
+    startDate?: string;
+    endDate?: string;
 }

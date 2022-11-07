@@ -23,11 +23,6 @@ export class MainService {
   getEvents() {
     return this.http.get<EventModal[]>(this._configService.events()).pipe(map(resp => {
       this._event$.next(resp)
-    }))
-  }
-
-  getLatestEvents() {
-    return this.http.get<EventModal[]>(this._configService.events()).pipe(map(resp => {
       this._latestEvent$.next(resp.slice(0, 2))
     }))
   }
