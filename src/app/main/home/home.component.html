@@ -12,7 +12,7 @@
     </div>
   </div>
   <div>
-    <h2>This weekend near you</h2>
+    <h2>This weekend near you <span>></span></h2>
     <div class="closest">
       <div *ngFor="let item of event$ | async">
         <a [routerLink]="'/main/events/' + [item._id]">

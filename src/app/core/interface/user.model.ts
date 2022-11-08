@@ -43,4 +43,5 @@ export class EventModal {
     isDeleted?: boolean;
     startDate?: string;
     endDate?: string;
+    time?: string;
 }

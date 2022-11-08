@@ -5,6 +5,7 @@
             <div>
                 <p>{{ item.description }} </p>
                 <p> {{ item.locationName}}</p>
+                <p> {{ item.endDate | date }}</p>
             </div>
             <div>
                 <a [routerLink]="[item._id]">View</a>
