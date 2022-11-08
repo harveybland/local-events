@@ -1,18 +1,18 @@
 <div class="profile" *ngIf="userDetails">
-  <div>
-    <h2 class="text-center">User Profile</h2>
-  </div>
-  <div>
-    <h3>First Name</h3>
-    <p>{{ userDetails.firstname }}</p>
-  </div>
-  <div>
-    <h3>Last Name</h3>
-    <p>{{ userDetails.surname }}</p>
-  </div>
-  <div>
-    <h3>Email</h3>
-    <p>{{ userDetails.email }}</p>
+  <h2 class="title">User Profile</h2>
+  <div class="flex profile-info">
+    <div>
+      <h3>First Name</h3>
+      <p>{{ userDetails.firstname }}</p>
+    </div>
+    <div>
+      <h3>Last Name</h3>
+      <p>{{ userDetails.surname }}</p>
+    </div>
+    <div>
+      <h3>Email</h3>
+      <p>{{ userDetails.email }}</p>
+    </div>
   </div>
   <div>
     <button type="button" (click)="onLogout()">Log out</button>
