@@ -1,6 +1,6 @@
 import { map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
-import { profile, EventModal } from './../core/interface/user.model';
+import { profile, EventModal, newEvent } from './../core/interface/user.model';
 import { ConfigService } from './../core/config/config.service';
 import { StorageService } from './../core/service/storage.service';
 import { HttpClient } from '@angular/common/http';
@@ -32,6 +32,12 @@ export class UserProfileService {
       let now = new Date();
       this._myEvents$.next(resp.filter(item => now < new Date(item.endDate as string) && item.isDeleted === false))
       this._pastEvents$.next(resp.filter(item => now > new Date(item.endDate as string) || item.isDeleted != false))
+    }))
+  }
+
+  createEvent(model: newEvent) {
+    return this.http.post<EventModal[]>(this._configService.createEvents(), model).pipe(map(resp => {
+      this._myEvents$.next(resp)
     }))
   }
 

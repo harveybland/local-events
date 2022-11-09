@@ -35,13 +35,31 @@ export class userEvent {
 }
 
 //Events
+export class newEvent {
+    userId: number;
+    title: string;
+    description: string;
+    locationName?: string;
+    age?: string;
+    startDate?: string;
+    endDate?: string;
+    startTime: string;
+    endTime?: string;
+    isDeleted?: boolean;
+    favourite?: boolean;
+}
+
 export class EventModal {
     _id: number;
+    userId: number;
     title?: string;
     description?: string;
     locationName?: string;
-    isDeleted?: boolean;
+    age?: string;
     startDate?: string;
     endDate?: string;
-    time?: string;
+    startTime?: string;
+    endTime?: string;
+    isDeleted?: boolean;
+    favourite?: boolean;
 }

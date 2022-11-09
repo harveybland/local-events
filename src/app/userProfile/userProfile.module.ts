@@ -1,3 +1,4 @@
+import { MaterialModule } from './../core/modules/material.module';
 import { CreateViewEventComponent } from './createViewEvent/createViewEvent.component';
 import { MyEventsComponent } from './myEvents/myEvents.component';
 import { CoreModule } from './../core/modules/core.module';
@@ -38,8 +39,9 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    ThirdPartyModule,
     CoreModule,
+    ThirdPartyModule,
+    MaterialModule,
     RouterModule.forChild(routes)
   ],
   declarations: [

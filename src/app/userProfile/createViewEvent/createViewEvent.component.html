@@ -1,6 +1,88 @@
 <div>
     <h2>Create Event</h2>
     <div>
-
+        <form class="form-card" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-6">
+                    <label class="input-wrapper">
+                        <div class="input-header">
+                            <span class="input__title">Event Name</span>
+                        </div>
+                        <input name="title" formControlName="title" class="input" placeholder="Event Name" />
+                    </label>
+                </div>
+                <div class="col-6">
+                    <label class="input-wrapper">
+                        <div class="input-header">
+                            <span class="input__title">Description</span>
+                        </div>
+                        <textarea name="description" formControlName="description" class="input"
+                            placeholder="description"></textarea>
+                    </label>
+                </div>
+                <div class="col-6">
+                    <label class="input-wrapper">
+                        <div class="input-header">
+                            <span class="input__title">location Name</span>
+                        </div>
+                        <input name="locationName" formControlName="locationName" class="input"
+                            placeholder="Location Name" />
+                    </label>
+                </div>
+                <div class="col-6">
+                    <label class="input-wrapper">
+                        <div class="input-header">
+                            <span class="input__title">Age</span>
+                        </div>
+                        <input name="Age" formControlName="age" class="input" placeholder="Age" />
+                    </label>
+                </div>
+                <div class="col-6">
+                    <label class="input-wrapper">
+                        <div class="input-header">
+                            <span class="input__title">Start Date</span>
+                        </div>
+                        <mat-form-field appearance="fill">
+                            <input matInput type="text" formControlName="startDate" placeholder="dd/mm/yyyy"
+                                [matDatepicker]="picker1" />
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
+                    </label>
+                </div>
+                <div class="col-6">
+                    <label class="input-wrapper">
+                        <div class="input-header">
+                            <span class="input__title">End Date</span>
+                        </div>
+                        <mat-form-field appearance="fill">
+                            <input matInput type="text" formControlName="endDate" placeholder="dd/mm/yyyy"
+                                [matDatepicker]="picker2" />
+                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                            <mat-datepicker #picker2></mat-datepicker>
+                        </mat-form-field>
+                    </label>
+                </div>
+                <div class="col-6">
+                    <label class="input-wrapper">
+                        <div class="input-header">
+                            <span class="input__title">Start Time</span>
+                        </div>
+                        <input type="time" class="input" formControlName="startTime">
+                    </label>
+                </div>
+                <div class="col-6">
+                    <label class="input-wrapper">
+                        <div class="input-header">
+                            <span class="input__title">Finish Time</span>
+                        </div>
+                        <input type="time" class="input" formControlName="endTime">
+                    </label>
+                </div>
+            </div>
+            <div>
+                <button mat-raised-button color="primary" type="submit">Create</button>
+            </div>
+        </form>
     </div>
 </div>

@@ -25,6 +25,10 @@ export class ConfigService {
     return `http://localhost:3000/api/userEvents/${id}`
   }
 
+  createEvents() {
+    return `http://localhost:3000/api/createEvent`
+  }
+
   //Events
   events() {
     return 'http://localhost:3000/api/events'

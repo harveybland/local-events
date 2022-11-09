@@ -24,7 +24,6 @@ export class MyEventsComponent implements OnInit {
       this.id = this.userDetails._id;
       this._userProfileService.userEvents(this.id).subscribe();
     })
-
   }
 
 }
