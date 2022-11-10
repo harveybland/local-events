@@ -1,6 +1,6 @@
 <header>
   <div class="dynamic-event">
-    <div *ngFor="let item of latestEvent$ | async" class="event">
+    <div *ngFor="let item of (latestEvent$ | async)?.slice(0, 5)" class="event">
       <p>{{ item.title }} - </p>
       <p>{{ item.city}}</p>
     </div>

@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this._mainService.getEvents().subscribe();
+    this._mainService.getLatestEvents().subscribe();
     this.getLocation();
     this._animation.animation();
   }

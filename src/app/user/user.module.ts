@@ -1,4 +1,3 @@
-import { PersonalUserComponent } from './personalUser/personalUser.component';
 import { CoreModule } from './../core/modules/core.module';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ThirdPartyModule } from '../core/modules/third-party.module';
@@ -22,10 +21,6 @@ const routes: Routes = [
         component: SignInComponent
       },
       {
-        path: 'personal',
-        component: PersonalUserComponent
-      },
-      {
         path: '**',
         redirectTo: 'sign-up'
       }
@@ -44,7 +39,6 @@ const routes: Routes = [
     UserComponent,
     SignUpComponent,
     SignInComponent,
-    PersonalUserComponent
   ]
 })
 export class UserModule { }

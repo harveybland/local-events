@@ -27,13 +27,6 @@ export class profile {
     user: []
 }
 
-export class userEvent {
-    firstName?: string;
-    surname?: string;
-    events: Event[]
-
-}
-
 //Events
 export class newEvent {
     userId: number;
