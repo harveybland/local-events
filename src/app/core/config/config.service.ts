@@ -7,7 +7,7 @@ export class ConfigService {
 
   constructor() { }
 
-  // account
+  // Account
   register() {
     return 'http://localhost:3000/api/register'
   }
@@ -16,7 +16,7 @@ export class ConfigService {
     return 'http://localhost:3000/api/authenticate'
   }
 
-  //profile
+  // Profile
   userProfile() {
     return 'http://localhost:3000/api/userprofile'
   }
@@ -33,7 +33,7 @@ export class ConfigService {
     return `http://localhost:3000/api/deleteEvent/${id}`
   }
 
-  //Events
+  // All events
   events() {
     return 'http://localhost:3000/api/events'
   }

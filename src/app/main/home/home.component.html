@@ -1,7 +1,7 @@
 <div>
   <div>
     <h2>Latest Event</h2>
-    <div class="latest">
+    <div class="latest animation fadeIn">
       <div *ngFor="let item of latestEvent$ | async">
         <a [routerLink]="'/main/events/' + [item._id]">
           <h3>{{ item.title }}</h3>

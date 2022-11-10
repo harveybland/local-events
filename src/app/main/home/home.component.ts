@@ -1,3 +1,4 @@
+import { AnimationService } from './../../core/service/animation.service';
 import { MainService } from './../main.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -14,11 +15,13 @@ export class HomeComponent implements OnInit {
   public lat: string;
   public lng: string;
 
-  constructor(private _mainService: MainService) { }
+  constructor(private _mainService: MainService,
+    private _animation: AnimationService) { }
 
   ngOnInit() {
     this._mainService.getEvents().subscribe();
     this.getLocation();
+    this._animation.animation();
   }
 
   getLocation(): void {

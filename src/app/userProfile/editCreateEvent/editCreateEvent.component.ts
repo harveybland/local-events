@@ -1,19 +1,21 @@
+import { EventModal } from 'src/app/core/interface/user.model';
+import { map, switchMap, tap } from 'rxjs/operators';
 import { UserProfileService } from './../userProfile.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-createViewEvent',
-  templateUrl: './createViewEvent.component.html',
-  styleUrls: ['./createViewEvent.component.scss']
+  selector: 'app-editCreateEvent',
+  templateUrl: './editCreateEvent.component.html',
+  styleUrls: ['./editCreateEvent.component.scss']
 })
-export class CreateViewEventComponent implements OnInit {
-
+export class EditCreateEventComponent implements OnInit {
   hasEndDate: boolean = false;
   hasEndTime: boolean = false;
 
-  constructor(private _formBuilder: FormBuilder,
+  constructor(private _activatedRoute: ActivatedRoute,
+    private _formBuilder: FormBuilder,
     public _router: Router,
     private _userProfileService: UserProfileService) { }
 
@@ -32,7 +34,28 @@ export class CreateViewEventComponent implements OnInit {
   userDetails: any
   userId: any;
 
+  eventId: any;
+
   ngOnInit() {
+    this._activatedRoute.params.pipe(
+      map(params => {
+        return params['id'] as number;
+      }),
+      switchMap(id => {
+        this.eventId = id;
+        return this._userProfileService.userEvent(id).pipe(tap(model => {
+          if (model.startTime) {
+            this.hasEndTime = true;
+          }
+          if (model.startDate) {
+            this.hasEndDate = true;
+          }
+          console.log(model)
+          let eventModel: EventModal = model;
+          this.form.patchValue(eventModel)
+        }))
+      })).subscribe();
+
     this._userProfileService.userProfile().subscribe(res => {
       this.userDetails = res['user'];
       this.userId = this.userDetails._id;
@@ -41,7 +64,6 @@ export class CreateViewEventComponent implements OnInit {
 
   onSubmit() {
     let model = this.model();
-    console.log(model);
     this._userProfileService.createEvent(model).subscribe(data => {
       this._router.navigateByUrl('/ui/myEvents');
     });

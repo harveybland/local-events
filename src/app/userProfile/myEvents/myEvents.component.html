@@ -2,7 +2,7 @@
   <div class="top">
     <h1>Events in progress</h1>
     <div>
-      <a href="ui/createEvent">Create</a>
+      <a [routerLink]="'createEvent'">Create</a>
     </div>
   </div>
   <div class="event-list">
@@ -10,7 +10,6 @@
       <h2>{{ item.title }}</h2>
       <div class="text">
         <div>
-          <p>{{ item.description }} </p>
           <p> {{ item.city}}</p>
           <div class="flex">
             <p *ngIf="item.startDate"> {{ item.startDate | date }} - </p>
@@ -25,9 +24,9 @@
           </div>
         </div>
         <div>
-          <button class="edit">Edit</button>
+          <a class="edit" [routerLink]="'editEvent/' + [item._id]">Edit</a>
           <button class="delete" (click)="deleteEvent(item)">Delete</button>
-          <a [routerLink]="[item._id]">View</a>
+          <a [routerLink]="'viewEvent/' + [item._id]">View</a>
         </div>
       </div>
     </div>
@@ -41,15 +40,22 @@
       <h2>{{ item.title }}</h2>
       <div class="text">
         <div>
-          <p>{{ item.description }} </p>
           <p> {{ item.city}}</p>
-          <p> {{ item.startDate | date }}</p>
-          <p *ngIf="item.endDate"> {{ item.endDate | date }}</p>
-          <p *ngIf="item.startTime"> {{ item.startTime }}</p>
+          <div class="flex">
+            <p *ngIf="item.startDate"> {{ item.startDate | date }} - </p>
+            <p>{{ item.endDate | date }}</p>
+          </div>
+          <div class="flex">
+            <p *ngIf="item.startTime"> {{ item.startTime }} - </p>
+            <p>{{ item.endTime }}</p>
+          </div>
+          <div>
+            <p *ngIf="item.age"> {{ item.age }}</p>
+          </div>
         </div>
         <div>
-          <button class="edit">Edit</button>
-          <a [routerLink]="[item._id]">View</a>
+          <a class="edit" [routerLink]="'editEvent/' + [item._id]">Edit</a>
+          <a [routerLink]="'viewEvent/' + [item._id]">View</a>
         </div>
       </div>
     </div>

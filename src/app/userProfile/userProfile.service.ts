@@ -35,6 +35,10 @@ export class UserProfileService {
     }))
   }
 
+  userEvent(id: any) {
+    return this.http.get<EventModal>(this._configService.event(id))
+  }
+
   createEvent(model: newEvent) {
     return this.http.post<EventModal[]>(this._configService.createEvents(), model).pipe(map(resp => {
       this._myEvents$.next(resp)

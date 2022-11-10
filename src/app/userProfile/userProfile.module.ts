@@ -1,5 +1,6 @@
+import { ViewEventComponent } from './viewEvent/viewEvent.component';
+import { EditCreateEventComponent } from './editCreateEvent/editCreateEvent.component';
 import { MaterialModule } from './../core/modules/material.module';
-import { CreateViewEventComponent } from './createViewEvent/createViewEvent.component';
 import { MyEventsComponent } from './myEvents/myEvents.component';
 import { CoreModule } from './../core/modules/core.module';
 import { AuthGuard } from './../core/auth/auth.guard';
@@ -24,12 +25,19 @@ const routes: Routes = [
         component: MyEventsComponent
       },
       {
-        path: 'createEvent',
-        component: CreateViewEventComponent
+        path: 'myEvents/createEvent',
+        component: EditCreateEventComponent
+      },
+      {
+        path: 'myEvents/editEvent/:id',
+        component: EditCreateEventComponent
+      },
+      {
+        path: 'myEvents/viewEvent/:id',
+        component: ViewEventComponent
       },
       {
         path: '**',
-        pathMatch: 'full',
         redirectTo: 'profile'
       }
     ]
@@ -48,7 +56,7 @@ const routes: Routes = [
     UserProfileComponent,
     ProfileComponent,
     MyEventsComponent,
-    CreateViewEventComponent
+    EditCreateEventComponent
   ]
 })
 export class UserProfileModule { }
