@@ -1,3 +1,4 @@
+import { FavouritesComponent } from './favourites/favourites.component';
 import { ViewEventComponent } from './viewEvent/viewEvent.component';
 import { EditCreateEventComponent } from './editCreateEvent/editCreateEvent.component';
 import { MaterialModule } from './../core/modules/material.module';
@@ -23,6 +24,10 @@ const routes: Routes = [
       {
         path: 'myEvents',
         component: MyEventsComponent
+      },
+      {
+        path: 'favourites',
+        component: FavouritesComponent
       },
       {
         path: 'myEvents/createEvent',
@@ -56,7 +61,8 @@ const routes: Routes = [
     UserProfileComponent,
     ProfileComponent,
     MyEventsComponent,
-    EditCreateEventComponent
+    EditCreateEventComponent,
+    FavouritesComponent
   ]
 })
 export class UserProfileModule { }

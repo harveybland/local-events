@@ -32,11 +32,12 @@ h1 {
       margin: 0;
       font-size: 1.2rem;
       background: #444;
-      color: #fff;
+      color: #eee;
       font-weight: 500;
     }
     .text {
-      background: #fff;
+      background: #252936;
+      color: #808191;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -49,11 +50,11 @@ h1 {
         color: #fff;
         padding: 10px;
         border-radius: 6px;
-        margin: 0 10px;
         font-size: 1rem;
         cursor: pointer;
         &.delete {
           background-color: #ff0000;
+          margin-right: 10px;
         }
       }
       a {
@@ -64,7 +65,9 @@ h1 {
         padding: 7px 10px;
         border-radius: 6px;
         &.edit {
-          background-color: #252936;
+          background-color: #eee;
+          color: #808191;
+          margin-right: 10px;
         }
       }
     }

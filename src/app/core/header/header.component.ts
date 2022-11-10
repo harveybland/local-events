@@ -1,3 +1,4 @@
+import { MainService } from './../../main/main.service';
 import { JwtStorageService } from './../service/jwt-storage.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,14 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  latestEvent$ = this._mainService.latestEvent$;
+
   loggedIn: boolean = false;
 
-  constructor(private _jwtService: JwtStorageService) { }
+  constructor(private _jwtService: JwtStorageService,
+    private _mainService: MainService) { }
 
   ngOnInit() {
+    this._mainService.getEvents().subscribe();
     if (!this._jwtService.isLoggedIn()) {
       this.loggedIn = true;
     }
   }
+
 
 }
