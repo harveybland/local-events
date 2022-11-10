@@ -29,6 +29,10 @@ export class ConfigService {
     return `http://localhost:3000/api/createEvent`
   }
 
+  deleteEvent(id: string) {
+    return `http://localhost:3000/api/deleteEvent/${id}`
+  }
+
   //Events
   events() {
     return 'http://localhost:3000/api/events'

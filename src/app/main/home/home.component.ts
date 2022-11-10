@@ -27,8 +27,6 @@ export class HomeComponent implements OnInit {
         const longitude = position.coords.longitude;
         const latitude = position.coords.latitude;
         this.callApi(longitude, latitude);
-        console.log(latitude)
-        console.log(longitude)
       });
     } else {
       console.log("No support for geolocation")

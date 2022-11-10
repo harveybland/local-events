@@ -41,4 +41,13 @@ export class UserProfileService {
     }))
   }
 
+  deleteEvent(model: EventModal) {
+    return this.http.delete<EventModal[]>(this._configService.deleteEvent(model._id)).pipe(map(resp => {
+      this.storageService.clearItemTimeoutStorage(this._configService.userEvents(model._id));
+      let now = new Date();
+      this._myEvents$.next(resp.filter(item => now < new Date(item.endDate as string) && item.isDeleted === false))
+      this._pastEvents$.next(resp.filter(item => now > new Date(item.endDate as string) || item.isDeleted != false))
+    }))
+  }
+
 }

@@ -11,16 +11,22 @@
       <div class="text">
         <div>
           <p>{{ item.description }} </p>
-          <p> {{ item.locationName}}</p>
+          <p> {{ item.city}}</p>
           <div class="flex">
-            <p> {{ item.startDate | date }} </p>
-            <p *ngIf="item.endDate"> - {{ item.endDate | date }}</p>
+            <p *ngIf="item.startDate"> {{ item.startDate | date }} - </p>
+            <p>{{ item.endDate | date }}</p>
           </div>
-          <p *ngIf="item.startTime"> {{ item.startTime }}</p>
+          <div class="flex">
+            <p *ngIf="item.startTime"> {{ item.startTime }} - </p>
+            <p>{{ item.endTime }}</p>
+          </div>
+          <div>
+            <p *ngIf="item.age"> {{ item.age }}</p>
+          </div>
         </div>
         <div>
           <button class="edit">Edit</button>
-          <button class="delete">Delete</button>
+          <button class="delete" (click)="deleteEvent(item)">Delete</button>
           <a [routerLink]="[item._id]">View</a>
         </div>
       </div>
@@ -36,14 +42,13 @@
       <div class="text">
         <div>
           <p>{{ item.description }} </p>
-          <p> {{ item.locationName}}</p>
+          <p> {{ item.city}}</p>
           <p> {{ item.startDate | date }}</p>
           <p *ngIf="item.endDate"> {{ item.endDate | date }}</p>
           <p *ngIf="item.startTime"> {{ item.startTime }}</p>
         </div>
         <div>
           <button class="edit">Edit</button>
-          <button class="delete">Recover</button>
           <a [routerLink]="[item._id]">View</a>
         </div>
       </div>

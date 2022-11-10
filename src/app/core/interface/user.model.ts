@@ -39,7 +39,8 @@ export class newEvent {
     userId: number;
     title: string;
     description: string;
-    locationName?: string;
+    address?: string;
+    city?: string;
     age?: string;
     startDate?: string;
     endDate?: string;
@@ -50,11 +51,12 @@ export class newEvent {
 }
 
 export class EventModal {
-    _id: number;
+    _id: string;
     userId: number;
     title?: string;
     description?: string;
-    locationName?: string;
+    address?: string;
+    city?: string;
     age?: string;
     startDate?: string;
     endDate?: string;

@@ -23,10 +23,18 @@
                 <div class="col-6">
                     <label class="input-wrapper">
                         <div class="input-header">
-                            <span class="input__title">location Name</span>
+                            <span class="input__title">Address</span>
                         </div>
-                        <input name="locationName" formControlName="locationName" class="input"
-                            placeholder="Location Name" />
+                        <textarea name="Address" formControlName="address" class="input"
+                            placeholder="Address"></textarea>
+                    </label>
+                </div>
+                <div class="col-6">
+                    <label class="input-wrapper">
+                        <div class="input-header">
+                            <span class="input__title">city</span>
+                        </div>
+                        <input name="city" formControlName="city" class="input" placeholder="City Name" />
                     </label>
                 </div>
                 <div class="col-6">
@@ -37,7 +45,10 @@
                         <input name="Age" formControlName="age" class="input" placeholder="Age" />
                     </label>
                 </div>
-                <div class="col-6">
+                <div class="col-12">
+                    <button (click)="endDate()" type="button">Add End Date</button>
+                </div>
+                <div class="col-6" *ngIf="hasEndDate">
                     <label class="input-wrapper">
                         <div class="input-header">
                             <span class="input__title">Start Date</span>
@@ -53,7 +64,8 @@
                 <div class="col-6">
                     <label class="input-wrapper">
                         <div class="input-header">
-                            <span class="input__title">End Date</span>
+                            <span class="input__title" *ngIf="!hasEndDate">Date</span>
+                            <span class="input__title" *ngIf="hasEndDate">End Date</span>
                         </div>
                         <mat-form-field appearance="fill">
                             <input matInput type="text" formControlName="endDate" placeholder="dd/mm/yyyy"
@@ -63,7 +75,10 @@
                         </mat-form-field>
                     </label>
                 </div>
-                <div class="col-6">
+                <div class="col-12">
+                    <button (click)="endTime()" type="button">Add End Time</button>
+                </div>
+                <div class="col-6" *ngIf="hasEndTime">
                     <label class="input-wrapper">
                         <div class="input-header">
                             <span class="input__title">Start Time</span>
@@ -74,7 +89,8 @@
                 <div class="col-6">
                     <label class="input-wrapper">
                         <div class="input-header">
-                            <span class="input__title">Finish Time</span>
+                            <span class="input__title" *ngIf="!hasEndTime">Time</span>
+                            <span class="input__title" *ngIf="hasEndTime">Finish Time</span>
                         </div>
                         <input type="time" class="input" formControlName="endTime">
                     </label>

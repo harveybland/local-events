@@ -10,6 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateViewEventComponent implements OnInit {
 
+  hasEndDate: boolean = false;
+  hasEndTime: boolean = false;
+
   constructor(private _formBuilder: FormBuilder,
     public _router: Router,
     private _userProfileService: UserProfileService) { }
@@ -17,7 +20,8 @@ export class CreateViewEventComponent implements OnInit {
   form: FormGroup = this._formBuilder.group({
     title: new FormControl(null),
     description: new FormControl(null),
-    locationName: new FormControl(null),
+    address: new FormControl(null),
+    city: new FormControl(null),
     age: new FormControl(null),
     startDate: new FormControl(null),
     endDate: new FormControl(null),
@@ -43,12 +47,21 @@ export class CreateViewEventComponent implements OnInit {
     });
   }
 
+  endDate() {
+    this.hasEndDate = !this.hasEndDate
+  }
+
+  endTime() {
+    this.hasEndTime = !this.hasEndTime
+  }
+
   model() {
     return {
       userId: this.userId,
       title: this.form.controls.title.value,
       description: this.form.controls.description.value,
-      locationName: this.form.controls.locationName.value,
+      city: this.form.controls.city.value,
+      address: this.form.controls.address.value,
       age: this.form.controls.age.value,
       startDate: this.form.controls.startDate.value,
       endDate: this.form.controls.endDate.value,

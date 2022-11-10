@@ -1,3 +1,4 @@
+import { EventModal } from './../../core/interface/user.model';
 import { UserProfileService } from './../userProfile.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -24,6 +25,11 @@ export class MyEventsComponent implements OnInit {
       this.id = this.userDetails._id;
       this._userProfileService.userEvents(this.id).subscribe();
     })
+  }
+
+  deleteEvent(model: EventModal) {
+    model._id;
+    this._userProfileService.deleteEvent(model).subscribe();
   }
 
 }
