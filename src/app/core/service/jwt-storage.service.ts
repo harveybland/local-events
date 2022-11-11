@@ -16,8 +16,18 @@ export class JwtStorageService {
     return localStorage.getItem('token');
   }
 
+  // user ID
+  setUserId(token: string) {
+    localStorage.setItem('id', token);
+  }
+
+  getUserId() {
+    return localStorage.getItem('id');
+  }
+
   deleteToken() {
     localStorage.removeItem('token');
+    localStorage.removeItem('id');
   }
 
   getUserPayload() {

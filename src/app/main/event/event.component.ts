@@ -1,3 +1,4 @@
+import { JwtStorageService } from './../../core/service/jwt-storage.service';
 import { UserProfileService } from './../../userProfile/userProfile.service';
 import { MainService } from './../main.service';
 import { switchMap, tap, map } from 'rxjs/operators';
@@ -19,14 +20,13 @@ export class EventComponent implements OnInit, OnDestroy {
 
   constructor(private _activatedRoute: ActivatedRoute,
     private _mainService: MainService,
-    private _userProfileService: UserProfileService
+    private _jwtService: JwtStorageService,
   ) { }
 
   ngOnInit() {
-    this._userProfileService.userProfile().subscribe(res => {
-      this.userDetails = res['user'];
-      this.userId = this.userDetails._id
-    })
+    let Id = this._jwtService.getUserId();
+    this.userId = Id;
+
     this._activatedRoute.params.pipe(
       map(params => {
         return params['id'] as string;

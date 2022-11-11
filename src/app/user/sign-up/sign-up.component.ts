@@ -1,6 +1,5 @@
 import { JwtStorageService } from './../../core/service/jwt-storage.service';
 import { UserService } from './../user.service';
-import { User } from './../../core/interface/user.model';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,12 +11,6 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
 
-  // firstname = new FormControl('', [
-  //   Validators.required
-  // ]);
-  // surname = new FormControl('', [
-  //   Validators.required
-  // ]);
   email = new FormControl('', [
     Validators.required,
     Validators.email
@@ -27,8 +20,6 @@ export class SignUpComponent implements OnInit {
   ]);
 
   signUpForm: FormGroup = new FormGroup({
-    // firstname: this.firstname,
-    // surname: this.surname,
     email: this.email,
     password: this.password
   });
@@ -66,8 +57,6 @@ export class SignUpComponent implements OnInit {
 
   userModel() {
     return {
-      // firstname: this.signUpForm.controls.firstname.value,
-      // surname: this.signUpForm.controls.surname.value,
       email: this.signUpForm.controls.email.value,
       password: this.signUpForm.controls.password.value,
     }

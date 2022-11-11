@@ -1,3 +1,4 @@
+import { JwtStorageService } from './../../core/service/jwt-storage.service';
 import { EventModal } from 'src/app/core/interface/user.model';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { UserProfileService } from './../userProfile.service';
@@ -17,6 +18,7 @@ export class EditCreateEventComponent implements OnInit {
   constructor(private _activatedRoute: ActivatedRoute,
     private _formBuilder: FormBuilder,
     public _router: Router,
+    private _jwtService: JwtStorageService,
     private _userProfileService: UserProfileService) { }
 
   form: FormGroup = this._formBuilder.group({
@@ -57,10 +59,8 @@ export class EditCreateEventComponent implements OnInit {
         })).subscribe();
     }
 
-    this._userProfileService.userProfile().subscribe(res => {
-      this.userDetails = res['user'];
-      this.userId = this.userDetails._id;
-    })
+    let Id = this._jwtService.getUserId();
+    this.userId = Id;
   }
 
   onSubmit() {

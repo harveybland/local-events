@@ -34,6 +34,7 @@ export class ProfileComponent implements OnInit {
     this._userProfileService.userProfile().subscribe(res => {
       this.userDetails = res['user']
       this.userId = this.userDetails._id;
+      this._jwtService.setUserId(this.userId);
       let userModel: User = this.userDetails;
       this.form.patchValue(userModel)
     })
