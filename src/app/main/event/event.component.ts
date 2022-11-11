@@ -1,6 +1,7 @@
+import { UserProfileService } from './../../userProfile/userProfile.service';
 import { MainService } from './../main.service';
 import { switchMap, tap, map } from 'rxjs/operators';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -8,17 +9,24 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './event.component.html',
   styleUrls: ['./event.component.scss']
 })
-export class EventComponent implements OnInit {
+export class EventComponent implements OnInit, OnDestroy {
 
   eventId: any;
   form: any;
 
+  userDetails: any;
+  userId: any;
+
   constructor(private _activatedRoute: ActivatedRoute,
-    private _mainService: MainService
+    private _mainService: MainService,
+    private _userProfileService: UserProfileService
   ) { }
 
   ngOnInit() {
-
+    this._userProfileService.userProfile().subscribe(res => {
+      this.userDetails = res['user'];
+      this.userId = this.userDetails._id
+    })
     this._activatedRoute.params.pipe(
       map(params => {
         return params['id'] as string;
@@ -30,11 +38,15 @@ export class EventComponent implements OnInit {
           let updateViews = {
             viewed: this.form.viewed + 1
           }
-          this._mainService.updateViews(this.eventId, updateViews).subscribe();
+          if (model.userId != this.userId) {
+            this._mainService.updateViews(this.eventId, updateViews).subscribe();
+          }
         }))
       })).subscribe();
   }
 
-
+  ngOnDestroy(): void {
+    this.userId = '';
+  }
 
 }

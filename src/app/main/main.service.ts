@@ -24,8 +24,8 @@ export class MainService {
   getEvents() {
     return this.http.get<EventModal[]>(this._configService.events()).pipe(map(resp => {
       this._event$.next(resp)
-      let res = resp.sort((a, b) => b.viewed - a.viewed);
-      this._mostViewed$.next(res)
+      // let res = resp.sort((a, b) => b.viewed - a.viewed);
+      // this._mostViewed$.next(res)
     }))
   }
 
@@ -34,7 +34,7 @@ export class MainService {
   }
 
   updateViews(id: string, model: updateViewed) {
-    return this.http.put<EventModal[]>(this._configService.editEvent(id), model)
+    return this.http.put<EventModal[]>(this._configService.editViews(id), model)
   }
 
 }
