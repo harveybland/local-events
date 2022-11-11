@@ -37,24 +37,26 @@ export class EditCreateEventComponent implements OnInit {
   eventId: any;
 
   ngOnInit() {
-    this._activatedRoute.params.pipe(
-      map(params => {
-        return params['id'] as number;
-      }),
-      switchMap(id => {
-        this.eventId = id;
-        return this._userProfileService.userEvent(id).pipe(tap(model => {
-          if (model.startTime) {
-            this.hasEndTime = true;
-          }
-          if (model.startDate) {
-            this.hasEndDate = true;
-          }
-          console.log(model)
-          let eventModel: EventModal = model;
-          this.form.patchValue(eventModel)
-        }))
-      })).subscribe();
+    if (this._router.url != '/ui/myEvents/createEvent') {
+      this._activatedRoute.params.pipe(
+        map(params => {
+          return params['id'] as number;
+        }),
+        switchMap(id => {
+          this.eventId = id;
+          return this._userProfileService.userEvent(id).pipe(tap(model => {
+            if (model.startTime) {
+              this.hasEndTime = true;
+            }
+            if (model.startDate) {
+              this.hasEndDate = true;
+            }
+            console.log(model)
+            let eventModel: EventModal = model;
+            this.form.patchValue(eventModel)
+          }))
+        })).subscribe();
+    }
 
     this._userProfileService.userProfile().subscribe(res => {
       this.userDetails = res['user'];

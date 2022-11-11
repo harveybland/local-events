@@ -1,20 +1,50 @@
 <div class="profile" *ngIf="userDetails">
   <h2 class="title">User Profile</h2>
-  <div class="flex profile-info">
-    <div>
-      <h3>First Name</h3>
-      <p>{{ userDetails.firstname }}</p>
+  <div>{{ userDetails.email }}</div>
+  <form class="form-card" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-6">
+        <label class="input-wrapper">
+          <div class="input-header">
+            <span class="input__title">Business Name</span>
+          </div>
+          <input name="businessName" formControlName="businessName" class="input" placeholder="Business Name" />
+        </label>
+      </div>
+      <div class="col-6">
+        <label class="input-wrapper">
+          <div class="input-header">
+            <span class="input__title">Full Name</span>
+          </div>
+          <input name="fullName" formControlName="fullName" class="input" placeholder="Full Name" />
+        </label>
+      </div>
+      <div class="col-6">
+        <label class="input-wrapper">
+          <div class="input-header">
+            <span class="input__title">Address</span>
+          </div>
+          <input name="address" formControlName="address" class="input" placeholder="address" />
+        </label>
+      </div>
+      <div class="col-6">
+        <label class="input-wrapper">
+          <div class="input-header">
+            <span class="input__title">Town</span>
+          </div>
+          <input name="town" formControlName="town" class="input" placeholder="town" />
+        </label>
+      </div>
+      <div class="col-6">
+        <label class="input-wrapper">
+          <div class="input-header">
+            <span class="input__title">Number</span>
+          </div>
+          <input name="number" formControlName="number" class="input" placeholder="number" />
+        </label>
+      </div>
     </div>
-    <div>
-      <h3>Last Name</h3>
-      <p>{{ userDetails.surname }}</p>
-    </div>
-    <div>
-      <h3>Email</h3>
-      <p>{{ userDetails.email }}</p>
-    </div>
-  </div>
-  <div>
+    <button type="submit">Update</button>
     <button type="button" (click)="onLogout()">Log out</button>
-  </div>
+  </form>
 </div>

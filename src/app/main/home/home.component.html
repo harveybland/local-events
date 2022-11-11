@@ -2,7 +2,7 @@
   <div>
     <h2>Latest Event</h2>
     <div class="latest">
-      <div *ngFor="let item of (latestEvent$ | async)?.slice(0, 2)">
+      <div *ngFor="let item of (event$ | async)?.slice(0, 2)?.reverse()">
         <a [routerLink]="'/main/events/' + [item._id]">
           <h3>{{ item.title }}</h3>
           <p>{{ item.description }} </p>

@@ -15,10 +15,18 @@ export class SignUp {
 }
 
 export class User {
-    firstname?: string;
-    surname?: string;
+    businessName?: string;
+    fullName?: string;
     email: string;
     password: string
+}
+
+export class UpdateUser {
+    businessName?: string;
+    fullName?: string;
+    address?: string;
+    town?: string;
+    number?: number;
 }
 
 

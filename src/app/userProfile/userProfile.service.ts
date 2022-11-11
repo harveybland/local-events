@@ -1,6 +1,6 @@
 import { map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
-import { profile, EventModal, newEvent, User } from './../core/interface/user.model';
+import { profile, EventModal, newEvent, User, UpdateUser } from './../core/interface/user.model';
 import { ConfigService } from './../core/config/config.service';
 import { StorageService } from './../core/service/storage.service';
 import { HttpClient } from '@angular/common/http';
@@ -27,12 +27,9 @@ export class UserProfileService {
     return this.http.get<profile>(this._configService.userProfile())
   }
 
-  // updateProfile(id: string, model: User) {
-  //   return this.http.put<User>(this._configService.updateProfile(id), model).pipe(map(resp => {
-  //     // this.storageService.clearItemTimeoutStorage(this._configService.vacancies());
-  //     console.log(resp)
-  //   }))
-  // }
+  editProfile(id: string, model: UpdateUser) {
+    return this.http.put<UpdateUser>(this._configService.editProfile(id), model)
+  }
 
   userEvents(id: string) {
     return this.http.get<EventModal[]>(this._configService.userEvents(id)).pipe(map(resp => {

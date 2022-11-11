@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  latestEvent$ = this._mainService.latestEvent$;
+  event$ = this._mainService.event$;
 
   loggedIn: boolean = false;
 

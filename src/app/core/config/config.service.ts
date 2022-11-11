@@ -21,9 +21,9 @@ export class ConfigService {
     return 'http://localhost:3000/api/userprofile'
   }
 
-  // updateProfile(id: string) {
-  //   return `http://localhost:3000/api/updateProfile/${id}`
-  // }
+  editProfile(id: string) {
+    return `http://localhost:3000/api/editProfile/${id}`
+  }
 
   userEvents(id: string) {
     return `http://localhost:3000/api/userEvents/${id}`

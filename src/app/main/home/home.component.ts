@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  latestEvent$ = this._mainService.latestEvent$;
   event$ = this._mainService.event$;
 
   public lat: string;
@@ -20,7 +19,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this._mainService.getEvents().subscribe();
-    this._mainService.getLatestEvents().subscribe();
     this.getLocation();
     this._animation.animation();
   }
