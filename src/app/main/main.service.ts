@@ -1,3 +1,4 @@
+import { updateViewed } from './../core/interface/user.model';
 import { ConfigService } from './../core/config/config.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -25,6 +26,11 @@ export class MainService {
 
   getEvent(id: string) {
     return this.http.get<EventModal>(this._configService.event(id))
+  }
+
+  updateViews(id: string, model: updateViewed) {
+    console.log(model)
+    return this.http.put<EventModal[]>(this._configService.editEvent(id), model)
   }
 
 }

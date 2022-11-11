@@ -49,6 +49,19 @@ export class newEvent {
     endTime?: string;
     isDeleted?: boolean;
     favourite?: boolean;
+    viewed?: number;
+}
+
+export class updateEvent {
+    title?: string;
+    description?: string;
+    address?: string;
+    city?: string;
+    age?: string;
+    startDate?: string;
+    endDate?: string;
+    startTime: string;
+    endTime?: string;
 }
 
 export class EventModal {
@@ -65,4 +78,9 @@ export class EventModal {
     endTime?: string;
     isDeleted?: boolean;
     favourite?: boolean;
+    viewed?: number;
+}
+
+export class updateViewed {
+    viewed?: number;
 }

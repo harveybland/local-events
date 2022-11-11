@@ -1,6 +1,6 @@
 import { map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
-import { profile, EventModal, newEvent, User, UpdateUser } from './../core/interface/user.model';
+import { profile, EventModal, newEvent, User, UpdateUser, updateEvent } from './../core/interface/user.model';
 import { ConfigService } from './../core/config/config.service';
 import { StorageService } from './../core/service/storage.service';
 import { HttpClient } from '@angular/common/http';
@@ -23,6 +23,8 @@ export class UserProfileService {
     private storageService: StorageService,
     private _configService: ConfigService) { }
 
+
+  // Profile
   userProfile() {
     return this.http.get<profile>(this._configService.userProfile())
   }
@@ -31,6 +33,7 @@ export class UserProfileService {
     return this.http.put<UpdateUser>(this._configService.editProfile(id), model)
   }
 
+  // User events
   userEvents(id: string) {
     return this.http.get<EventModal[]>(this._configService.userEvents(id)).pipe(map(resp => {
       let now = new Date();
@@ -45,6 +48,12 @@ export class UserProfileService {
 
   createEvent(model: newEvent) {
     return this.http.post<EventModal[]>(this._configService.createEvents(), model).pipe(map(resp => {
+      this._myEvents$.next(resp)
+    }))
+  }
+
+  editEvent(id: any, model: updateEvent) {
+    return this.http.put<EventModal[]>(this._configService.editEvent(id), model).pipe(map(resp => {
       this._myEvents$.next(resp)
     }))
   }

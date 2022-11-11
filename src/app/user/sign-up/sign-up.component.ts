@@ -52,7 +52,7 @@ export class SignUpComponent implements OnInit {
     this._userService.create(model).subscribe(res => {
       return this._userService.login(model).subscribe(res => {
         this._jwtService.setToken(res['token']);
-        this._router.navigateByUrl('/personal');
+        this._router.navigateByUrl('/ui/profile');
       })
     },
       err => {

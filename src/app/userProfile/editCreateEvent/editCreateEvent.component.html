@@ -31,7 +31,7 @@
         <div class="col-6">
           <label class="input-wrapper">
             <div class="input-header">
-              <span class="input__title">city</span>
+              <span class="input__title">City</span>
             </div>
             <input name="city" formControlName="city" class="input" placeholder="City Name" />
           </label>
@@ -96,6 +96,7 @@
         </div>
       </div>
       <div>
+        <button type="button" (click)="editEvent()">Update</button>
         <button mat-raised-button color="primary" type="submit">Create</button>
       </div>
     </form>
