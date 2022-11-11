@@ -12,8 +12,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./editCreateEvent.component.scss']
 })
 export class EditCreateEventComponent implements OnInit {
-  hasEndDate: boolean = false;
-  hasEndTime: boolean = false;
 
   constructor(private _activatedRoute: ActivatedRoute,
     private _formBuilder: FormBuilder,
@@ -33,10 +31,11 @@ export class EditCreateEventComponent implements OnInit {
     endTime: new FormControl(null),
   });
 
-  userDetails: any
   userId: any;
-
   eventId: any;
+
+  hasEndDate: boolean = false;
+  hasEndTime: boolean = false;
 
   ngOnInit() {
     if (this._router.url != '/ui/myEvents/createEvent') {

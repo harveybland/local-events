@@ -12,11 +12,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EventComponent implements OnInit, OnDestroy {
 
-  eventId: any;
-  form: any;
-
-  userDetails: any;
   userId: any;
+  eventId: any;
+  event: any;
 
   constructor(private _activatedRoute: ActivatedRoute,
     private _mainService: MainService,
@@ -26,7 +24,6 @@ export class EventComponent implements OnInit, OnDestroy {
   ngOnInit() {
     let Id = this._jwtService.getUserId();
     this.userId = Id;
-
     this._activatedRoute.params.pipe(
       map(params => {
         return params['id'] as string;
@@ -34,9 +31,9 @@ export class EventComponent implements OnInit, OnDestroy {
       switchMap(id => {
         this.eventId = id;
         return this._mainService.getEvent(id).pipe(tap(model => {
-          this.form = model;
+          this.event = model;
           let updateViews = {
-            viewed: this.form.viewed + 1
+            viewed: this.event.viewed + 1
           }
           if (model.userId != this.userId) {
             this._mainService.updateViews(this.eventId, updateViews).subscribe();
@@ -45,7 +42,7 @@ export class EventComponent implements OnInit, OnDestroy {
       })).subscribe();
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.userId = '';
   }
 

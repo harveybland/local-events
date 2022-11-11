@@ -1,3 +1,4 @@
+import { JwtStorageService } from './../../core/service/jwt-storage.service';
 import { EventModal } from './../../core/interface/user.model';
 import { UserProfileService } from './../userProfile.service';
 import { Router } from '@angular/router';
@@ -13,18 +14,16 @@ export class MyEventsComponent implements OnInit {
   myEvents$ = this._userProfileService.myEvents$
   pastEvents$ = this._userProfileService.pastEvents$
 
-  userDetails: any;
-  id: any;
+  userId: any;
 
   constructor(private _userProfileService: UserProfileService,
+    private _jwtService: JwtStorageService,
     public _router: Router) { }
 
   ngOnInit() {
-    this._userProfileService.userProfile().subscribe(res => {
-      this.userDetails = res['user'];
-      this.id = this.userDetails._id;
-      this._userProfileService.userEvents(this.id).subscribe();
-    })
+    let Id = this._jwtService.getUserId();
+    this.userId = Id;
+    this._userProfileService.userEvents(this.userId).subscribe();
   }
 
   deleteEvent(model: EventModal) {

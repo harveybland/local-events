@@ -62,6 +62,7 @@ const routes: Routes = [
     ProfileComponent,
     MyEventsComponent,
     EditCreateEventComponent,
+    ViewEventComponent,
     FavouritesComponent
   ]
 })

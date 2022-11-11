@@ -6,6 +6,7 @@
                 <p>{{ item.description }} </p>
                 <p> {{ item.city}}</p>
                 <p> {{ item.endDate | date }}</p>
+                <p> {{ item.viewed }} Views</p>
             </div>
             <div>
                 <a [routerLink]="[item._id]">View</a>
