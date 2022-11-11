@@ -45,7 +45,6 @@ export class EditCreateEventComponent implements OnInit {
         switchMap(id => {
           this.eventId = id;
           return this._userProfileService.userEvent(id).pipe(tap(model => {
-            console.log(model)
             if (model.startTime) {
               this.hasEndTime = true;
             }

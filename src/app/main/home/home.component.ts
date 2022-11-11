@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   event$ = this._mainService.event$;
+  mostViewed$ = this._mainService.mostViewed$;
 
   public lat: string;
   public lng: string;

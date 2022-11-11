@@ -27,10 +27,10 @@ export class EventComponent implements OnInit {
         this.eventId = id;
         return this._mainService.getEvent(id).pipe(tap(model => {
           this.form = model;
-          // let updateViews = {
-          //   viewed: this.form.viewed + 1
-          // }
-          // this._mainService.updateViews(this.eventId, updateViews).subscribe();
+          let updateViews = {
+            viewed: this.form.viewed + 1
+          }
+          this._mainService.updateViews(this.eventId, updateViews).subscribe();
         }))
       })).subscribe();
   }

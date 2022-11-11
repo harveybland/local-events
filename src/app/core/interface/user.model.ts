@@ -78,7 +78,7 @@ export class EventModal {
     endTime?: string;
     isDeleted?: boolean;
     favourite?: boolean;
-    viewed?: number;
+    viewed: number;
 }
 
 export class updateViewed {

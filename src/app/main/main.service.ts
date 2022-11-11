@@ -14,6 +14,9 @@ export class MainService {
   private _event$ = new BehaviorSubject<EventModal[]>([]);
   event$ = this._event$.asObservable();
 
+  private _mostViewed$ = new BehaviorSubject<EventModal[]>([]);
+  mostViewed$ = this._mostViewed$.asObservable();
+
   constructor(private _configService: ConfigService,
     // private storageService: StorageService,
     private http: HttpClient) { }
@@ -21,6 +24,8 @@ export class MainService {
   getEvents() {
     return this.http.get<EventModal[]>(this._configService.events()).pipe(map(resp => {
       this._event$.next(resp)
+      let res = resp.sort((a, b) => b.viewed - a.viewed);
+      this._mostViewed$.next(res)
     }))
   }
 
@@ -29,7 +34,6 @@ export class MainService {
   }
 
   updateViews(id: string, model: updateViewed) {
-    console.log(model)
     return this.http.put<EventModal[]>(this._configService.editEvent(id), model)
   }
 
