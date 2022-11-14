@@ -13,6 +13,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditCreateEventComponent implements OnInit {
 
+  selectedCar: number;
+
+  cars = [
+    { id: 1, name: 'Volvo' },
+    { id: 2, name: 'Saab' },
+    { id: 3, name: 'Opel' },
+    { id: 4, name: 'Audi' },
+  ];
+
   constructor(private _activatedRoute: ActivatedRoute,
     private _formBuilder: FormBuilder,
     public _router: Router,
@@ -41,12 +50,12 @@ export class EditCreateEventComponent implements OnInit {
   ngOnInit() {
     if (this._router.url != '/ui/myEvents/createEvent') {
       this._activatedRoute.params.pipe(
-        map(params => {
+        map((params: any) => {
           return params['id'] as number;
         }),
-        switchMap(id => {
+        switchMap((id: any) => {
           this.eventId = id;
-          return this._userProfileService.userEvent(id).pipe(tap(model => {
+          return this._userProfileService.userEvent(id).pipe(tap((model: any) => {
             if (model.startTime) {
               this.hasEndTime = true;
             }
@@ -65,14 +74,14 @@ export class EditCreateEventComponent implements OnInit {
 
   onSubmit() {
     let model = this.model();
-    this._userProfileService.createEvent(model).subscribe(data => {
+    this._userProfileService.createEvent(model).subscribe((data: any) => {
       this._router.navigateByUrl('/ui/myEvents');
     });
   }
 
   editEvent() {
     let model = this.model();
-    this._userProfileService.editEvent(this.eventId, model).subscribe(data => {
+    this._userProfileService.editEvent(this.eventId, model).subscribe((data: any) => {
       this._router.navigateByUrl('/ui/myEvents');
     });
   }

@@ -1,5 +1,4 @@
 import { JwtStorageService } from './../../core/service/jwt-storage.service';
-import { UserProfileService } from './../../userProfile/userProfile.service';
 import { MainService } from './../main.service';
 import { switchMap, tap, map } from 'rxjs/operators';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -25,12 +24,12 @@ export class EventComponent implements OnInit, OnDestroy {
     let Id = this._jwtService.getUserId();
     this.userId = Id;
     this._activatedRoute.params.pipe(
-      map(params => {
+      map((params: any) => {
         return params['id'] as string;
       }),
-      switchMap(id => {
+      switchMap((id: any) => {
         this.eventId = id;
-        return this._mainService.getEvent(id).pipe(tap(model => {
+        return this._mainService.getEvent(id).pipe(tap((model: any) => {
           this.event = model;
           let updateViews = {
             viewed: this.event.viewed + 1
