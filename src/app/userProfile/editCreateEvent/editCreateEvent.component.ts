@@ -21,6 +21,7 @@ export class EditCreateEventComponent implements OnInit {
 
   form: FormGroup = this._formBuilder.group({
     title: new FormControl(null),
+    category: new FormControl(null),
     description: new FormControl(null),
     address: new FormControl(null),
     city: new FormControl(null),
@@ -88,6 +89,7 @@ export class EditCreateEventComponent implements OnInit {
     return {
       userId: this.userId,
       title: this.form.controls.title.value,
+      category: this.form.controls.category.value,
       description: this.form.controls.description.value,
       city: this.form.controls.city.value,
       address: this.form.controls.address.value,
