@@ -11,16 +11,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './editCreateEvent.component.html',
   styleUrls: ['./editCreateEvent.component.scss']
 })
+
 export class EditCreateEventComponent implements OnInit {
 
-  selectedCar: number;
-
-  cars = [
-    { id: 1, name: 'Volvo' },
-    { id: 2, name: 'Saab' },
-    { id: 3, name: 'Opel' },
-    { id: 4, name: 'Audi' },
-  ];
 
   constructor(private _activatedRoute: ActivatedRoute,
     private _formBuilder: FormBuilder,
@@ -43,11 +36,13 @@ export class EditCreateEventComponent implements OnInit {
 
   userId: any;
   eventId: any;
-
+  reports$: any;
   hasEndDate: boolean = false;
   hasEndTime: boolean = false;
 
   ngOnInit() {
+    this.reports$ = this._userProfileService.getReports();
+
     if (this._router.url != '/ui/myEvents/createEvent') {
       this._activatedRoute.params.pipe(
         map((params: any) => {

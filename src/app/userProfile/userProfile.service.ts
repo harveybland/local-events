@@ -1,5 +1,5 @@
 import { map } from 'rxjs/operators';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 import { profile, EventModal, newEvent, User, UpdateUser, updateEvent } from './../core/interface/user.model';
 import { ConfigService } from './../core/config/config.service';
 import { StorageService } from './../core/service/storage.service';
@@ -18,6 +18,8 @@ export class UserProfileService {
   private _pastEvents: EventModal[] = [];
   private _pastEvents$ = new BehaviorSubject<EventModal[]>(this._pastEvents);
   pastEvents$ = this._pastEvents$.asObservable();
+
+  reports: string[];
 
   constructor(private http: HttpClient,
     private storageService: StorageService,
@@ -65,6 +67,11 @@ export class UserProfileService {
       this._myEvents$.next(resp.filter(item => now < new Date(item.endDate as string) && item.isDeleted === false))
       this._pastEvents$.next(resp.filter(item => now > new Date(item.endDate as string) || item.isDeleted != false))
     }))
+  }
+
+  getReports() {
+    this.reports = ['Ethnic Origin', 'Gender', 'Application Status', 'Referral', 'Application Source', 'Starred', 'Application Count', 'Appointments', 'Agent Applications', 'Agent Quotas', 'Outstanding Vacancy Authorizers', 'Unread', 'Vacancy Status', 'Time To Status']
+    return of(this.reports.sort())
   }
 
 }

@@ -16,8 +16,8 @@
             <div class="input-header">
               <span class="input__title">Category</span>
             </div>
-            <ng-select bindLabel="category" formControlName="category" placeholder="category" [clearable]="true"
-              bindValue="name">
+            <ng-select [items]="reports$ | async" bindLabel="category" formControlName="category" placeholder="category"
+              [clearable]="true" bindValue="id">
             </ng-select>
           </label>
         </div>
