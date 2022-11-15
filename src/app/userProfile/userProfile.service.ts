@@ -19,7 +19,7 @@ export class UserProfileService {
   private _pastEvents$ = new BehaviorSubject<EventModal[]>(this._pastEvents);
   pastEvents$ = this._pastEvents$.asObservable();
 
-  reports: string[];
+  category: string[];
 
   constructor(private http: HttpClient,
     private storageService: StorageService,
@@ -69,9 +69,9 @@ export class UserProfileService {
     }))
   }
 
-  getReports() {
-    this.reports = ['Ethnic Origin', 'Gender', 'Application Status', 'Referral', 'Application Source', 'Starred', 'Application Count', 'Appointments', 'Agent Applications', 'Agent Quotas', 'Outstanding Vacancy Authorizers', 'Unread', 'Vacancy Status', 'Time To Status']
-    return of(this.reports.sort())
+  getCategorys() {
+    this.category = ['Music/theatre', 'Private Event', 'Other']
+    return of(this.category)
   }
 
 }

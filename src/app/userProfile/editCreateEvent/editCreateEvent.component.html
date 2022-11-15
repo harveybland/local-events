@@ -8,7 +8,7 @@
             <div class="input-header">
               <span class="input__title">Event Name</span>
             </div>
-            <input name="title" formControlName="title" class="input" placeholder="Event Name" />
+            <input name="title" formControlName="title" class="input" placeholder="Event name" />
           </label>
         </div>
         <div class="col-6">
@@ -16,8 +16,8 @@
             <div class="input-header">
               <span class="input__title">Category</span>
             </div>
-            <ng-select [items]="reports$ | async" bindLabel="category" formControlName="category" placeholder="category"
-              [clearable]="true" bindValue="id">
+            <ng-select [items]="category$ | async" bindLabel="category" formControlName="category"
+              placeholder="Pick a category" [clearable]="true" bindValue="id">
             </ng-select>
           </label>
         </div>
@@ -27,7 +27,7 @@
               <span class="input__title">Description</span>
             </div>
             <textarea name="description" formControlName="description" class="input"
-              placeholder="description"></textarea>
+              placeholder="Description"></textarea>
           </label>
         </div>
         <div class="col-6">
@@ -43,7 +43,7 @@
             <div class="input-header">
               <span class="input__title">City</span>
             </div>
-            <input name="city" formControlName="city" class="input" placeholder="City Name" />
+            <input name="city" formControlName="city" class="input" placeholder="City name" />
           </label>
         </div>
         <div class="col-6">

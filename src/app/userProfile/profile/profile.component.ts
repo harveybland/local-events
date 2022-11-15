@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
 
   userDetails: any;
   userId: any;
+  update = false;
 
   constructor(private _userProfileService: UserProfileService,
     private _jwtService: JwtStorageService,
@@ -43,6 +44,7 @@ export class ProfileComponent implements OnInit {
   onSubmit() {
     let model = this.model();
     this._userProfileService.editProfile(this.userId, model).subscribe();
+    this.update = true;
   }
 
   model() {

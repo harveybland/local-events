@@ -34,8 +34,6 @@ export class EventComponent implements OnInit, OnDestroy {
           let updateViews = {
             viewed: this.event.viewed + 1
           }
-          console.log(model.userId)
-          console.log(this.userId)
           if (model.userId != this.userId) {
             this._mainService.updateViews(this.eventId, updateViews).subscribe();
           }

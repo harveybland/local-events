@@ -36,12 +36,12 @@ export class EditCreateEventComponent implements OnInit {
 
   userId: any;
   eventId: any;
-  reports$: any;
+  category$: any;
   hasEndDate: boolean = false;
   hasEndTime: boolean = false;
 
   ngOnInit() {
-    this.reports$ = this._userProfileService.getReports();
+    this.category$ = this._userProfileService.getCategorys();
 
     if (this._router.url != '/ui/myEvents/createEvent') {
       this._activatedRoute.params.pipe(

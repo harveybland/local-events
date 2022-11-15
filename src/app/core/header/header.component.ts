@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit {
     private _mainService: MainService) { }
 
   ngOnInit() {
-    // this._mainService.getEvents().subscribe();
     if (!this._jwtService.isLoggedIn()) {
       this.loggedIn = true;
     }
