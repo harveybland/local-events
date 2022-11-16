@@ -16,6 +16,9 @@ export class ProfileComponent implements OnInit {
   userId: any;
   update = false;
 
+  // password: any;
+  // saltSecret: any;
+
   constructor(private _userProfileService: UserProfileService,
     private _jwtService: JwtStorageService,
     private _formBuilder: FormBuilder,
@@ -35,6 +38,8 @@ export class ProfileComponent implements OnInit {
     this._userProfileService.userProfile().subscribe(res => {
       this.userDetails = res['user']
       this.userId = this.userDetails._id;
+      // this.password = this.userDetails.password;
+      // this.saltSecret = this.userDetails.saltSecret;
       this._jwtService.setUserId(this.userId);
       let userModel: User = this.userDetails;
       this.form.patchValue(userModel)
@@ -43,12 +48,18 @@ export class ProfileComponent implements OnInit {
 
   onSubmit() {
     let model = this.model();
+    console.log(model)
     this._userProfileService.editProfile(this.userId, model).subscribe();
+
     this.update = true;
+    // setTimeout(() => {
+    // }, 3000);
   }
 
   model() {
     return {
+      // password: this.password,
+      // saltSecret: this.saltSecret,
       businessName: this.form.controls.businessName.value,
       fullName: this.form.controls.fullName.value,
       address: this.form.controls.address.value,

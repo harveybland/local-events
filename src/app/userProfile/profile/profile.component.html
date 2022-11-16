@@ -1,50 +1,52 @@
 <div class="profile" *ngIf="userDetails">
-  <h2 class="title">User Profile</h2>
-  <div>{{ userDetails.email }}</div>
+  <div class="title">
+    <div></div>
+    <h2>User Profile</h2>
+    <p>{{ userDetails.email }}</p>
+  </div>
+  <!-- <p *ngIf="this.form.value">Complete Profile</p> -->
   <form class="form-card" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="row">
-      <div class="col-6">
-        <label class="input-wrapper">
-          <div class="input-header">
-            <span class="input__title">Business Name</span>
-          </div>
-          <input name="businessName" formControlName="businessName" class="input" placeholder="Business Name" />
-        </label>
-      </div>
-      <div class="col-6">
-        <label class="input-wrapper">
-          <div class="input-header">
-            <span class="input__title">Full Name</span>
-          </div>
-          <input name="fullName" formControlName="fullName" class="input" placeholder="Full Name" />
-        </label>
-      </div>
-      <div class="col-6">
-        <label class="input-wrapper">
-          <div class="input-header">
-            <span class="input__title">Address</span>
-          </div>
-          <input name="address" formControlName="address" class="input" placeholder="address" />
-        </label>
-      </div>
-      <div class="col-6">
-        <label class="input-wrapper">
-          <div class="input-header">
-            <span class="input__title">Town</span>
-          </div>
-          <input name="town" formControlName="town" class="input" placeholder="town" />
-        </label>
-      </div>
-      <div class="col-6">
-        <label class="input-wrapper">
-          <div class="input-header">
-            <span class="input__title">Number</span>
-          </div>
-          <input name="number" formControlName="number" class="input" placeholder="number" />
-        </label>
-      </div>
+    <div class="col col-6">
+      <label class="input-wrapper">
+        <div class="input-header">
+          <span class="input__title">Business Name</span>
+        </div>
+        <input name="businessName" formControlName="businessName" class="input" placeholder="Business Name" />
+      </label>
     </div>
-    <button type="submit">Update</button>
+    <div class="col col-6">
+      <label class="input-wrapper">
+        <div class="input-header">
+          <span class="input__title">Full Name</span>
+        </div>
+        <input name="fullName" formControlName="fullName" class="input" placeholder="Full Name" />
+      </label>
+    </div>
+    <div class="col col-6">
+      <label class="input-wrapper">
+        <div class="input-header">
+          <span class="input__title">Address</span>
+        </div>
+        <input name="address" formControlName="address" class="input" placeholder="address" />
+      </label>
+    </div>
+    <div class="col col-6">
+      <label class="input-wrapper">
+        <div class="input-header">
+          <span class="input__title">Town</span>
+        </div>
+        <input name="town" formControlName="town" class="input" placeholder="town" />
+      </label>
+    </div>
+    <div class="col col-12">
+      <label class="input-wrapper">
+        <div class="input-header">
+          <span class="input__title">Contact Number</span>
+        </div>
+        <input name="number" formControlName="number" class="input" placeholder="number" />
+      </label>
+    </div>
+    <button type="submit" class="update">Update</button>
     <button type="button" (click)="onLogout()">Log out</button>
   </form>
   <div *ngIf="update">

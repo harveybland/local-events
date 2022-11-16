@@ -2,110 +2,106 @@
   <h2>Create Event</h2>
   <div>
     <form class="form-card" [formGroup]="form" (ngSubmit)="onSubmit()">
-      <div class="row">
-        <div class="col-6">
-          <label class="input-wrapper">
-            <div class="input-header">
-              <span class="input__title">Event Name</span>
-            </div>
-            <input name="title" formControlName="title" class="input" placeholder="Event name" />
-          </label>
-        </div>
-        <div class="col-6">
-          <label class="input-wrapper">
-            <div class="input-header">
-              <span class="input__title">Category</span>
-            </div>
-            <ng-select [items]="category$ | async" bindLabel="category" formControlName="category"
-              placeholder="Pick a category" [clearable]="true" bindValue="id">
-            </ng-select>
-          </label>
-        </div>
-        <div class="col-6">
-          <label class="input-wrapper">
-            <div class="input-header">
-              <span class="input__title">Description</span>
-            </div>
-            <textarea name="description" formControlName="description" class="input"
-              placeholder="Description"></textarea>
-          </label>
-        </div>
-        <div class="col-6">
-          <label class="input-wrapper">
-            <div class="input-header">
-              <span class="input__title">Address</span>
-            </div>
-            <textarea name="Address" formControlName="address" class="input" placeholder="Address"></textarea>
-          </label>
-        </div>
-        <div class="col-6">
-          <label class="input-wrapper">
-            <div class="input-header">
-              <span class="input__title">City</span>
-            </div>
-            <input name="city" formControlName="city" class="input" placeholder="City name" />
-          </label>
-        </div>
-        <div class="col-6">
-          <label class="input-wrapper">
-            <div class="input-header">
-              <span class="input__title">Age</span>
-            </div>
-            <input name="Age" formControlName="age" class="input" placeholder="Age" />
-          </label>
-        </div>
-        <div class="col-12">
-          <button (click)="endDate()" type="button">Add End Date</button>
-        </div>
-        <div class="col-6" *ngIf="hasEndDate">
-          <label class="input-wrapper">
-            <div class="input-header">
-              <span class="input__title">Start Date</span>
-            </div>
-            <mat-form-field appearance="fill">
-              <input matInput type="text" formControlName="startDate" placeholder="dd/mm/yyyy"
-                [matDatepicker]="picker1" />
-              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-              <mat-datepicker #picker1></mat-datepicker>
-            </mat-form-field>
-          </label>
-        </div>
-        <div class="col-6">
-          <label class="input-wrapper">
-            <div class="input-header">
-              <span class="input__title" *ngIf="!hasEndDate">Date</span>
-              <span class="input__title" *ngIf="hasEndDate">End Date</span>
-            </div>
-            <mat-form-field appearance="fill">
-              <input matInput type="text" formControlName="endDate" placeholder="dd/mm/yyyy"
-                [matDatepicker]="picker2" />
-              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-              <mat-datepicker #picker2></mat-datepicker>
-            </mat-form-field>
-          </label>
-        </div>
-        <div class="col-12">
-          <button (click)="endTime()" type="button">Add End Time</button>
-        </div>
-        <div class="col-6" *ngIf="hasEndTime">
-          <label class="input-wrapper">
-            <div class="input-header">
-              <span class="input__title">Start Time</span>
-            </div>
-            <input type="time" class="input" formControlName="startTime">
-          </label>
-        </div>
-        <div class="col-6">
-          <label class="input-wrapper">
-            <div class="input-header">
-              <span class="input__title" *ngIf="!hasEndTime">Time</span>
-              <span class="input__title" *ngIf="hasEndTime">Finish Time</span>
-            </div>
-            <input type="time" class="input" formControlName="endTime">
-          </label>
-        </div>
+      <div class="col col-12">
+        <label class="input-wrapper">
+          <div class="input-header">
+            <span class="input__title">Event Name</span>
+          </div>
+          <input name="title" formControlName="title" class="input" placeholder="Event name" />
+        </label>
       </div>
-      <div>
+      <div class="col col-6">
+        <label class="input-wrapper">
+          <div class="input-header">
+            <span class="input__title">Category</span>
+          </div>
+          <ng-select [items]="category$ | async" bindLabel="category" formControlName="category"
+            placeholder="Pick a category" [clearable]="true" bindValue="id">
+          </ng-select>
+        </label>
+      </div>
+      <div class="col col-6">
+        <label class="input-wrapper">
+          <div class="input-header">
+            <span class="input__title">Description</span>
+          </div>
+          <textarea name="description" formControlName="description" class="input" placeholder="Description"></textarea>
+        </label>
+      </div>
+      <div class="col col-4">
+        <label class="input-wrapper">
+          <div class="input-header">
+            <span class="input__title">Address</span>
+          </div>
+          <textarea name="Address" formControlName="address" class="input" placeholder="Address"></textarea>
+        </label>
+      </div>
+      <div class="col col-4">
+        <label class="input-wrapper">
+          <div class="input-header">
+            <span class="input__title">City</span>
+          </div>
+          <input name="city" formControlName="city" class="input" placeholder="City name" />
+        </label>
+      </div>
+      <div class="col col-4">
+        <label class="input-wrapper">
+          <div class="input-header">
+            <span class="input__title">Age</span>
+          </div>
+          <input name="Age" formControlName="age" class="input" placeholder="Age" />
+        </label>
+      </div>
+      <div class="col col-12">
+        <button (click)="endDate()" type="button">Add End Date</button>
+      </div>
+      <div class="col col-6" *ngIf="hasEndDate">
+        <label class="input-wrapper">
+          <div class="input-header">
+            <span class="input__title">Start Date</span>
+          </div>
+          <mat-form-field appearance="fill">
+            <input matInput type="text" formControlName="startDate" placeholder="dd/mm/yyyy"
+              [matDatepicker]="picker1" />
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        </label>
+      </div>
+      <div class="col col-6">
+        <label class="input-wrapper">
+          <div class="input-header">
+            <span class="input__title" *ngIf="!hasEndDate">Event Date</span>
+            <span class="input__title" *ngIf="hasEndDate">End Date</span>
+          </div>
+          <mat-form-field appearance="fill">
+            <input matInput type="text" formControlName="endDate" placeholder="dd/mm/yyyy" [matDatepicker]="picker2" />
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+        </label>
+      </div>
+      <div class="col col-12">
+        <button (click)="endTime()" type="button">Add End Time</button>
+      </div>
+      <div class="col col-6" *ngIf="hasEndTime">
+        <label class="input-wrapper">
+          <div class="input-header">
+            <span class="input__title">Start Time</span>
+          </div>
+          <input type="time" class="input" formControlName="startTime">
+        </label>
+      </div>
+      <div class="col col-6">
+        <label class="input-wrapper">
+          <div class="input-header">
+            <span class="input__title" *ngIf="!hasEndTime">Event Time</span>
+            <span class="input__title" *ngIf="hasEndTime">Finish Time</span>
+          </div>
+          <input type="time" class="input" formControlName="endTime">
+        </label>
+      </div>
+      <div class="col col-12">
         <button type="button" (click)="editEvent()">Update</button>
         <button mat-raised-button color="primary" type="submit">Create</button>
       </div>
