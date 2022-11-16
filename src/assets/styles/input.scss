@@ -174,3 +174,11 @@
   --fieldBorderColor: #31abbd;
   --fieldBorderColorActive: #31abbd;
 }
+
+/// select
+.ng-select.ng-select-single .ng-select-container {
+  height: 40px;
+  border: none;
+  border-bottom: 2px solid #31abbd;
+  border-radius: 0;
+}

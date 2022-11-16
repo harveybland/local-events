@@ -6,8 +6,9 @@
   </div>
   <!-- <p *ngIf="this.form.value">Complete Profile</p> -->
   <form class="form-card" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="col col-6">
+    <div class="col col-4">
       <div class="field field_v1">
+        <label for="title" class="ha-screen-reader">Business name</label>
         <input name="businessName" id="BusinessName" formControlName="businessName" class="field__input"
           placeholder="Business Name" />
         <span class="field__label-wrap" aria-hidden="true">
@@ -15,13 +16,23 @@
         </span>
       </div>
     </div>
-    <div class="col col-6">
-      <label class="input-wrapper">
-        <div class="input-header">
-          <span class="input__title">Full Name</span>
-        </div>
-        <input name="fullName" formControlName="fullName" class="input" placeholder="Full Name" />
-      </label>
+    <div class="col col-4">
+      <div class="field field_v1">
+        <label for="title" class="ha-screen-reader">Full name</label>
+        <input name="fullName" formControlName="fullName" id="fullName" class="field__input" placeholder="Full Name" />
+        <span class="field__label-wrap" aria-hidden="true">
+          <span class="field__label">Full Name</span>
+        </span>
+      </div>
+    </div>
+    <div class="col col-4">
+      <div class="field field_v1">
+        <label for="title" class="ha-screen-reader">Contact Number</label>
+        <input name="number" formControlName="number" id="number" class="field__input" placeholder="number" />
+        <span class="field__label-wrap" aria-hidden="true">
+          <span class="field__label">Contact Number</span>
+        </span>
+      </div>
     </div>
     <div class="col col-6">
       <div class="field field_v3">
@@ -34,27 +45,20 @@
       </div>
     </div>
     <div class="col col-6">
-      <label class="input-wrapper">
-        <div class="input-header">
-          <span class="input__title">City/Town</span>
-        </div>
-        <input name="town" formControlName="town" class="input" placeholder="City/Town" />
-      </label>
+      <div class="field field_v1">
+        <label for="title" class="ha-screen-reader">City/Town</label>
+        <input name="town" formControlName="town" id="town" class="field__input" placeholder="City/Town" />
+        <span class="field__label-wrap" aria-hidden="true">
+          <span class="field__label">City/Town</span>
+        </span>
+      </div>
     </div>
-    <div class="col col-12">
-      <label class="input-wrapper">
-        <div class="input-header">
-          <span class="input__title">Contact Number</span>
-        </div>
-        <input name="number" formControlName="number" class="input" placeholder="number" />
-      </label>
+    <div class="flex flex-center">
+      <button type="submit" class="update">Update</button>
+      <button type="button" (click)="onLogout()">Log out</button>
     </div>
-    <button type="submit" class="update">Update</button>
-    <button type="button" (click)="onLogout()">Log out</button>
   </form>
   <div *ngIf="update">
     Updated Successful
   </div>
-
-
 </div>

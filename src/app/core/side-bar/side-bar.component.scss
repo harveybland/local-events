@@ -23,10 +23,11 @@
   a {
     display: flex;
     align-items: center;
-    img {
+    svg {
       height: 30px;
       width: 30px;
       margin-right: 10px;
+      display: block;
     }
     margin: 10px 0;
     padding: 10px;
@@ -36,4 +37,7 @@
 .side-bar--active {
   background-color: #252936;
   color: #fff !important;
+  svg {
+    fill: #fff;
+  }
 }
