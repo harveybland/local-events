@@ -40,6 +40,8 @@ button {
   margin-right: 10px;
 }
 
-input {
-  border: none;
+textarea {
+  resize: none;
+  overflow: auto;
+  height: 60px;
 }

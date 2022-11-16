@@ -70,7 +70,7 @@ export class UserProfileService {
   }
 
   getCategorys() {
-    this.category = ['Music/theatre', 'Private Event', 'Other']
+    this.category = ['Music/Entertainment', 'Private Event', 'Other']
     return of(this.category)
   }
 

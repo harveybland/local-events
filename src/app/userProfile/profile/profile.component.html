@@ -7,12 +7,13 @@
   <!-- <p *ngIf="this.form.value">Complete Profile</p> -->
   <form class="form-card" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="col col-6">
-      <label class="input-wrapper">
-        <div class="input-header">
-          <span class="input__title">Business Name</span>
-        </div>
-        <input name="businessName" formControlName="businessName" class="input" placeholder="Business Name" />
-      </label>
+      <div class="field field_v1">
+        <input name="businessName" id="BusinessName" formControlName="businessName" class="field__input"
+          placeholder="Business Name" />
+        <span class="field__label-wrap" aria-hidden="true">
+          <span class="field__label">Business Name</span>
+        </span>
+      </div>
     </div>
     <div class="col col-6">
       <label class="input-wrapper">
@@ -23,19 +24,21 @@
       </label>
     </div>
     <div class="col col-6">
-      <label class="input-wrapper">
-        <div class="input-header">
-          <span class="input__title">Address</span>
-        </div>
-        <input name="address" formControlName="address" class="input" placeholder="address" />
-      </label>
+      <div class="field field_v3">
+        <label for="email" class="ha-screen-reader">Address</label>
+        <textarea name="address" formControlName="address" class="field__input" placeholder="address" cols="30" rows="5"
+          type="textarea"></textarea>
+        <span class="field__label-wrap" aria-hidden="true">
+          <span class="field__label">Address</span>
+        </span>
+      </div>
     </div>
     <div class="col col-6">
       <label class="input-wrapper">
         <div class="input-header">
-          <span class="input__title">Town</span>
+          <span class="input__title">City/Town</span>
         </div>
-        <input name="town" formControlName="town" class="input" placeholder="town" />
+        <input name="town" formControlName="town" class="input" placeholder="City/Town" />
       </label>
     </div>
     <div class="col col-12">
@@ -52,4 +55,6 @@
   <div *ngIf="update">
     Updated Successful
   </div>
+
+
 </div>

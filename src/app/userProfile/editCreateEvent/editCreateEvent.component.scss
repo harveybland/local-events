@@ -14,3 +14,16 @@ button {
   border-radius: 4px 4px 0 0;
   padding: 0em 0.75em 0 0.65em !important;
 }
+
+.mat-datepicker-toggle,
+.mat-datepicker-content .mat-calendar-next-button,
+.mat-datepicker-content .mat-calendar-previous-button {
+  color: rgba(0, 0, 0, 0.54);
+  border-bottom: 2px solid #31abbd;
+}
+
+textarea {
+  resize: none;
+  overflow: auto;
+  height: 60px;
+}
