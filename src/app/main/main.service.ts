@@ -63,10 +63,9 @@ export class MainService {
     if (!!age) {
       params = params.append('age', age.toString());
     }
+
     this.storageService.clearTimeoutStorage();
     return this.http.get<EventModal[]>(this._configService.searchEvent, { params: params }).pipe(map(resp => {
-      console.log(params)
-      console.log(resp)
       this._event$.next(resp)
     }));
   }

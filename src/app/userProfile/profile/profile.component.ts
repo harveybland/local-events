@@ -48,7 +48,6 @@ export class ProfileComponent implements OnInit {
 
   onSubmit() {
     let model = this.model();
-    console.log(model)
     this._userProfileService.editProfile(this.userId, model).subscribe();
 
     this.update = true;

@@ -71,6 +71,7 @@ export class EventModal {
     description?: string;
     address?: string;
     city?: string;
+    category?: string;
     age?: string;
     startDate?: string;
     endDate?: string;
