@@ -1,3 +1,5 @@
+import { MaterialModule } from './../core/modules/material.module';
+import { SearchComponent } from './search/search.component';
 import { HomeComponent } from './home/home.component';
 import { EventComponent } from './event/event.component';
 import { CoreModule } from './../core/modules/core.module';
@@ -26,6 +28,10 @@ const routes: Routes = [
         component: EventComponent
       },
       {
+        path: 'search',
+        component: SearchComponent
+      },
+      {
         path: '**',
         pathMatch: 'full',
         redirectTo: 'events'
@@ -39,12 +45,14 @@ const routes: Routes = [
     CommonModule,
     ThirdPartyModule,
     CoreModule,
+    MaterialModule,
     RouterModule.forChild(routes)
   ],
   declarations: [
     MainComponent,
     EventsListComponent,
-    HomeComponent
+    HomeComponent,
+    SearchComponent
   ]
 })
 export class MainModule { }

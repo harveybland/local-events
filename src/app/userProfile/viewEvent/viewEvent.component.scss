@@ -1,0 +1,17 @@
+.event {
+  margin: 20px 0;
+  background-color: #fff;
+  border-radius: 0 0 10px 10px;
+  h2 {
+    background-color: #3eabbd;
+    padding: 20px;
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+    margin: 0;
+  }
+  .event-info {
+    border: 1px solid #3eabbd;
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+  }
+}

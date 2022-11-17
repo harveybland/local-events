@@ -1,7 +1,8 @@
+import { StorageService } from './../core/service/storage.service';
 import { updateViewed } from './../core/interface/user.model';
 import { ConfigService } from './../core/config/config.service';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { EventModal } from 'src/app/core/interface/user.model'
 import { BehaviorSubject } from 'rxjs';
@@ -18,7 +19,7 @@ export class MainService {
   mostViewed$ = this._mostViewed$.asObservable();
 
   constructor(private _configService: ConfigService,
-    // private storageService: StorageService,
+    protected storageService: StorageService,
     private http: HttpClient) { }
 
   getEvents() {
@@ -35,6 +36,37 @@ export class MainService {
 
   updateViews(id: string, model: updateViewed) {
     return this.http.put<EventModal[]>(this._configService.editViews(id), model)
+  }
+
+  searchEvent(title?: string,
+    category?: string,
+    city?: string,
+    startDate?: string,
+    endDate?: string,
+    age?: string) {
+    let params = new HttpParams();
+    if (!!title) {
+      params = params.append('title', title.toString());
+    }
+    if (!!category) {
+      params = params.append('category', category.toString());
+    }
+    if (!!city) {
+      params = params.append('city', city.toString());
+    }
+    if (!!startDate) {
+      params = params.append('startDate', startDate.toString());
+    }
+    if (!!endDate) {
+      params = params.append('endDate', endDate.toString());
+    }
+    if (!!age) {
+      params = params.append('age', age.toString());
+    }
+    this.storageService.clearTimeoutStorage();
+    return this.http.get<EventModal[]>(this._configService.searchEvent, { params: params }).pipe(map(resp => {
+      this._event$.next(resp)
+    }));
   }
 
 }

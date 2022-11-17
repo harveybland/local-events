@@ -42,6 +42,10 @@ export class ConfigService {
     return 'http://localhost:3000/api/events'
   }
 
+  get searchEvent() {
+    return 'http://localhost:3000/api/searchEvent?'
+  }
+
   event(id: string) {
     return `http://localhost:3000/api/event/${id}`
   }

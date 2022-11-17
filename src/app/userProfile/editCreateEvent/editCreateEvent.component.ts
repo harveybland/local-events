@@ -40,10 +40,12 @@ export class EditCreateEventComponent implements OnInit {
   hasEndDate: boolean = false;
   hasEndTime: boolean = false;
 
+  page: boolean = false;
+
   ngOnInit() {
     this.category$ = this._userProfileService.getCategorys();
-
     if (this._router.url != '/ui/myEvents/createEvent') {
+      this.page = true
       this._activatedRoute.params.pipe(
         map((params: any) => {
           return params['id'] as number;

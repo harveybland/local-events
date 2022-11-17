@@ -1,7 +1,6 @@
 <form class="form-card" [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="col-12">
-    <h2 style="margin: 0;" *ngIf="!this.page">Create Event</h2>
-    <h2 style="margin: 0;" *ngIf="this.page">Edit Event</h2>
+    <h2 style="margin: 0;">Create Event</h2>
   </div>
   <div class="col col-12">
     <div class="field field_v1">
@@ -24,27 +23,6 @@
     </label>
   </div>
 
-  <div class="col col-6">
-    <div class="field field_v3">
-      <label for="email" class="ha-screen-reader">Description</label>
-      <textarea name="Description" formControlName="description" class="field__input" placeholder="Description"
-        cols="30" rows="5" type="textarea"></textarea>
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Description</span>
-      </span>
-    </div>
-  </div>
-
-  <div class="col col-4">
-    <div class="field field_v3">
-      <label for="Address" class="ha-screen-reader">Address</label>
-      <textarea name="Address" formControlName="address" class="field__input" placeholder="Address" cols="30" rows="5"
-        type="textarea"></textarea>
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Address</span>
-      </span>
-    </div>
-  </div>
 
   <div class="col col-4">
     <div class="field field_v1">
@@ -66,11 +44,7 @@
     </div>
   </div>
 
-  <div class="col col-12">
-    <button (click)="endDate()" type="button">Add End Date</button>
-  </div>
-
-  <div class="col col-4" *ngIf="hasEndDate">
+  <div class="col col-4">
     <div class="field field_v3">
       <label for="startDate" class="ha-screen-reader">Start Date</label>
       <input type="text" formControlName="startDate" placeholder="dd/mm/yyyy" id="startDate" class="field__input"
@@ -91,39 +65,37 @@
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
       <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label" *ngIf="!hasEndDate">Event Date</span>
-        <span class="field__label" *ngIf="hasEndDate">End Date</span>
+        <span class="field__label">End Date</span>
       </span>
     </div>
   </div>
 
   <div class="col col-12">
-    <button (click)="endTime()" type="button">Add End Time</button>
-  </div>
-
-  <div class="col col-4" *ngIf="hasEndTime">
-    <div class="field field_v1">
-      <label for="time" class="ha-screen-reader">Start Time</label>
-      <input type="time" id="time" class="field__input" formControlName="startTime">
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Start Time</span>
-      </span>
-    </div>
-  </div>
-
-  <div class="col col-4">
-    <div class="field field_v1">
-      <label for="time" class="ha-screen-reader">Event Time</label>
-      <input type="time" name="time" formControlName="endTime" id="time" class="field__input" placeholder="time" />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label" *ngIf="!hasEndTime">Event Time</span>
-        <span class="field__label" *ngIf="hasEndTime">Finish Time</span>
-      </span>
-    </div>
-  </div>
-
-  <div class="col col-12">
-    <button type="button" (click)="editEvent()" *ngIf="this.page">Update</button>
-    <button mat-raised-button color="primary" type="submit" *ngIf="!this.page">Create</button>
+    <button mat-raised-button color="primary" type="submit">Search</button>
   </div>
 </form>
+
+<div [ngClass]="searched ? 'search-header' : 'hide'">
+  <div></div>
+  <div class="col-A">Event Title</div>
+  <div class="col-B">Category</div>
+  <div class="col-C">Start Date</div>
+  <div class="col-D">End Date</div>
+  <div class="col-E">Age</div>
+  <div class="col-F">Town/City</div>
+  <div class="col-G"></div>
+  <div></div>
+</div>
+<div *ngFor="let item of event$ | async">
+  <div class="search-list">
+    <div class="col-A">{{ item.title }}</div>
+    <div class="col-B">Category</div>
+    <div class="col-C">{{ item.startDate | date }}</div>
+    <div class="col-D">{{ item.endDate | date }}</div>
+    <div class="col-E">{{ item.age }}</div>
+    <div class="col-F">{{ item.city }}</div>
+    <div class="col-G">
+      <a [routerLink]="[item._id]">View</a>
+    </div>
+  </div>
+</div>
