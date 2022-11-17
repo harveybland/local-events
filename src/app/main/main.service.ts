@@ -65,6 +65,8 @@ export class MainService {
     }
     this.storageService.clearTimeoutStorage();
     return this.http.get<EventModal[]>(this._configService.searchEvent, { params: params }).pipe(map(resp => {
+      console.log(params)
+      console.log(resp)
       this._event$.next(resp)
     }));
   }

@@ -1,11 +1,11 @@
-<form class="form-card" [formGroup]="form" (ngSubmit)="onSubmit()">
+<form class="form-card" (ngSubmit)="search()">
   <div class="col-12">
     <h2 style="margin: 0;">Create Event</h2>
   </div>
   <div class="col col-12">
     <div class="field field_v1">
       <label for="title" class="ha-screen-reader">Event name</label>
-      <input name="title" formControlName="title" id="title" class="field__input" placeholder="Event name" />
+      <input name="title" [(ngModel)]="title" id="title" class="field__input" placeholder="Event name" />
       <span class="field__label-wrap" aria-hidden="true">
         <span class="field__label">Event Name</span>
       </span>
@@ -17,8 +17,8 @@
       <div class="input-header">
         <span class="input__title">Category</span>
       </div>
-      <ng-select [items]="category$ | async" bindLabel="category" formControlName="category"
-        placeholder="Pick a category" [clearable]="true" bindValue="id">
+      <ng-select [items]="category$ | async" bindLabel="category" [(ngModel)]="category" placeholder="Pick a category"
+        [clearable]="true" bindValue="id" name="category">
       </ng-select>
     </label>
   </div>
@@ -27,7 +27,7 @@
   <div class="col col-4">
     <div class="field field_v1">
       <label for="city" class="ha-screen-reader">City</label>
-      <input name="city" formControlName="city" id="city" class="field__input" placeholder="City name" />
+      <input name="city" [(ngModel)]="city" id="city" class="field__input" placeholder="City name" />
       <span class="field__label-wrap" aria-hidden="true">
         <span class="field__label">City</span>
       </span>
@@ -37,7 +37,7 @@
   <div class="col col-4">
     <div class="field field_v1">
       <label for="age" class="ha-screen-reader">Age</label>
-      <input name="Age" formControlName="age" id="age" class="field__input" placeholder="Age" />
+      <input name="age" [(ngModel)]="age" id="age" class="field__input" placeholder="Age" />
       <span class="field__label-wrap" aria-hidden="true">
         <span class="field__label">age</span>
       </span>
@@ -47,8 +47,8 @@
   <div class="col col-4">
     <div class="field field_v3">
       <label for="startDate" class="ha-screen-reader">Start Date</label>
-      <input type="text" formControlName="startDate" placeholder="dd/mm/yyyy" id="startDate" class="field__input"
-        [matDatepicker]="picker1" />
+      <input type="text" [(ngModel)]="startDate" name="startDate" placeholder="dd/mm/yyyy" id="startDate"
+        class="field__input" [matDatepicker]="picker1" />
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
       <span class="field__label-wrap" aria-hidden="true">
@@ -60,8 +60,8 @@
   <div class="col col-4">
     <div class="field field_v3">
       <label for="endDate" class="ha-screen-reader">Event Date</label>
-      <input matInput type="text" formControlName="endDate" placeholder="dd/mm/yyyy" id="endDate" class="field__input"
-        [matDatepicker]="picker2" />
+      <input matInput type="text" [(ngModel)]="endDate" name="endDate" placeholder="dd/mm/yyyy" id="endDate"
+        class="field__input" [matDatepicker]="picker2" />
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
       <span class="field__label-wrap" aria-hidden="true">

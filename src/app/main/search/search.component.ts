@@ -19,24 +19,32 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   searched: boolean = false;
 
-  form: FormGroup = this._formBuilder.group({
-    title: new FormControl(null),
-    category: new FormControl(null),
-    city: new FormControl(null),
-    age: new FormControl(null),
-    startDate: new FormControl(null),
-    endDate: new FormControl(null),
-  });
+  // form: FormGroup = this._formBuilder.group({
+  //   title: new FormControl(null),
+  //   category: new FormControl(null),
+  //   city: new FormControl(null),
+  //   age: new FormControl(null),
+  //   startDate: new FormControl(null),
+  //   endDate: new FormControl(null),
+  // });
+
+  title: string;
+  category: string;
+  city: string;
+  age: string;
+  salary: string;
+  startDate: string;
+  endDate: string;
 
 
   ngOnInit() {
     this.category$ = this._userProfileService.getCategorys();
   }
 
-  onSubmit() {
+  search() {
     this.searched = true;
-    this._mainService.searchEvent(this.form.controls.title.value, this.form.controls.category.value, this.form.controls.city.value, this.form.controls.startDate.value,
-      this.form.controls.endDate.value, this.form.controls.age.value).subscribe();
+    this._mainService.searchEvent(this.title, this.category, this.city, this.startDate,
+      this.endDate, this.age).subscribe();
   }
 
   ngOnDestroy(): void {

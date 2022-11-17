@@ -23,14 +23,18 @@
   a {
     display: flex;
     align-items: center;
+    margin: 8px;
+    padding: 12px;
+    border-radius: 12px;
     svg {
-      height: 26px;
-      width: 36px;
+      height: 24px;
+      width: 24px;
       margin-right: 10px;
       display: block;
     }
-    margin: 10px 0;
-    padding: 10px;
+    &:hover {
+      background-color: #eee;
+    }
   }
 }
 
@@ -39,5 +43,8 @@
   color: #fff !important;
   svg {
     fill: #fff;
+  }
+  &:hover {
+    background-color: #252936 !important;
   }
 }
