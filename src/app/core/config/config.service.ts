@@ -37,6 +37,10 @@ export class ConfigService {
     return `http://localhost:3000/api/deleteEvent/${id}`
   }
 
+  favourites(id: any) {
+    return `http://localhost:3000/api/getFavourite/${id}`
+  }
+
   // All events
   events() {
     return 'http://localhost:3000/api/events'

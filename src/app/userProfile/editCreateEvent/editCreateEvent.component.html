@@ -1,7 +1,6 @@
 <form class="form-card" [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="col-12">
-    <h2 style="margin: 0;" *ngIf="!this.page">Create Event</h2>
-    <h2 style="margin: 0;" *ngIf="this.page">Edit Event</h2>
+    <h2 style="margin: 0;">{{ this.page ? "Create Event" : "Edit Event" }}</h2>
   </div>
   <div class="col col-12">
     <div class="field field_v1">
@@ -91,8 +90,7 @@
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
       <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label" *ngIf="!hasEndDate">Event Date</span>
-        <span class="field__label" *ngIf="hasEndDate">End Date</span>
+        <span class="field__label">{{ hasEndDate ? "Event Date" : "End Date" }}</span>
       </span>
     </div>
   </div>
@@ -116,8 +114,7 @@
       <label for="time" class="ha-screen-reader">Event Time</label>
       <input type="time" name="time" formControlName="endTime" id="time" class="field__input" placeholder="time" />
       <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label" *ngIf="!hasEndTime">Event Time</span>
-        <span class="field__label" *ngIf="hasEndTime">Finish Time</span>
+        <span class="field__label">{{ hasEndTime ? "Event Time" : "Finish Time" }}</span>
       </span>
     </div>
   </div>

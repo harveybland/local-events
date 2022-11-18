@@ -18,6 +18,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   category$: any;
 
   searched: boolean = false;
+  list: boolean = false;
 
   form: FormGroup = this._formBuilder.group({
     title: new FormControl(null),
@@ -28,19 +29,19 @@ export class SearchComponent implements OnInit, OnDestroy {
     endDate: new FormControl(null),
   });
 
-
   ngOnInit() {
     this.category$ = this._userProfileService.getCategorys();
   }
 
   onSubmit() {
     this.searched = true;
+    this.list = true;
     this._mainService.searchEvent(this.form.controls.title.value, this.form.controls.category.value, this.form.controls.city.value, this.form.controls.startDate.value,
       this.form.controls.endDate.value, this.form.controls.age.value).subscribe();
   }
 
   ngOnDestroy(): void {
-    console.log(this.event$)
+    // console.log(this.event$)
   }
 
 }

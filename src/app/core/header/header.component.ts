@@ -13,6 +13,8 @@ export class HeaderComponent implements OnInit {
 
   loggedIn: boolean = false;
 
+  profile: boolean = false;
+
   constructor(private _jwtService: JwtStorageService,
     private _mainService: MainService) { }
 

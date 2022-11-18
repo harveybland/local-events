@@ -1,3 +1,5 @@
+import { JwtStorageService } from './../../core/service/jwt-storage.service';
+import { UserProfileService } from './../userProfile.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavouritesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _userProfileService: UserProfileService,
+    private _jwtService: JwtStorageService) { }
+
+  userId: any;
 
   ngOnInit() {
+    // let Id = this._jwtService.getUserId();
+    // this.userId = Id;
+    // this._userProfileService.getFavourites(this.userId).subscribe();
   }
 
 }
