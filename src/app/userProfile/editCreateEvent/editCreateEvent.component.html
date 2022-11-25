@@ -90,7 +90,7 @@
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
       <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">{{ hasEndDate ? "Event Date" : "End Date" }}</span>
+        <span class="field__label">{{ hasEndDate ? "End Date" : "Event Date" }}</span>
       </span>
     </div>
   </div>
@@ -99,22 +99,22 @@
     <button (click)="endTime()" type="button">Add End Time</button>
   </div>
 
-  <div class="col col-4" *ngIf="hasEndTime">
+  <div class="col col-4">
     <div class="field field_v1">
       <label for="time" class="ha-screen-reader">Start Time</label>
       <input type="time" id="time" class="field__input" formControlName="startTime">
       <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Start Time</span>
+        <span class="field__label">{{ hasEndTime ? "Start Time" : "Event Time" }}</span>
       </span>
     </div>
   </div>
 
-  <div class="col col-4">
+  <div class="col col-4" *ngIf="hasEndTime">
     <div class="field field_v1">
       <label for="time" class="ha-screen-reader">Event Time</label>
       <input type="time" name="time" formControlName="endTime" id="time" class="field__input" placeholder="time" />
       <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">{{ hasEndTime ? "Event Time" : "Finish Time" }}</span>
+        <span class="field__label">Finish Time</span>
       </span>
     </div>
   </div>

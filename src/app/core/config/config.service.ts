@@ -8,7 +8,7 @@ export class ConfigService {
   constructor() { }
 
   // url = 'https://oneventsapi.azurewebsites.net/api/'
-  url = 'http://localhost:3000/api/'
+  url = 'http://localhost:8080/api/'
 
   // Account
   register() {

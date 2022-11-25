@@ -7,17 +7,17 @@
       <h2>{{ item.title }}</h2>
       <div class="text">
         <div>
-          <p> {{ item.city}}</p>
+          <p>Location: {{ item.city}}</p>
           <div class="flex">
-            <p *ngIf="item.startDate"> {{ item.startDate | date }} - </p>
-            <p>{{ item.endDate | date }}</p>
+            <p>Start Date: {{ item.startDate | date }}</p>
+            <p *ngIf="item.endDate">End Time:{{ item.endDate | date }}</p>
           </div>
           <div class="flex">
-            <p *ngIf="item.startTime"> {{ item.startTime }} - </p>
-            <p>{{ item.endTime }}</p>
+            <p>Start Time: {{ item.startTime }}+</p>
+            <p *ngIf="item.endTime">End Time: {{ item.endTime }}</p>
           </div>
           <div>
-            <p *ngIf="item.age"> {{ item.age }}</p>
+            <p *ngIf="item.age">Age: {{ item.age }}</p>
           </div>
         </div>
         <div>

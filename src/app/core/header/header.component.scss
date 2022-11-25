@@ -15,13 +15,13 @@ header {
     .event {
       display: flex;
       align-items: center;
-      background-color: #d22b2b;
-      border-radius: 12px;
-      padding: 4px 10px;
-      margin-right: 10px;
       p {
         margin: 0;
         color: #fff;
+        background-color: #d22b2b;
+        border-radius: 12px;
+        padding: 4px 10px;
+        margin-right: 10px;
       }
     }
   }

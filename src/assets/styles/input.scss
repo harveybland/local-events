@@ -45,7 +45,7 @@
 .field__input {
   box-sizing: border-box;
   width: var(--fieldWidth, 100%);
-  height: var(--fieldHeight, 3rem);
+  height: 56px;
   padding: var(--fieldPaddingTop, 1.25rem) var(--uiFieldPaddingRight)
     var(--fieldPaddingBottom, 0.5rem) var(--uiFieldPaddingLeft);
   border-bottom: var(--uiFieldBorderWidth) solid
@@ -177,8 +177,23 @@
 
 /// select
 .ng-select.ng-select-single .ng-select-container {
-  height: 40px;
+  height: 30px;
   border: none;
   border-bottom: 2px solid #31abbd;
   border-radius: 0;
+}
+
+.mat-datepicker-toggle,
+.mat-datepicker-content .mat-calendar-next-button,
+.mat-datepicker-content .mat-calendar-previous-button {
+  display: flex;
+  align-items: end;
+  color: rgba(0, 0, 0, 0.54);
+  border-bottom: 2px solid #31abbd;
+}
+
+textarea {
+  resize: none;
+  overflow: auto;
+  height: 56px;
 }

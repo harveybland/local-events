@@ -27,6 +27,7 @@ export class UpdateUser {
     address?: string;
     town?: string;
     number?: number;
+    profileComplete?: boolean;
 }
 
 
