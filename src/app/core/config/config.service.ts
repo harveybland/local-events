@@ -7,59 +7,62 @@ export class ConfigService {
 
   constructor() { }
 
+  // url = 'https://oneventsapi.azurewebsites.net/api/'
+  url = 'http://localhost:3000/api/'
+
   // Account
   register() {
-    return 'http://localhost:3000/api/register'
+    return `${this.url}register`
   }
 
   login() {
-    return 'http://localhost:3000/api/authenticate'
+    return `${this.url}authenticate`
   }
 
   // Profile
   userProfile() {
-    return 'http://localhost:3000/api/userprofile'
+    return `${this.url}userprofile`
   }
 
   editProfile(id: string) {
-    return `http://localhost:3000/api/editProfile/${id}`
+    return `${this.url}editProfile/${id}`
   }
 
   userEvents(id: string) {
-    return `http://localhost:3000/api/userEvents/${id}`
+    return `${this.url}userEvents/${id}`
   }
 
   createEvents() {
-    return `http://localhost:3000/api/createEvent`
+    return `${this.url}createEvent`
   }
 
   deleteEvent(id: string) {
-    return `http://localhost:3000/api/deleteEvent/${id}`
+    return `${this.url}deleteEvent/${id}`
   }
 
   favourites(id: any) {
-    return `http://localhost:3000/api/getFavourite/${id}`
+    return `${this.url}getFavourite/${id}`
   }
 
   // All events
   events() {
-    return 'http://localhost:3000/api/events'
+    return `${this.url}events`
   }
 
   get searchEvent() {
-    return 'http://localhost:3000/api/searchEvent?'
+    return `${this.url}searchEvent?`
   }
 
   event(id: string) {
-    return `http://localhost:3000/api/event/${id}`
+    return `${this.url}event/${id}`
   }
 
   editEvent(id: any) {
-    return `http://localhost:3000/api/editEvent/${id}`
+    return `${this.url}editEvent/${id}`
   }
 
   editViews(id: any) {
-    return `http://localhost:3000/api/views/${id}`
+    return `${this.url}views/${id}`
   }
 
 }
