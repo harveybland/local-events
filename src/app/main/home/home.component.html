@@ -23,42 +23,6 @@
       </div>
     </div>
   </div>
-  <div>
-    <h2>This weekend near you <span>></span></h2>
-    <div class="closest">
-      <div *ngFor="let item of (event$ | async)?.slice(0, 5)">
-        <a [routerLink]="'/main/events/' + [item._id]">
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.description }} </p>
-          <p> {{ item.city}}</p>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div>
-    <h2>This weekend near you <span>></span></h2>
-    <div class="closest">
-      <div *ngFor="let item of (event$ | async)?.slice(0, 5)">
-        <a [routerLink]="'/main/events/' + [item._id]">
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.description }} </p>
-          <p> {{ item.city}}</p>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div>
-    <h2>This weekend near you <span>></span></h2>
-    <div class="closest">
-      <div *ngFor="let item of (event$ | async)?.slice(0, 5)">
-        <a [routerLink]="'/main/events/' + [item._id]">
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.description }} </p>
-          <p> {{ item.city}}</p>
-        </a>
-      </div>
-    </div>
-  </div>
 
   <div>
     <h2>Most viewed</h2>

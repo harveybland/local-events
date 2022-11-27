@@ -1,0 +1,16 @@
+.btn {
+  padding: 8px 20px;
+  cursor: pointer;
+  border: 1px solid #000;
+  border-radius: 8px;
+  margin: 0;
+  &-b {
+    background-color: #31abbd;
+    border: 1px solid #31abbd;
+    color: #fff;
+  }
+}
+
+.m-r {
+  margin-right: 10px;
+}

@@ -29,9 +29,10 @@
 }
 
 .field {
+  width: 100%;
   --uiFieldBorderWidth: var(--fieldBorderWidth, 2px);
   --uiFieldPaddingRight: var(--fieldPaddingRight, 1rem);
-  --uiFieldPaddingLeft: var(--fieldPaddingLeft, 1rem);
+  --uiFieldPaddingLeft: var(--fieldPaddingLeft, 0.3rem);
   --uiFieldBorderColorActive: var(
     --fieldBorderColorActive,
     rgba(22, 22, 22, 1)

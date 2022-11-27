@@ -104,6 +104,7 @@ export class EditCreateEventComponent implements OnInit {
       endDate: this.form.controls.endDate.value,
       startTime: this.form.controls.startTime.value,
       endTime: this.form.controls.endTime.value,
+      isDeleted: false
     }
   }
 

@@ -6,7 +6,7 @@
   </div>
   <!-- <p *ngIf="this.form.value">Complete Profile</p> -->
   <form class="form-card" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="col col-4">
+    <div class="col col-2">
       <div class="field field_v1">
         <label for="title" class="ha-screen-reader">Business name</label>
         <input name="businessName" id="BusinessName" formControlName="businessName" class="field__input"
@@ -16,7 +16,7 @@
         </span>
       </div>
     </div>
-    <div class="col col-4">
+    <div class="col col-2">
       <div class="field field_v1">
         <label for="title" class="ha-screen-reader">Full name</label>
         <input name="fullName" formControlName="fullName" id="fullName" class="field__input" placeholder="Full Name" />
@@ -25,7 +25,7 @@
         </span>
       </div>
     </div>
-    <div class="col col-4">
+    <div class="col col-2">
       <div class="field field_v1">
         <label for="title" class="ha-screen-reader">Contact Number</label>
         <input name="number" formControlName="number" id="number" class="field__input" placeholder="number" />
@@ -34,7 +34,7 @@
         </span>
       </div>
     </div>
-    <div class="col col-6">
+    <div class="col col-3">
       <div class="field field_v3">
         <label for="email" class="ha-screen-reader">Address</label>
         <textarea name="address" formControlName="address" class="field__input" placeholder="address" cols="30" rows="5"
@@ -44,7 +44,7 @@
         </span>
       </div>
     </div>
-    <div class="col col-6">
+    <div class="col col-3">
       <div class="field field_v1">
         <label for="title" class="ha-screen-reader">City/Town</label>
         <input name="town" formControlName="town" id="town" class="field__input" placeholder="City/Town" />
@@ -53,9 +53,11 @@
         </span>
       </div>
     </div>
-    <div class="flex flex-center">
-      <button type="submit" class="update">Update</button>
-      <button type="button" (click)="onLogout()">Log out</button>
+    <div class="col col-12">
+      <div class="flex flex-center">
+        <button type="submit" class="btn m-r">Update</button>
+        <button type="button" class="btn btn-b" (click)="onLogout()">Log out</button>
+      </div>
     </div>
   </form>
   <div *ngIf="update">
