@@ -2,7 +2,7 @@
   display: block;
   margin-top: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 55px;
   background-color: #31abbd;
   border-radius: 10px;
   padding: 7px 20px;
@@ -42,7 +42,7 @@
 .search-list {
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 50px;
   background-color: #fff;
   border-radius: 2px;
   padding: 7px 20px;
@@ -54,4 +54,8 @@
 
 .btn--blue {
   background-color: #314152;
+}
+
+a {
+  color: #000;
 }

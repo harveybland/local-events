@@ -59,6 +59,12 @@ export class SignUpComponent implements OnInit {
     return {
       email: this.signUpForm.controls.email.value,
       password: this.signUpForm.controls.password.value,
+      businessName: null,
+      fullName: null,
+      number: null,
+      address: null,
+      town: null,
+      profileComplete: false
     }
   }
 

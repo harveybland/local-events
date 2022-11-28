@@ -2,7 +2,7 @@
   <div class="col-12">
     <h2 style="margin: 0;">{{ this.page ? "Edit Event" : "Create Event" }}</h2>
   </div>
-  <div class="col col-3">
+  <div class="col col-2">
     <div class="field field_v1">
       <label for="title" class="ha-screen-reader">Event name</label>
       <input name="title" formControlName="title" id="title" class="field__input" placeholder="Event name" />
@@ -14,7 +14,7 @@
 
   <div class="col-9"></div>
 
-  <div class="col col-4">
+  <div class="col col-3">
     <label class="input-wrapper">
       <div class="input-header">
         <span class="input__title">Category</span>
@@ -25,7 +25,7 @@
     </label>
   </div>
 
-  <div class="col col-4">
+  <div class="col col-3">
     <div class="field field_v3">
       <label for="email" class="ha-screen-reader">Description</label>
       <textarea name="Description" formControlName="description" class="field__input" placeholder="Description"
@@ -36,7 +36,7 @@
     </div>
   </div>
 
-  <div class="col col-4">
+  <div class="col col-3">
     <div class="field field_v3">
       <label for="Address" class="ha-screen-reader">Address</label>
       <textarea name="Address" formControlName="address" class="field__input" placeholder="Address" cols="30" rows="5"
@@ -47,7 +47,7 @@
     </div>
   </div>
 
-  <div class="col col-4">
+  <div class="col col-3">
     <div class="field field_v1">
       <label for="city" class="ha-screen-reader">City</label>
       <input name="city" formControlName="city" id="city" class="field__input" placeholder="City name" />
@@ -57,7 +57,7 @@
     </div>
   </div>
 
-  <div class="col col-4">
+  <div class="col col-3">
     <div class="field field_v1">
       <label for="age" class="ha-screen-reader">Age</label>
       <input name="Age" formControlName="age" id="age" class="field__input" placeholder="Age" />
@@ -68,10 +68,11 @@
   </div>
 
   <div class="col col-12 col-n-m">
-    <button (click)="endDate()" type="button">{{ !hasEndDate ? "Add End Date" : "Remove End Date" }}</button>
+    <button class="btn" (click)="endDate()" type="button">{{ !hasEndDate ? "Add End Date" : "Remove End Date"
+      }}</button>
   </div>
 
-  <div class="col col-4">
+  <div class="col col-3">
     <div class="field field_v3">
       <label for="startDate" class="ha-screen-reader">Start Date</label>
       <input type="text" formControlName="startDate" placeholder="dd/mm/yyyy" id="startDate" class="field__input"
@@ -84,7 +85,7 @@
     </div>
   </div>
 
-  <div class="col col-4" *ngIf="hasEndDate">
+  <div class="col col-3" *ngIf="hasEndDate">
     <div class="field field_v3">
       <label for="endDate" class="ha-screen-reader">Event Date</label>
       <input matInput type="text" formControlName="endDate" placeholder="dd/mm/yyyy" id="endDate" class="field__input"
@@ -98,10 +99,11 @@
   </div>
 
   <div class="col col-12 col-n-m">
-    <button (click)="endTime()" type="button">{{ !hasEndTime ? "Add End Time" : "Remove End Time" }}</button>
+    <button class="btn" (click)="endTime()" type="button">{{ !hasEndTime ? "Add End Time" : "Remove End Time"
+      }}</button>
   </div>
 
-  <div class="col col-4">
+  <div class="col col-3">
     <div class="field field_v1">
       <label for="time" class="ha-screen-reader">Start Time</label>
       <input type="time" id="time" class="field__input" formControlName="startTime">
@@ -111,7 +113,7 @@
     </div>
   </div>
 
-  <div class="col col-4" *ngIf="hasEndTime">
+  <div class="col col-3" *ngIf="hasEndTime">
     <div class="field field_v1">
       <label for="time" class="ha-screen-reader">Event Time</label>
       <input type="time" name="time" formControlName="endTime" id="time" class="field__input" placeholder="time" />
@@ -122,7 +124,7 @@
   </div>
 
   <div class="col col-12">
-    <button type="button" (click)="editEvent()" *ngIf="this.page">Update</button>
-    <button mat-raised-button color="primary" type="submit" *ngIf="!this.page">Create</button>
+    <button class="btn" type="button" (click)="editEvent()" *ngIf="this.page">Update</button>
+    <button class="btn btn-b" type="submit" *ngIf="!this.page">Create</button>
   </div>
 </form>

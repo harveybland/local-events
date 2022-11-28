@@ -1,11 +1,22 @@
 <div class="account">
-  <h2>Sign-up</h2>
+  <h2>Sign Up</h2>
   <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-    <!-- <input type="text" name="firstname" placeholder="Firstname" formControlName="firstname" required />
-  <input type="text" name="surname" placeholder="Surname" formControlName="surname" required /> -->
     <div class="flex flex-col">
-      <input type="text" name="email" placeholder="Email" formControlName="email" required />
-      <input type="password" name="password" placeholder="Password" formControlName="password" minlength="4" required />
+      <div class="field field_v1">
+        <label for="email" class="ha-screen-reader">Email</label>
+        <input type="text" name="email" placeholder="Email" formControlName="email" class="field__input" required />
+        <span class="field__label-wrap" aria-hidden="true">
+          <span class="field__label">Email</span>
+        </span>
+      </div>
+      <div class="field field_v1">
+        <label for="password" class="ha-screen-reader">Password</label>
+        <input type="password" name="password" placeholder="Password" formControlName="password" class="field__input"
+          required minlength="4" />
+        <span class="field__label-wrap" aria-hidden="true">
+          <span class="field__label">Password</span>
+        </span>
+      </div>
     </div>
     <div class="flex">
       <button type="submit" class="submit">Sign up</button>

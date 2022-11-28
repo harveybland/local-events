@@ -12,16 +12,23 @@ header {
   box-shadow: 0 4px 5px #00000021;
   .dynamic-event {
     display: flex;
+    align-items: center;
+    span {
+      margin-right: 10px;
+    }
     .event {
       display: flex;
       align-items: center;
-      p {
+      a {
         margin: 0;
         color: #fff;
         background-color: #d22b2b;
         border-radius: 12px;
         padding: 4px 10px;
         margin-right: 10px;
+      }
+      .b {
+        background-color: #31abbd;
       }
     }
   }
@@ -52,13 +59,19 @@ header {
 }
 
 .profile-icon {
-  padding: 4px 10px 2px !important;
+  padding: 6px 8px 6px 8px !important;
   border: 2px solid #31abbd;
   border-radius: 50%;
-  color: #31abbd !important;
+  fill: #31abbd;
+  svg {
+    width: 14px;
+    height: 14px;
+    display: block;
+  }
 }
 
 .profile--active {
   background-color: #31abbd;
   color: #fff !important;
+  fill: #fff;
 }
