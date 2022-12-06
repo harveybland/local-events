@@ -13,6 +13,10 @@ header {
   .dynamic-event {
     display: flex;
     align-items: center;
+    div {
+      display: flex;
+      align-items: center;
+    }
     span {
       margin-right: 10px;
     }
@@ -74,4 +78,16 @@ header {
   background-color: #31abbd;
   color: #fff !important;
   fill: #fff;
+}
+
+@media screen and (max-width: 1270px) {
+  header .dynamic-event .event-list {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 970px) {
+  header .dynamic-event .tasks {
+    display: none;
+  }
 }

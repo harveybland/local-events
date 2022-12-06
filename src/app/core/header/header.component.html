@@ -1,17 +1,20 @@
 <header>
   <div class="dynamic-event">
-    <span *ngIf="!loggedIn">0 / 2 Complete</span>
-    <div class="event" *ngIf="!loggedIn">
-      <a routerLink="/ui/profile" *ngIf="!profile" title="Complete the fields on your profile">Complete Profile</a>
-      <a routerLink="/ui/myEvents/createEvent" *ngIf="!profile" title="Create an Event">Create First Event</a>
-    </div>
-    <span>Events</span>
-    <div *ngFor="let item of (event$ | async)?.slice(0, 5)?.reverse()">
-      <div class="event">
-        <a class="b" [routerLink]="'/main/events/' + item._id">{{ item.title }} - {{ item.city}}</a>
+    <div class="tasks">
+      <span *ngIf="!loggedIn">0 / 2 Complete</span>
+      <div class="event" *ngIf="!loggedIn">
+        <a routerLink="/ui/profile" *ngIf="!profile" title="Complete the fields on your profile">Complete Profile</a>
+        <a routerLink="/ui/myEvents/createEvent" *ngIf="!profile" title="Create an Event">Create First Event</a>
       </div>
     </div>
-
+    <div class="event-list">
+      <span>Events</span>
+      <div *ngFor="let item of (event$ | async)?.slice(0, 5)?.reverse()">
+        <div class="event">
+          <a class="b" [routerLink]="'/main/events/' + item._id">{{ item.title }} - {{ item.city}}</a>
+        </div>
+      </div>
+    </div>
   </div>
   <nav>
     <a routerLink="/ui/myEvents" routerLinkActive="header--active" [routerLinkActiveOptions]="{exact:

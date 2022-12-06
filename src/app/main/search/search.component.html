@@ -1,6 +1,6 @@
 <form class="form-card" [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="col-12">
-    <h2 style="margin: 0;">Create Event</h2>
+    <h2 style="margin: 0;">Search Event</h2>
   </div>
   <div class="col col-12">
     <div class="field field_v1">
@@ -95,7 +95,7 @@
     <div class="col-E">{{ item.age }}</div>
     <div class="col-F">{{ item.city }}</div>
     <div class="col-G">
-      <a [routerLink]="[item._id]">View</a>
+      <a href="main/events/">View</a>
     </div>
   </div>
 </div>
