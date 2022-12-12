@@ -2,20 +2,12 @@
   <h2>Sign In</h2>
   <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
     <div class="flex flex-col">
-      <div class="field field_v1">
-        <label for="email" class="ha-screen-reader">Email</label>
-        <input type="text" name="email" placeholder="Email" formControlName="email" class="field__input" required />
-        <span class="field__label-wrap" aria-hidden="true">
-          <span class="field__label">Email</span>
-        </span>
+      <div>
+        <input type="text" name="email" placeholder="Email" formControlName="email" class="input" required />
       </div>
-      <div class="field field_v1">
-        <label for="password" class="ha-screen-reader">Password</label>
-        <input type="password" name="password" placeholder="Password" formControlName="password" class="field__input"
-          required minlength="4" />
-        <span class="field__label-wrap" aria-hidden="true">
-          <span class="field__label">Password</span>
-        </span>
+      <div>
+        <input type="password" name="password" placeholder="Password" formControlName="password" class="input" required
+          minlength="4" />
       </div>
     </div>
     <div class="flex">

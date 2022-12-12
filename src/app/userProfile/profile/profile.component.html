@@ -7,50 +7,35 @@
   <!-- <p *ngIf="this.form.value">Complete Profile</p> -->
   <form class="form-card" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="col col-2">
-      <div class="field field_v1">
-        <label for="title" class="ha-screen-reader">Business name</label>
-        <input name="businessName" id="BusinessName" formControlName="businessName" class="field__input"
+      <div>
+        <label for="title">Business name</label>
+        <input name="businessName" id="BusinessName" formControlName="businessName" class="input"
           placeholder="Business Name" />
-        <span class="field__label-wrap" aria-hidden="true">
-          <span class="field__label">Business Name</span>
-        </span>
       </div>
     </div>
     <div class="col col-2">
-      <div class="field field_v1">
-        <label for="title" class="ha-screen-reader">Full name</label>
-        <input name="fullName" formControlName="fullName" id="fullName" class="field__input" placeholder="Full Name" />
-        <span class="field__label-wrap" aria-hidden="true">
-          <span class="field__label">Full Name</span>
-        </span>
+      <div>
+        <label for="title">Full name</label>
+        <input name="fullName" formControlName="fullName" id="fullName" class="input" placeholder="Full Name" />
       </div>
     </div>
     <div class="col col-2">
-      <div class="field field_v1">
-        <label for="title" class="ha-screen-reader">Contact Number</label>
-        <input name="number" formControlName="number" id="number" class="field__input" placeholder="number" />
-        <span class="field__label-wrap" aria-hidden="true">
-          <span class="field__label">Contact Number</span>
-        </span>
+      <div>
+        <label for="title">Contact Number</label>
+        <input name="number" formControlName="number" id="number" class="input" placeholder="number" />
       </div>
     </div>
     <div class="col col-3">
-      <div class="field field_v3">
-        <label for="email" class="ha-screen-reader">Address</label>
-        <textarea name="address" formControlName="address" class="field__input" placeholder="address" cols="30" rows="5"
+      <div>
+        <label for="email">Address</label>
+        <textarea name="address" formControlName="address" class="input" placeholder="address" cols="30" rows="5"
           type="textarea"></textarea>
-        <span class="field__label-wrap" aria-hidden="true">
-          <span class="field__label">Address</span>
-        </span>
       </div>
     </div>
     <div class="col col-3">
-      <div class="field field_v1">
-        <label for="title" class="ha-screen-reader">City/Town</label>
-        <input name="town" formControlName="town" id="town" class="field__input" placeholder="City/Town" />
-        <span class="field__label-wrap" aria-hidden="true">
-          <span class="field__label">City/Town</span>
-        </span>
+      <div>
+        <label for="title">City/Town</label>
+        <input name="town" formControlName="town" id="town" class="input" placeholder="City/Town" />
       </div>
     </div>
     <div class="col col-12 col-n-m">

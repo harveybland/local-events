@@ -2,21 +2,14 @@
   <div class="col-12">
     <h2 style="margin: 0;">Search Event</h2>
   </div>
-  <div class="col col-12">
-    <div class="field field_v1">
-      <label for="title" class="ha-screen-reader">Event name</label>
-      <input name="title" formControlName="title" id="title" class="field__input" placeholder="Event name" />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Event Name</span>
-      </span>
+  <div class="col col-2">
+    <div>
+      <input name="title" formControlName="title" id="title" class="input" placeholder="Event name" />
     </div>
   </div>
 
-  <div class="col col-6">
+  <div class="col col-3">
     <label class="input-wrapper">
-      <div class="input-header">
-        <span class="input__title">Category</span>
-      </div>
       <ng-select [items]="category$ | async" bindLabel="category" formControlName="category"
         placeholder="Pick a category" [clearable]="true" bindValue="id">
       </ng-select>
@@ -24,50 +17,34 @@
   </div>
 
 
-  <div class="col col-4">
-    <div class="field field_v1">
-      <label for="city" class="ha-screen-reader">City</label>
-      <input name="city" formControlName="city" id="city" class="field__input" placeholder="City name" />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">City</span>
-      </span>
+  <div class="col col-2">
+    <div>
+      <input name="city" formControlName="city" id="city" class="input" placeholder="City name" />
     </div>
   </div>
 
-  <div class="col col-4">
-    <div class="field field_v1">
-      <label for="age" class="ha-screen-reader">Age</label>
-      <input name="Age" formControlName="age" id="age" class="field__input" placeholder="Age" />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">age</span>
-      </span>
+  <div class="col col-1">
+    <div>
+      <input name="Age" formControlName="age" id="age" class="input" placeholder="Age" />
     </div>
   </div>
 
-  <div class="col col-4">
-    <div class="field field_v3">
-      <label for="startDate" class="ha-screen-reader">Start Date</label>
-      <input type="text" formControlName="startDate" placeholder="dd/mm/yyyy" id="startDate" class="field__input"
+  <div class="col col-2">
+    <label class="input">
+      <input type="text" formControlName="startDate" placeholder="dd/mm/yyyy" id="startDate"
         [matDatepicker]="picker1" />
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Start Date</span>
-      </span>
-    </div>
+    </label>
   </div>
 
-  <div class="col col-4">
-    <div class="field field_v3">
-      <label for="endDate" class="ha-screen-reader">Event Date</label>
-      <input matInput type="text" formControlName="endDate" placeholder="dd/mm/yyyy" id="endDate" class="field__input"
+  <div class="col col-2">
+    <label class="input">
+      <input matInput type="text" formControlName="endDate" placeholder="dd/mm/yyyy" id="endDate"
         [matDatepicker]="picker2" />
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">End Date</span>
-      </span>
-    </div>
+    </label>
   </div>
 
   <div class="col col-12">
@@ -75,27 +52,29 @@
   </div>
 </form>
 
-<div [ngClass]="searched ? 'search-header' : 'hide'">
-  <div></div>
-  <div class="col-A">Event Title</div>
-  <div class="col-B">Category</div>
-  <div class="col-C">Start Date</div>
-  <div class="col-D">End Date</div>
-  <div class="col-E">Age</div>
-  <div class="col-F">Town/City</div>
-  <div class="col-G"></div>
-  <div></div>
-</div>
-<div *ngFor="let item of event$ | async">
-  <div class="search-list" *ngIf="list">
-    <div class="col-A">{{ item.title }}</div>
-    <div class="col-B">{{ item.category }}</div>
-    <div class="col-C">{{ item.startDate | date }}</div>
-    <div class="col-D">{{ item.endDate | date }}</div>
-    <div class="col-E">{{ item.age }}</div>
-    <div class="col-F">{{ item.city }}</div>
-    <div class="col-G">
-      <a href="main/events/">View</a>
+<div>
+  <div [ngClass]="searched ? 'search-header' : 'hide'">
+    <div></div>
+    <div class="col-A">Event Title</div>
+    <div class="col-B">Category</div>
+    <div class="col-C">Start Date</div>
+    <div class="col-D">End Date</div>
+    <div class="col-E">Age</div>
+    <div class="col-F">Town/City</div>
+    <div class="col-G"></div>
+    <div></div>
+  </div>
+  <div *ngFor="let item of event$ | async">
+    <div class="search-list" *ngIf="list">
+      <div class="col-A">{{ item.title }}</div>
+      <div class="col-B">{{ item.category }}</div>
+      <div class="col-C">{{ item.startDate | date }}</div>
+      <div class="col-D">{{ item.endDate | date }}</div>
+      <div class="col-E">{{ item.age }}</div>
+      <div class="col-F">{{ item.city }}</div>
+      <div class="col-G">
+        <a href="main/events/">View</a>
+      </div>
     </div>
   </div>
 </div>

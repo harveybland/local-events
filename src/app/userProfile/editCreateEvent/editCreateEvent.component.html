@@ -3,12 +3,9 @@
     <h2 style="margin: 0;">{{ this.page ? "Edit Event" : "Create Event" }}</h2>
   </div>
   <div class="col col-2">
-    <div class="field field_v1">
-      <label for="title" class="ha-screen-reader">Event name</label>
-      <input name="title" formControlName="title" id="title" class="field__input" placeholder="Event name" />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Event Name</span>
-      </span>
+    <div>
+      <label for="title">Event name</label>
+      <input name="title" formControlName="title" id="title" class="input" placeholder="Event name" />
     </div>
   </div>
 
@@ -27,43 +24,31 @@
 
   <div class="col col-3">
     <div class="field field_v3">
-      <label for="email" class="ha-screen-reader">Description</label>
-      <textarea name="Description" formControlName="description" class="field__input" placeholder="Description"
-        cols="30" rows="5" type="textarea"></textarea>
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Description</span>
-      </span>
+      <label for="email">Description</label>
+      <textarea name="Description" formControlName="description" class="input" placeholder="Description" cols="30"
+        rows="5" type="textarea"></textarea>
     </div>
   </div>
 
   <div class="col col-3">
     <div class="field field_v3">
-      <label for="Address" class="ha-screen-reader">Address</label>
-      <textarea name="Address" formControlName="address" class="field__input" placeholder="Address" cols="30" rows="5"
+      <label for="Address">Address</label>
+      <textarea name="Address" formControlName="address" class="input" placeholder="Address" cols="30" rows="5"
         type="textarea"></textarea>
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Address</span>
-      </span>
     </div>
   </div>
 
   <div class="col col-3">
-    <div class="field field_v1">
-      <label for="city" class="ha-screen-reader">City</label>
-      <input name="city" formControlName="city" id="city" class="field__input" placeholder="City name" />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">City</span>
-      </span>
+    <div>
+      <label for="city">City</label>
+      <input name="city" formControlName="city" id="city" class="input" placeholder="City name" />
     </div>
   </div>
 
   <div class="col col-3">
-    <div class="field field_v1">
-      <label for="age" class="ha-screen-reader">Age</label>
-      <input name="Age" formControlName="age" id="age" class="field__input" placeholder="Age" />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">age</span>
-      </span>
+    <div>
+      <label for="age">Age</label>
+      <input name="Age" formControlName="age" id="age" class="input" placeholder="Age" />
     </div>
   </div>
 
@@ -73,29 +58,21 @@
   </div>
 
   <div class="col col-3">
-    <div class="field field_v3">
-      <label for="startDate" class="ha-screen-reader">Start Date</label>
-      <input type="text" formControlName="startDate" placeholder="dd/mm/yyyy" id="startDate" class="field__input"
+    <label class="input">
+      <input type="text" formControlName="startDate" placeholder="dd/mm/yyyy" id="startDate"
         [matDatepicker]="picker1" />
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">{{ hasEndDate ? "Start Date" : "Event Date" }}</span>
-      </span>
-    </div>
+    </label>
   </div>
 
   <div class="col col-3" *ngIf="hasEndDate">
-    <div class="field field_v3">
-      <label for="endDate" class="ha-screen-reader">Event Date</label>
-      <input matInput type="text" formControlName="endDate" placeholder="dd/mm/yyyy" id="endDate" class="field__input"
+    <label class="input">
+      <input matInput type="text" formControlName="endDate" placeholder="dd/mm/yyyy" id="endDate"
         [matDatepicker]="picker2" />
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">End Date</span>
-      </span>
-    </div>
+    </label>
   </div>
 
   <div class="col col-12 col-n-m">
@@ -104,22 +81,16 @@
   </div>
 
   <div class="col col-3">
-    <div class="field field_v1">
-      <label for="time" class="ha-screen-reader">Start Time</label>
-      <input type="time" id="time" class="field__input" formControlName="startTime">
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">{{ hasEndTime ? "Start Time" : "Event Time" }}</span>
-      </span>
+    <div>
+      <label for="time">Start Time</label>
+      <input type="time" id="time" class="input" formControlName="startTime">
     </div>
   </div>
 
   <div class="col col-3" *ngIf="hasEndTime">
-    <div class="field field_v1">
-      <label for="time" class="ha-screen-reader">Event Time</label>
-      <input type="time" name="time" formControlName="endTime" id="time" class="field__input" placeholder="time" />
-      <span class="field__label-wrap" aria-hidden="true">
-        <span class="field__label">Finish Time</span>
-      </span>
+    <div>
+      <label for="time">Event Time</label>
+      <input type="time" name="time" formControlName="endTime" id="time" class="input" placeholder="time" />
     </div>
   </div>
 
