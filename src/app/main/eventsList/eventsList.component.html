@@ -1,14 +1,21 @@
-<div class="event-list">
-    <div *ngFor="let item of event$ | async" class="event">
-        <h2>{{ item.title }}</h2>
-        <div class="text">
-            <div>
-                <p>{{ item.description }} </p>
-                <p> {{ item.city}}</p>
-                <p> {{ item.endDate | date }}</p>
-            </div>
-            <div>
-                <a [routerLink]="[item._id]">View</a>
+<div>
+    <div class="options">
+        <select name="" id="">
+            <option value="">Sort By</option>
+        </select>
+    </div>
+    <div class="event-list">
+        <div *ngFor="let item of event$ | async" class="event">
+            <h2>{{ item.title }}</h2>
+            <div class="text">
+                <div>
+                    <p>{{ item.description }} </p>
+                    <p> {{ item.city}}</p>
+                    <p> {{ item.endDate | date }}</p>
+                </div>
+                <div>
+                    <a [routerLink]="[item._id]">View</a>
+                </div>
             </div>
         </div>
     </div>

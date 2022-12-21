@@ -71,3 +71,18 @@ h2 {
     transform: translate(0, 0);
   }
 }
+
+@media screen and (max-width: 940px) {
+  .latest {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .latest {
+    grid-template-columns: 1fr;
+  }
+  .closest {
+    grid-template-columns: 1fr;
+  }
+}

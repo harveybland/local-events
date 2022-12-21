@@ -4,7 +4,7 @@
   </div>
   <div class="col col-2">
     <div>
-      <label for="title">Event name</label>
+      <label for="title">Event name *</label>
       <input name="title" formControlName="title" id="title" class="input" placeholder="Event name" />
     </div>
   </div>
@@ -14,7 +14,7 @@
   <div class="col col-3">
     <label class="input-wrapper">
       <div class="input-header">
-        <span class="input__title">Category</span>
+        <span class="input__title">Category *</span>
       </div>
       <ng-select [items]="category$ | async" bindLabel="category" formControlName="category"
         placeholder="Pick a category" [clearable]="true" bindValue="id">
@@ -24,7 +24,7 @@
 
   <div class="col col-3">
     <div class="field field_v3">
-      <label for="email">Description</label>
+      <label for="email">Description *</label>
       <textarea name="Description" formControlName="description" class="input" placeholder="Description" cols="30"
         rows="5" type="textarea"></textarea>
     </div>
@@ -32,7 +32,7 @@
 
   <div class="col col-3">
     <div class="field field_v3">
-      <label for="Address">Address</label>
+      <label for="Address">Address *</label>
       <textarea name="Address" formControlName="address" class="input" placeholder="Address" cols="30" rows="5"
         type="textarea"></textarea>
     </div>
@@ -40,8 +40,8 @@
 
   <div class="col col-3">
     <div>
-      <label for="city">City</label>
-      <input name="city" formControlName="city" id="city" class="input" placeholder="City name" />
+      <label for="city">Town/City *</label>
+      <input name="city" formControlName="city" id="city" class="input" placeholder="Town/City" />
     </div>
   </div>
 
@@ -58,6 +58,7 @@
   </div>
 
   <div class="col col-3">
+    <span>{{ !hasEndDate ? "Event Date *" : "Start Date*"}}</span>
     <label class="input">
       <input type="text" formControlName="startDate" placeholder="dd/mm/yyyy" id="startDate"
         [matDatepicker]="picker1" />
@@ -67,6 +68,7 @@
   </div>
 
   <div class="col col-3" *ngIf="hasEndDate">
+    <span>End Date</span>
     <label class="input">
       <input matInput type="text" formControlName="endDate" placeholder="dd/mm/yyyy" id="endDate"
         [matDatepicker]="picker2" />
@@ -82,7 +84,7 @@
 
   <div class="col col-3">
     <div>
-      <label for="time">Start Time</label>
+      <label for="time">{{ !hasEndTime ? "Event Time *" : "Start Time *"}}</label>
       <input type="time" id="time" class="input" formControlName="startTime">
     </div>
   </div>

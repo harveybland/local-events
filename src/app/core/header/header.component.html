@@ -7,14 +7,14 @@
         <a routerLink="/ui/myEvents/createEvent" *ngIf="!profile" title="Create an Event">Create First Event</a>
       </div>
     </div>
-    <div class="event-list">
+    <!-- <div class="event-list">
       <span>Events</span>
       <div *ngFor="let item of (event$ | async)?.slice(0, 5)?.reverse()">
         <div class="event">
           <a class="b" [routerLink]="'/main/events/' + item._id">{{ item.title }} - {{ item.city}}</a>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
   <nav>
     <a routerLink="/ui/myEvents" routerLinkActive="header--active" [routerLinkActiveOptions]="{exact:
@@ -35,5 +35,9 @@
     </a>
     <a routerLink="/sign-in" *ngIf="loggedIn">Sign in</a>
     <a routerLink="/sign-up" *ngIf="loggedIn">Sign up</a>
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider round"></span>
+    </label>
   </nav>
 </header>
