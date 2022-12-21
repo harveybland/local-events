@@ -23,13 +23,13 @@
     </div>
   </div>
 
-  <div class="col col-1">
+  <!-- <div class="col col-1">
     <div>
       <input name="Age" formControlName="age" id="age" class="input" placeholder="Age" />
     </div>
-  </div>
+  </div> -->
 
-  <div class="col col-2">
+  <div class="col col-3">
     <label class="input">
       <input type="text" formControlName="startDate" placeholder="dd/mm/yyyy" id="startDate"
         [matDatepicker]="picker1" />
@@ -38,14 +38,14 @@
     </label>
   </div>
 
-  <div class="col col-2">
+  <!-- <div class="col col-2">
     <label class="input">
       <input matInput type="text" formControlName="endDate" placeholder="dd/mm/yyyy" id="endDate"
         [matDatepicker]="picker2" />
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
     </label>
-  </div>
+  </div> -->
 
   <div class="col col-12">
     <button class="btn btn-b" type="submit">Search</button>
@@ -58,10 +58,8 @@
     <div class="col-A">Event Title</div>
     <div class="col-B">Category</div>
     <div class="col-C">Start Date</div>
-    <div class="col-D">End Date</div>
-    <div class="col-E">Age</div>
-    <div class="col-F">Town/City</div>
-    <div class="col-G"></div>
+    <div class="col-D">Town/City</div>
+    <div class="col-E"></div>
     <div></div>
   </div>
   <div *ngFor="let item of event$ | async">
@@ -69,10 +67,8 @@
       <div class="col-A">{{ item.title }}</div>
       <div class="col-B">{{ item.category }}</div>
       <div class="col-C">{{ item.startDate | date }}</div>
-      <div class="col-D">{{ item.endDate | date }}</div>
-      <div class="col-E">{{ item.age }}</div>
-      <div class="col-F">{{ item.city }}</div>
-      <div class="col-G">
+      <div class="col-D">{{ item.city }}</div>
+      <div class="col-E">
         <a href="main/events/">View</a>
       </div>
     </div>

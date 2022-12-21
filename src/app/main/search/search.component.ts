@@ -6,13 +6,14 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit, OnDestroy {
-
-  constructor(private _mainService: MainService,
+  constructor(
+    private _mainService: MainService,
     private _formBuilder: FormBuilder,
-    private _userProfileService: UserProfileService) { }
+    private _userProfileService: UserProfileService
+  ) {}
 
   event$ = this._mainService.event$;
   category$: any;
@@ -36,12 +37,17 @@ export class SearchComponent implements OnInit, OnDestroy {
   onSubmit() {
     this.searched = true;
     this.list = true;
-    this._mainService.searchEvent(this.form.controls.title.value, this.form.controls.category.value, this.form.controls.city.value, this.form.controls.startDate.value,
-      this.form.controls.endDate.value, this.form.controls.age.value).subscribe();
+    this._mainService
+      .searchEvent(
+        this.form.controls.title.value,
+        this.form.controls.category.value,
+        this.form.controls.city.value,
+        this.form.controls.startDate.value
+      )
+      .subscribe();
   }
 
   ngOnDestroy(): void {
     // console.log(this.event$)
   }
-
 }

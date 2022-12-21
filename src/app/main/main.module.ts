@@ -17,27 +17,27 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
       },
       {
         path: 'events',
-        component: EventsListComponent
+        component: EventsListComponent,
       },
       {
         path: 'events/:id',
-        component: EventComponent
+        component: EventComponent,
       },
       {
         path: 'search',
-        component: SearchComponent
+        component: SearchComponent,
       },
       {
         path: '**',
         pathMatch: 'full',
-        redirectTo: 'home'
-      }
-    ]
-  }
+        redirectTo: 'home',
+      },
+    ],
+  },
 ];
 
 @NgModule({
@@ -46,13 +46,13 @@ const routes: Routes = [
     ThirdPartyModule,
     CoreModule,
     MaterialModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
   declarations: [
     MainComponent,
     EventsListComponent,
     HomeComponent,
-    SearchComponent
-  ]
+    SearchComponent,
+  ],
 })
-export class MainModule { }
+export class MainModule {}

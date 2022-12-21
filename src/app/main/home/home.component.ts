@@ -5,18 +5,19 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
   event$ = this._mainService.event$;
   mostViewed$ = this._mainService.mostViewed$;
 
   public lat: string;
   public lng: string;
 
-  constructor(private _mainService: MainService,
-    private _animation: AnimationService) { }
+  constructor(
+    private _mainService: MainService,
+    private _animation: AnimationService
+  ) {}
 
   ngOnInit() {
     this._mainService.getEvents().subscribe();
@@ -32,13 +33,12 @@ export class HomeComponent implements OnInit {
         this.callApi(longitude, latitude);
       });
     } else {
-      console.log("No support for geolocation")
+      console.log('No support for geolocation');
     }
   }
 
   callApi(Longitude: number, Latitude: number) {
-    const url = `https://api-adresse.data.gouv.fr/reverse/?lon=${Longitude}&lat=${Latitude}`
+    const url = `https://api-adresse.data.gouv.fr/reverse/?lon=${Longitude}&lat=${Latitude}`;
     //Call API
   }
-
 }

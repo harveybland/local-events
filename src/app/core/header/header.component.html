@@ -36,7 +36,7 @@
     <a routerLink="/sign-in" *ngIf="loggedIn">Sign in</a>
     <a routerLink="/sign-up" *ngIf="loggedIn">Sign up</a>
     <label class="switch">
-      <input type="checkbox">
+      <input type="checkbox" [checked]="checkbox" (change)="darkMode($event)">
       <span class="slider round"></span>
     </label>
   </nav>

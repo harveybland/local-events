@@ -2,7 +2,7 @@
   display: block;
   margin-top: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 55px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 55px;
   background-color: #31abbd;
   border-radius: 10px;
   padding: 7px 20px;
@@ -32,17 +32,11 @@
 .col-E {
   grid-column: 5;
 }
-.col-F {
-  grid-column: 6;
-}
-.col-G {
-  grid-column: 7;
-}
 
 .search-list {
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 50px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 50px;
   background-color: #fff;
   border-radius: 2px;
   padding: 7px 20px;

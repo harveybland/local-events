@@ -9,9 +9,8 @@
             <h2>{{ item.title }}</h2>
             <div class="text">
                 <div>
-                    <p>{{ item.description }} </p>
-                    <p> {{ item.city}}</p>
-                    <p> {{ item.endDate | date }}</p>
+                    <p>{{ item.startDate | date }} </p>
+                    <p>{{ item.city}}</p>
                 </div>
                 <div>
                     <a [routerLink]="[item._id]">View</a>
