@@ -1,0 +1,22 @@
+body.dark-theme {
+  background-color: #1f1d2b;
+
+  header {
+    background-color: #252936;
+    nav a {
+      color: #fff !important;
+    }
+    span {
+      color: #fff;
+    }
+  }
+
+  .body {
+    background-color: #1f1d2b;
+  }
+
+  .event-list .event .text {
+    background: #252936 !important;
+    color: #fff !important;
+  }
+}
