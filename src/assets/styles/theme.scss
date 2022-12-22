@@ -1,22 +1,76 @@
-body.dark-theme {
-  background-color: #1f1d2b;
+@media (prefers-color-scheme: dark) {
+  body.dark-theme {
+    background-color: #1f1d2b;
 
-  header {
-    background-color: #252936;
-    nav a {
-      color: #fff !important;
+    .side-nav {
+      border-right: 1px solid #252936;
+      a svg {
+        fill: #31abbd !important;
+      }
+      .side-menu a:hover {
+        background-color: #252936;
+      }
     }
-    span {
+
+    header {
+      background-color: #252936;
+      nav a {
+        color: #fff !important;
+      }
+      span {
+        color: #fff;
+      }
+    }
+
+    .body {
+      background-color: #1f1d2b;
+    }
+
+    .event-list .event {
+      h2 {
+        background: #31abbd !important;
+      }
+      .text {
+        background: #252936 !important;
+        color: #fff !important;
+      }
+    }
+
+    .event {
+      background-color: #252936;
       color: #fff;
     }
-  }
 
-  .body {
-    background-color: #1f1d2b;
-  }
+    // search
+    .form-card {
+      background: #252936 !important;
+    }
 
-  .event-list .event .text {
-    background: #252936 !important;
-    color: #fff !important;
+    .search-list {
+      background-color: #252936;
+    }
+
+    // account
+    .profile {
+      border: 1px solid #31abbd;
+      background: #252936;
+    }
+    .account {
+      border: 1px solid #31abbd;
+      background: #252936;
+    }
+
+    .col label {
+      color: #808191;
+    }
+
+    // buttons
+    .btn {
+      border: 1px solid #fff;
+      color: #fff;
+    }
+    .btn-b {
+      border: 1px solid #31abbd;
+    }
   }
 }

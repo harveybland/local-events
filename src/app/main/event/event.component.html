@@ -9,5 +9,11 @@
 </div>
 
 <div class="event">
-  <h2>{{ event.userId }}</h2>
+  <h2>User</h2>
+  <div class="event-info">
+    <p>{{ event?.user[0].email }}</p>
+    <p>{{ event?.user[0].fullName }}</p>
+    <p>{{ event?.user[0].address }}</p>
+    <p>{{ event?.user[0].town }}</p>
+  </div>
 </div>

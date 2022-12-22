@@ -33,14 +33,14 @@ export class EventComponent implements OnInit, OnDestroy {
           return this._mainService.getEvent(id).pipe(
             tap((model: any) => {
               this.event = model;
-              let updateViews = {
-                viewed: this.event.viewed + 1,
-              };
-              if (model.userId != this.userId) {
-                this._mainService
-                  .updateViews(this.eventId, updateViews)
-                  .subscribe();
-              }
+              // let updateViews = {
+              //   viewed: this.event.viewed + 1,
+              // };
+              // if (model.userId != this.userId) {
+              //   this._mainService
+              //     .updateViews(this.eventId, updateViews)
+              //     .subscribe();
+              // }
             })
           );
         })
