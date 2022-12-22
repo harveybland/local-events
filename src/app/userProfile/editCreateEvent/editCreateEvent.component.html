@@ -58,7 +58,7 @@
   </div>
 
   <div class="col col-3">
-    <span>{{ !hasEndDate ? "Event Date *" : "Start Date*"}}</span>
+    <label>{{ !hasEndDate ? "Event Date *" : "Start Date*"}}</label>
     <label class="input">
       <input type="text" formControlName="startDate" placeholder="dd/mm/yyyy" id="startDate"
         [matDatepicker]="picker1" />
@@ -68,7 +68,7 @@
   </div>
 
   <div class="col col-3" *ngIf="hasEndDate">
-    <span>End Date</span>
+    <label>End Date</label>
     <label class="input">
       <input matInput type="text" formControlName="endDate" placeholder="dd/mm/yyyy" id="endDate"
         [matDatepicker]="picker2" />
