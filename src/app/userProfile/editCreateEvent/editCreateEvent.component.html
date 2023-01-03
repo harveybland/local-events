@@ -12,48 +12,36 @@
   <div class="col-9"></div>
 
   <div class="col col-3">
-    <label class="input-wrapper">
-      <div class="input-header">
-        <span class="input__title">Category *</span>
-      </div>
-      <ng-select [items]="category$ | async" bindLabel="category" formControlName="category"
-        placeholder="Pick a category" [clearable]="true" bindValue="id">
-      </ng-select>
-    </label>
+    <label>Category</label>
+    <ng-select [items]="category$ | async" bindLabel="category" formControlName="category" placeholder="Pick a category"
+      [clearable]="true" bindValue="id">
+    </ng-select>
   </div>
 
   <div class="col col-3">
-    <div class="field field_v3">
-      <label for="email">Description *</label>
-      <textarea name="Description" formControlName="description" class="input" placeholder="Description" cols="30"
-        rows="5" type="textarea"></textarea>
-    </div>
+    <label for="email">Description *</label>
+    <textarea name="Description" formControlName="description" class="input" placeholder="Description" cols="30"
+      rows="5" type="textarea"></textarea>
   </div>
 
   <div class="col col-3">
-    <div class="field field_v3">
-      <label for="Address">Address *</label>
-      <textarea name="Address" formControlName="address" class="input" placeholder="Address" cols="30" rows="5"
-        type="textarea"></textarea>
-    </div>
+    <label for="Address">Address *</label>
+    <textarea name="Address" formControlName="address" class="input" placeholder="Address" cols="30" rows="5"
+      type="textarea"></textarea>
   </div>
 
   <div class="col col-3">
-    <div>
-      <label for="city">Town/City *</label>
-      <input name="city" formControlName="city" id="city" class="input" placeholder="Town/City" />
-    </div>
+    <label for="city">Town/City *</label>
+    <input name="city" formControlName="city" id="city" class="input" placeholder="Town/City" />
   </div>
 
   <div class="col col-3">
-    <div>
-      <label for="age">Age</label>
-      <input name="Age" formControlName="age" id="age" class="input" placeholder="Age" />
-    </div>
+    <label for="age">Age Range</label>
+    <input name="Age" formControlName="age" id="age" class="input" placeholder="Age" />
   </div>
 
   <div class="col col-12 col-n-m">
-    <button class="btn" (click)="endDate()" type="button">{{ !hasEndDate ? "Add End Date" : "Remove End Date"
+    <button class="btn btn-o" (click)="endDate()" type="button">{{ !hasEndDate ? "Add End Date" : "Remove End Date"
       }}</button>
   </div>
 
@@ -78,7 +66,7 @@
   </div>
 
   <div class="col col-12 col-n-m">
-    <button class="btn" (click)="endTime()" type="button">{{ !hasEndTime ? "Add End Time" : "Remove End Time"
+    <button class="btn btn-o" (click)="endTime()" type="button">{{ !hasEndTime ? "Add End Time" : "Remove End Time"
       }}</button>
   </div>
 

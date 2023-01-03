@@ -1,19 +1,19 @@
 <div class="event">
-  <h2>{{ event?.title }}</h2>
+  <h2>{{ event.title }}</h2>
   <div class="event-info">
-    <p>{{ event?.description }}</p>
-    <p>{{ event?.startDate }} </p>
-    <p>{{ event?.city }}</p>
+    <p>{{ event.description }}</p>
+    <p>{{ event.startDate | date }} </p>
+    <p>{{ event.city }}</p>
   </div>
-  <!-- <a class="edit" [routerLink]="'editEvent/' + [event._id]">Edit</a> -->
 </div>
 
 <div class="event">
   <h2>User</h2>
   <div class="event-info">
-    <p>{{ event?.user[0].email }}</p>
-    <p>{{ event?.user[0].fullName }}</p>
-    <p>{{ event?.user[0].address }}</p>
-    <p>{{ event?.user[0].town }}</p>
+    <p>{{ event.user[0].email }}</p>
+    <p>{{ event.user[0].fullName }}</p>
+    <p>{{ event.user[0].addressLine1 }}</p>
+    <p>{{ event.user[0].addressLine2 }}</p>
+    <p>{{ event.user[0].town }}</p>
   </div>
 </div>

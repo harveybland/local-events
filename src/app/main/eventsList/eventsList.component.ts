@@ -4,16 +4,15 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-eventsList',
   templateUrl: './eventsList.component.html',
-  styleUrls: ['./eventsList.component.scss']
+  styleUrls: ['./eventsList.component.scss'],
 })
 export class EventsListComponent implements OnInit {
-
   event$ = this._mainService.event$;
+  view = false;
 
-  constructor(private _mainService: MainService) { }
+  constructor(private _mainService: MainService) {}
 
   ngOnInit() {
     this._mainService.getEvents().subscribe();
   }
-
 }

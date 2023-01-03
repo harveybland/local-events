@@ -8,14 +8,14 @@
   <form class="form-card" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="col col-2">
       <div>
-        <label for="title">Business name</label>
+        <label for="title">Business Name</label>
         <input name="businessName" id="BusinessName" formControlName="businessName" class="input"
           placeholder="Business Name" />
       </div>
     </div>
     <div class="col col-2">
       <div>
-        <label for="title">Full name</label>
+        <label for="title">Full Name</label>
         <input name="fullName" formControlName="fullName" id="fullName" class="input" placeholder="Full Name" />
       </div>
     </div>
@@ -27,9 +27,16 @@
     </div>
     <div class="col col-3">
       <div>
-        <label for="email">Address</label>
-        <textarea name="address" formControlName="address" class="input" placeholder="address" cols="30" rows="5"
-          type="textarea"></textarea>
+        <label for="email">Address Line 1</label>
+        <input name="addressLine1" formControlName="addressLine1" id="addressLine1" class="input"
+          placeholder="Address Line 1" />
+      </div>
+    </div>
+    <div class="col col-3">
+      <div>
+        <label for="email">Address Line 2</label>
+        <input name="addressLine2" formControlName="addressLine2" id="addressLine2" class="input"
+          placeholder="Address Line 2" />
       </div>
     </div>
     <div class="col col-3">

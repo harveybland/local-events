@@ -1,15 +1,23 @@
-<div class="event-list">
-    <div class="event">
-        <h2>{{ events.title }}</h2>
-        <div class="text">
-            <div>
-                <p>{{ events.description }} </p>
-                <p> {{ events.city}}</p>
-                <p> {{ events.endDate | date }}</p>
-            </div>
-            <div>
-                <a [routerLink]="[events._id]">View</a>
-            </div>
+<h2>{{ events.title }}</h2>
+<div class="text">
+    <div>
+        <p>Location: {{ events.city}}</p>
+        <div class="flex">
+            <p>Start Date: {{ events.startDate | date }}</p>
+            <p *ngIf="events.endDate"> - End Time:{{ events.endDate | date }}</p>
         </div>
+        <div class="flex">
+            <p>Start Time: {{ events.startTime }}</p>
+            <p *ngIf="events.endTime"> - End Time: {{ events.endTime }}</p>
+        </div>
+        <div>
+            <p *ngIf="events.age" class="age">{{ events.age }}</p>
+        </div>
+    </div>
+    <div>
+        <a *ngIf="eventType != 3 && 2" class="edit" [routerLink]="'editEvent/' + [events._id]">Edit</a>
+        <button *ngIf="eventType == 1" class="delete" (click)="deleteEvent(events)">Delete</button>
+        <a *ngIf="eventType != 3" [routerLink]="'viewEvent/' + [events._id]">View</a>
+        <a *ngIf="eventType == 3" [routerLink]="[events._id]">View</a>
     </div>
 </div>

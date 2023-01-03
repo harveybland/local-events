@@ -13,6 +13,7 @@ export class EventComponent implements OnInit, OnDestroy {
   userId: any;
   eventId: any;
   event: any;
+  date: any;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -33,6 +34,8 @@ export class EventComponent implements OnInit, OnDestroy {
           return this._mainService.getEvent(id).pipe(
             tap((model: any) => {
               this.event = model;
+              this.date = model.startDate;
+              console.log(this.date);
               // let updateViews = {
               //   viewed: this.event.viewed + 1,
               // };

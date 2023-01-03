@@ -3,60 +3,17 @@
     <h1>Upcoming Events</h1>
   </div>
   <div class="event-list">
-    <div *ngFor="let item of myEvents$ | async" class="event">
-      <h2>{{ item.title }}</h2>
-      <div class="text">
-        <div>
-          <p>Location: {{ item.city}}</p>
-          <div class="flex">
-            <p>Start Date: {{ item.startDate | date }}</p>
-            <p *ngIf="item.endDate">End Date:{{ item.endDate | date }}</p>
-          </div>
-          <div class="flex">
-            <p *ngIf="item.startTime">Start Time: {{ item.startTime }}</p>
-            <p *ngIf="item.endTime">End Time: {{ item.endTime }}</p>
-          </div>
-          <div>
-            <p *ngIf="item.age">Age: {{ item.age }}</p>
-          </div>
-        </div>
-        <div>
-          <a class="edit" [routerLink]="'editEvent/' + [item._id]">Edit</a>
-          <button class="delete" (click)="deleteEvent(item)">Delete</button>
-          <a [routerLink]="'viewEvent/' + [item._id]">View</a>
-        </div>
-      </div>
-    </div>
+    <app-event-list *ngFor="let item of myEvents$ | async" [events]="item" [eventType]="1"
+      class="event"></app-event-list>
     <div *ngIf="!(myEvents$ | async)?.length">
       <div>You have no upcoming Events</div>
     </div>
   </div>
-  <!-- <app-event-list *ngFor="let item of pastEvents$ | async" [events]="item" ></app-event-list> -->
+
   <h1>Past Events</h1>
   <div class="event-list">
-    <div *ngFor="let item of pastEvents$ | async" class="event">
-      <h2>{{ item.title }}</h2>
-      <div class="text">
-        <div>
-          <p>Location: {{ item.city}}</p>
-          <div class="flex">
-            <p>Start Date: {{ item.startDate | date }}</p>
-            <p *ngIf="item.endDate"> - End Time:{{ item.endDate | date }}</p>
-          </div>
-          <div class="flex">
-            <p>Start Time: {{ item.startTime }}</p>
-            <p *ngIf="item.endTime"> - End Time: {{ item.endTime }}</p>
-          </div>
-          <div>
-            <p *ngIf="item.age">Age: {{ item.age }}</p>
-          </div>
-        </div>
-        <div>
-          <a class="edit" [routerLink]="'editEvent/' + [item._id]">Edit</a>
-          <a [routerLink]="'viewEvent/' + [item._id]">View</a>
-        </div>
-      </div>
-    </div>
+    <app-event-list *ngFor="let item of pastEvents$ | async" [events]="item" [eventType]="2"
+      class="event"></app-event-list>
     <div *ngIf="!(pastEvents$ | async)?.length">
       <div>You have no past Events</div>
     </div>

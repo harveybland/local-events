@@ -8,11 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class EventListComponent implements OnInit {
   @Input() events: EventModal;
+  @Input() eventType: number;
 
   constructor() {}
 
-  ngOnInit() {
-    console.log(this.events);
-    console.log(1);
+  ngOnInit() {}
+
+  deleteEvent(model: EventModal) {
+    // model._id;
+    // this._userProfileService.deleteEvent(model).subscribe();
   }
 }

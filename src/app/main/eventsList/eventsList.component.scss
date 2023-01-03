@@ -2,6 +2,13 @@
   display: flex;
   justify-content: flex-end;
   padding: 30px 0 20px;
+  .viewBtn {
+    cursor: pointer;
+    border: 1px solid #000;
+    padding: 10px;
+    background-color: #fff;
+    margin-right: 10px;
+  }
 }
 
 .event-list {
@@ -9,6 +16,9 @@
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   margin: 10px 0 30px;
+  &.full {
+    grid-template-columns: 1fr;
+  }
   .event {
     box-shadow: 0 4px 5px #00000021;
     border-radius: 8px;

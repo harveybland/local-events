@@ -1,3 +1,4 @@
+import { ComponentsModule } from './../core/modules/components.module';
 import { MaterialModule } from './../core/modules/material.module';
 import { SearchComponent } from './search/search.component';
 import { HomeComponent } from './home/home.component';
@@ -46,6 +47,7 @@ const routes: Routes = [
     ThirdPartyModule,
     CoreModule,
     MaterialModule,
+    ComponentsModule,
     RouterModule.forChild(routes),
   ],
   declarations: [
@@ -53,6 +55,7 @@ const routes: Routes = [
     EventsListComponent,
     HomeComponent,
     SearchComponent,
+    EventComponent,
   ],
 })
 export class MainModule {}
