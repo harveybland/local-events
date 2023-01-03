@@ -19,7 +19,7 @@
 .col {
   margin-bottom: 10px;
   margin-right: 20px;
-  label {
+  label:nth-child(1) {
     color: #808191;
     position: relative;
     top: -5px;

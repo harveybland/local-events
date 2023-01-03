@@ -127,7 +127,18 @@ export class UserProfileService {
   }
 
   getCategorys() {
-    this.category = ['Music/Entertainment', 'Private Event', 'Other'];
+    this.category = [
+      'Conferences',
+      'Concerts',
+      'Community',
+      'Festivals',
+      'Performing Arts',
+      'Sports',
+      'Trade shows and expos',
+      'Workshops',
+      'VIP experiences',
+      'Other',
+    ];
     return of(this.category);
   }
 }

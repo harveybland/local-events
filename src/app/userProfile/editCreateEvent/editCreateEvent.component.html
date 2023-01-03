@@ -4,7 +4,7 @@
   </div>
   <div class="col col-2">
     <div>
-      <label for="title">Event name *</label>
+      <label for="title">Event Name *</label>
       <input name="title" formControlName="title" id="title" class="input" placeholder="Event name" />
     </div>
   </div>
@@ -12,7 +12,7 @@
   <div class="col-9"></div>
 
   <div class="col col-3">
-    <label>Category</label>
+    <label>Category *</label>
     <ng-select [items]="category$ | async" bindLabel="category" formControlName="category" placeholder="Pick a category"
       [clearable]="true" bindValue="id">
     </ng-select>
@@ -25,9 +25,15 @@
   </div>
 
   <div class="col col-3">
-    <label for="Address">Address *</label>
-    <textarea name="Address" formControlName="address" class="input" placeholder="Address" cols="30" rows="5"
-      type="textarea"></textarea>
+    <label for="Address">Address Line 1 *</label>
+    <input name="addressLine1" formControlName="addressLine1" id="addressLine1" class="input"
+      placeholder="Address Line 1" />
+  </div>
+
+  <div class="col col-3">
+    <label for="Address">Address Line 2 *</label>
+    <input name="addressLine2" formControlName="addressLine2" id="addressLine2" class="input"
+      placeholder="Address Line 2" />
   </div>
 
   <div class="col col-3">

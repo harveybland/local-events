@@ -3,33 +3,25 @@
     <h2>Search Event</h2>
   </div>
   <div class="col col-2">
-    <div>
-      <input name="title" formControlName="title" id="title" class="input" placeholder="Event name" />
-    </div>
+    <label>Event Name</label>
+    <input name="title" formControlName="title" id="title" class="input" placeholder="Event name" />
   </div>
 
   <div class="col col-3">
-    <label class="input-wrapper">
-      <ng-select [items]="category$ | async" bindLabel="category" formControlName="category"
-        placeholder="Pick a category" [clearable]="true" bindValue="id">
-      </ng-select>
-    </label>
+    <label>Category</label>
+    <ng-select [items]="category$ | async" bindLabel="category" formControlName="category" placeholder="Pick a category"
+      [clearable]="true" bindValue="id">
+    </ng-select>
   </div>
 
 
   <div class="col col-2">
-    <div>
-      <input name="city" formControlName="city" id="city" class="input" placeholder="Town/City" />
-    </div>
+    <label>City</label>
+    <input name="city" formControlName="city" id="city" class="input" placeholder="Town/City" />
   </div>
 
-  <!-- <div class="col col-1">
-    <div>
-      <input name="Age" formControlName="age" id="age" class="input" placeholder="Age" />
-    </div>
-  </div> -->
-
   <div class="col col-3">
+    <label for="">Start Date</label>
     <label class="input">
       <input type="text" formControlName="startDate" placeholder="dd/mm/yyyy" id="startDate"
         [matDatepicker]="picker1" />
@@ -37,15 +29,6 @@
       <mat-datepicker #picker1></mat-datepicker>
     </label>
   </div>
-
-  <!-- <div class="col col-2">
-    <label class="input">
-      <input matInput type="text" formControlName="endDate" placeholder="dd/mm/yyyy" id="endDate"
-        [matDatepicker]="picker2" />
-      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
-    </label>
-  </div> -->
 
   <div class="col col-12">
     <button class="btn btn-b" type="submit">Search</button>
