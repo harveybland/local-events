@@ -1,3 +1,4 @@
+import { UserProfileService } from './../../../userProfile/userProfile.service';
 import { EventModal } from './../../interface/user.model';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -10,12 +11,12 @@ export class EventListComponent implements OnInit {
   @Input() events: EventModal;
   @Input() eventType: number;
 
-  constructor() {}
+  constructor(private _userProfileService: UserProfileService) {}
 
   ngOnInit() {}
 
   deleteEvent(model: EventModal) {
-    // model._id;
-    // this._userProfileService.deleteEvent(model).subscribe();
+    model._id;
+    this._userProfileService.deleteEvent(model).subscribe();
   }
 }

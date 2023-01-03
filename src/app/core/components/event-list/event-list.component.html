@@ -11,7 +11,10 @@
             <p *ngIf="events.endTime"> - End Time: {{ events.endTime }}</p>
         </div>
         <div>
-            <p *ngIf="events.age" class="age">{{ events.age }}</p>
+            <!-- <p *ngIf="events.age" class="age" [ngClass]="{
+                'positive' : events.age > 0,
+                'negative' : events.age < 18
+             }">{{ events.age }}</p> -->
         </div>
     </div>
     <div>

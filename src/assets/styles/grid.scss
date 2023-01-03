@@ -24,9 +24,11 @@
     position: relative;
     top: -5px;
   }
-  &-n-m {
-    margin: 0;
-  }
+}
+
+.col-0 {
+  display: none;
+  margin: 0;
 }
 
 .col-2 {
@@ -66,5 +68,11 @@
   h2 {
     color: #808191;
     margin: 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .col-3 {
+    grid-column: span 6;
   }
 }

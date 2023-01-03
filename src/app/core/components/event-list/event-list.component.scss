@@ -19,12 +19,19 @@ h2 {
     padding: 0 10px 0px 0;
   }
   .age {
-    padding: 10px;
-    background-color: #808191;
+    padding: 18px 10px;
+    color: #fff;
     border-radius: 50%;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 60px;
-    height: 40px;
+    &.position {
+      background-color: #ff7551;
+    }
+    &.negative {
+      background-color: #31abbd;
+    }
   }
   button {
     background-color: #31abbd;
@@ -34,7 +41,7 @@ h2 {
     font-size: 1rem;
     cursor: pointer;
     &.delete {
-      background-color: #ff0000;
+      background-color: #d22b2b;
       margin-right: 10px;
     }
   }

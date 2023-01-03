@@ -46,8 +46,15 @@
     <input name="Age" formControlName="age" id="age" class="input" placeholder="Age" />
   </div>
 
-  <div class="col col-12 col-n-m">
+  <div class="col col-6"></div>
+
+  <div class="col col-6">
     <button class="btn btn-o" (click)="endDate()" type="button">{{ !hasEndDate ? "Add End Date" : "Remove End Date"
+      }}</button>
+  </div>
+
+  <div class="col col-6">
+    <button class="btn btn-o" (click)="endTime()" type="button">{{ !hasEndTime ? "Add End Time" : "Remove End Time"
       }}</button>
   </div>
 
@@ -61,6 +68,8 @@
     </label>
   </div>
 
+  <div class="col" [ngClass]="!hasEndDate ? 'col-3' : 'col-0'"></div>
+
   <div class="col col-3" *ngIf="hasEndDate">
     <label>End Date</label>
     <label class="input">
@@ -71,10 +80,7 @@
     </label>
   </div>
 
-  <div class="col col-12 col-n-m">
-    <button class="btn btn-o" (click)="endTime()" type="button">{{ !hasEndTime ? "Add End Time" : "Remove End Time"
-      }}</button>
-  </div>
+
 
   <div class="col col-3">
     <div>

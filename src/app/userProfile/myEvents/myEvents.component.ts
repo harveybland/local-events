@@ -7,28 +7,23 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-myEvents',
   templateUrl: './myEvents.component.html',
-  styleUrls: ['./myEvents.component.scss']
+  styleUrls: ['./myEvents.component.scss'],
 })
 export class MyEventsComponent implements OnInit {
-
-  myEvents$ = this._userProfileService.myEvents$
-  pastEvents$ = this._userProfileService.pastEvents$
+  myEvents$ = this._userProfileService.myEvents$;
+  pastEvents$ = this._userProfileService.pastEvents$;
 
   userId: any;
 
-  constructor(private _userProfileService: UserProfileService,
+  constructor(
+    private _userProfileService: UserProfileService,
     private _jwtService: JwtStorageService,
-    public _router: Router) { }
+    public _router: Router
+  ) {}
 
   ngOnInit() {
     let Id = this._jwtService.getUserId();
     this.userId = Id;
     this._userProfileService.userEvents(this.userId).subscribe();
   }
-
-  deleteEvent(model: EventModal) {
-    model._id;
-    this._userProfileService.deleteEvent(model).subscribe();
-  }
-
 }
