@@ -1,15 +1,15 @@
-<!-- <div class="event-list">
-  <div *ngFor="let item of event$ | async" class="event">
-      <h2>{{ item.title }}</h2>
-      <div class="text">
-          <div>
-              <p>{{ item.description }} </p>
-              <p> {{ item.city}}</p>
-              <p> {{ item.endDate | date }}</p>
-          </div>
-          <div>
-              <a [routerLink]="[item._id]">View</a>
-          </div>
-      </div>
-  </div>
-</div> -->
+<div class="event-list">
+    <div class="event">
+        <h2>{{ events.title }}</h2>
+        <div class="text">
+            <div>
+                <p>{{ events.description }} </p>
+                <p> {{ events.city}}</p>
+                <p> {{ events.endDate | date }}</p>
+            </div>
+            <div>
+                <a [routerLink]="[events._id]">View</a>
+            </div>
+        </div>
+    </div>
+</div>

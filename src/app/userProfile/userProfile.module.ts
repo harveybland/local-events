@@ -1,3 +1,4 @@
+import { ComponentsModule } from './../core/modules/components.module';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { ViewEventComponent } from './viewEvent/viewEvent.component';
 import { EditCreateEventComponent } from './editCreateEvent/editCreateEvent.component';
@@ -19,34 +20,34 @@ const routes: Routes = [
     children: [
       {
         path: 'profile',
-        component: ProfileComponent
+        component: ProfileComponent,
       },
       {
         path: 'myEvents',
-        component: MyEventsComponent
+        component: MyEventsComponent,
       },
       {
         path: 'favourites',
-        component: FavouritesComponent
+        component: FavouritesComponent,
       },
       {
         path: 'myEvents/createEvent',
-        component: EditCreateEventComponent
+        component: EditCreateEventComponent,
       },
       {
         path: 'myEvents/editEvent/:id',
-        component: EditCreateEventComponent
+        component: EditCreateEventComponent,
       },
       {
         path: 'myEvents/viewEvent/:id',
-        component: ViewEventComponent
+        component: ViewEventComponent,
       },
       {
         path: '**',
-        redirectTo: 'profile'
-      }
-    ]
-  }
+        redirectTo: 'profile',
+      },
+    ],
+  },
 ];
 
 @NgModule({
@@ -55,7 +56,8 @@ const routes: Routes = [
     CoreModule,
     ThirdPartyModule,
     MaterialModule,
-    RouterModule.forChild(routes)
+    ComponentsModule,
+    RouterModule.forChild(routes),
   ],
   declarations: [
     UserProfileComponent,
@@ -63,7 +65,7 @@ const routes: Routes = [
     MyEventsComponent,
     EditCreateEventComponent,
     ViewEventComponent,
-    FavouritesComponent
-  ]
+    FavouritesComponent,
+  ],
 })
-export class UserProfileModule { }
+export class UserProfileModule {}
