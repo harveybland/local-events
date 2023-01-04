@@ -7,13 +7,13 @@
   background-color: #fff;
   border-radius: 12px;
 
-  @media only screen and (max-width: 960px) {
-    grid-template-columns: repeat(8, 1fr);
-  }
+  // @media only screen and (max-width: 960px) {
+  //   grid-template-columns: repeat(8, 1fr);
+  // }
 
-  @media only screen and (max-width: 700px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
+  // @media only screen and (max-width: 700px) {
+  //   grid-template-columns: repeat(1, 1fr);
+  // }
 }
 
 .col {
@@ -72,7 +72,19 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .col-2 {
+    grid-column: span 6;
+  }
   .col-3 {
     grid-column: span 6;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .col-2 {
+    grid-column: span 12;
+  }
+  .col-3 {
+    grid-column: span 12;
   }
 }

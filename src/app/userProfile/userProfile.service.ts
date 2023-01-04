@@ -121,9 +121,11 @@ export class UserProfileService {
   }
 
   getFavourites(id: any) {
-    return this.http
-      .get<any[]>(this._configService.favourites(id))
-      .pipe(map((resp) => {}));
+    return this.http.get<any[]>(this._configService.favourites(id)).pipe(
+      map((resp) => {
+        console.log(resp);
+      })
+    );
   }
 
   getCategorys() {
