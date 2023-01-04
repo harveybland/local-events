@@ -11,10 +11,20 @@ h2 {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 5px #00000021;
+    position: relative;
     a {
       color: #fff;
       h3 {
         font-size: 1.4rem;
+      }
+    }
+    button {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+      span {
+        color: #fff;
       }
     }
   }
@@ -35,8 +45,18 @@ h2 {
     border-radius: 10px;
     background-color: #252936;
     box-shadow: 0 4px 5px #00000021;
+    position: relative;
     a {
       color: #fff;
+    }
+    button {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+      span {
+        color: #fff;
+      }
     }
   }
 }

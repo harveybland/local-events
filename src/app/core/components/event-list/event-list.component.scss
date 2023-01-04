@@ -1,13 +1,26 @@
-h2 {
-  background-color: #fff;
+.title {
   padding: 5px 10px;
   border-radius: 8px 8px 0 0;
-  margin: 0;
   font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background: #444;
-  color: #eee;
-  font-weight: 500;
+
+  h2 {
+    margin: 0;
+    color: #eee;
+    font-weight: 500;
+  }
+
+  button {
+    cursor: pointer;
+    span {
+      color: #fff;
+    }
+  }
 }
+
 .text {
   background: #fff;
   color: #000;

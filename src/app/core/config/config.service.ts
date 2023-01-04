@@ -1,68 +1,70 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ConfigService {
-
-  constructor() { }
+  constructor() {}
 
   // url = 'https://oneventsapi.azurewebsites.net/api/'
-  url = 'http://localhost:8080/api/'
+  url = 'http://localhost:8080/api/';
 
   // Account
   register() {
-    return `${this.url}register`
+    return `${this.url}register`;
   }
 
   login() {
-    return `${this.url}authenticate`
+    return `${this.url}authenticate`;
   }
 
   // Profile
   userProfile() {
-    return `${this.url}userprofile`
+    return `${this.url}userprofile`;
   }
 
   editProfile(id: string) {
-    return `${this.url}editProfile/${id}`
+    return `${this.url}editProfile/${id}`;
   }
 
   userEvents(id: string) {
-    return `${this.url}userEvents/${id}`
+    return `${this.url}userEvents/${id}`;
   }
 
   createEvents() {
-    return `${this.url}createEvent`
+    return `${this.url}createEvent`;
   }
 
   deleteEvent(id: string) {
-    return `${this.url}deleteEvent/${id}`
+    return `${this.url}deleteEvent/${id}`;
   }
 
   favourites(id: any) {
-    return `${this.url}getFavourite/${id}`
+    return `${this.url}getFavourite/${id}`;
+  }
+
+  addFavourites(userId: any, eventId: any) {
+    return `${this.url}addFavourite/${userId}/${eventId}`;
   }
 
   // All events
   events() {
-    return `${this.url}events`
+    return `${this.url}events`;
   }
 
   get searchEvent() {
-    return `${this.url}searchEvent?`
+    return `${this.url}searchEvent?`;
   }
 
   event(id: string) {
-    return `${this.url}event/${id}`
+    return `${this.url}event/${id}`;
   }
 
   editEvent(id: any) {
-    return `${this.url}editEvent/${id}`
+    return `${this.url}editEvent/${id}`;
   }
 
   editViews(id: any) {
-    return `${this.url}views/${id}`
+    return `${this.url}views/${id}`;
   }
-
 }

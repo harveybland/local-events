@@ -1,4 +1,10 @@
-<h2>{{ events.title }}</h2>
+<div class="title">
+    <h2>{{ events.title }}</h2>
+    <button *ngIf="eventType != 4" (click)="favourite(events._id)"><span
+            class="material-icons">favorite_border</span></button>
+    <button *ngIf="eventType == 4" (click)="removeFavourite(favouritedata._id)"><span
+            class="material-icons">favorite</span></button>
+</div>
 <div class="text">
     <div>
         <p>Location: {{ events.city}}</p>
@@ -18,7 +24,7 @@
         </div>
     </div>
     <div>
-        <a *ngIf="eventType != 3 && 2" class="edit" [routerLink]="'editEvent/' + [events._id]">Edit</a>
+        <a *ngIf="eventType != 3 || 4" class="edit" [routerLink]="'editEvent/' + [events._id]">Edit</a>
         <button *ngIf="eventType == 1" class="delete" (click)="deleteEvent(events)">Delete</button>
         <a *ngIf="eventType != 3" [routerLink]="'viewEvent/' + [events._id]">View</a>
         <a *ngIf="eventType == 3" [routerLink]="[events._id]">View</a>

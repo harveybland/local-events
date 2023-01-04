@@ -27,9 +27,6 @@
     }
 
     .event-list .event {
-      h2 {
-        background: #31abbd !important;
-      }
       .text {
         background: #252936 !important;
         color: #fff !important;
@@ -48,6 +45,7 @@
     // search
     .form-card {
       background: #252936 !important;
+      // border: 1px solid #31abbd;
     }
 
     .search-list {
@@ -58,6 +56,9 @@
     .profile {
       border: 1px solid #31abbd;
       background: #252936;
+      &.delete {
+        border: 1px solid #d22b2b;
+      }
     }
     .account {
       border: 1px solid #31abbd;
@@ -71,6 +72,12 @@
     }
     .btn-b {
       border: 1px solid #31abbd;
+    }
+    .btn-o {
+      border: 1px solid #ff7551;
+    }
+    .btn-r {
+      border: 1px solid #d22b2b;
     }
   }
 }

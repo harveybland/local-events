@@ -125,10 +125,22 @@ export class UserProfileService {
       );
   }
 
+  addFavourites(userId: any, eventId: any) {
+    return this.http
+      .post<EventFav[]>(
+        this._configService.addFavourites(userId, eventId),
+        null
+      )
+      .pipe(
+        map((resp) => {
+          this._favEvents$.next(resp);
+        })
+      );
+  }
+
   getFavourites(id: any) {
     return this.http.get<EventFav[]>(this._configService.favourites(id)).pipe(
       map((resp) => {
-        console.log(resp);
         this._favEvents$.next(resp);
       })
     );

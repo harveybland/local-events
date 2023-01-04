@@ -35,7 +35,6 @@ export class EventComponent implements OnInit, OnDestroy {
             tap((model: any) => {
               this.event = model;
               this.date = model.startDate;
-              console.log(this.date);
               // let updateViews = {
               //   viewed: this.event.viewed + 1,
               // };

@@ -47,12 +47,21 @@
     </div>
     <div class="col col-12 col-n-m">
       <div class="flex flex-center">
-        <button type="submit" class="btn m-r">Update</button>
+        <button type="submit" class="btn btn-o m-r">Update</button>
         <button type="button" class="btn btn-b" (click)="onLogout()">Log out</button>
       </div>
     </div>
   </form>
   <div *ngIf="update">
     Updated Successful
+  </div>
+</div>
+
+<div class="profile delete" *ngIf="userDetails">
+  <div class="title">
+    <h2>Delete Profile</h2>
+  </div>
+  <div class="flex flex-center">
+    <button type="button" class="btn btn-r" (click)="onLogout()">Delete Account</button>
   </div>
 </div>
