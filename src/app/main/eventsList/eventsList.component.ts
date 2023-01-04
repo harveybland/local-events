@@ -24,6 +24,7 @@ export class EventsListComponent implements OnInit {
   constructor(private _mainService: MainService) {}
 
   ngOnInit() {
+    window.scroll(0, 0);
     this._mainService.getEvents().subscribe();
 
     this.controlSubscription = new Subscription();

@@ -22,6 +22,7 @@ export class MyEventsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    window.scroll(0, 0);
     let Id = this._jwtService.getUserId();
     this.userId = Id;
     this._userProfileService.userEvents(this.userId).subscribe();

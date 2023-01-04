@@ -7,6 +7,7 @@ import {
   User,
   UpdateUser,
   updateEvent,
+  EventFav,
 } from './../core/interface/user.model';
 import { ConfigService } from './../core/config/config.service';
 import { StorageService } from './../core/service/storage.service';
@@ -24,6 +25,10 @@ export class UserProfileService {
   private _pastEvents: EventModal[] = [];
   private _pastEvents$ = new BehaviorSubject<EventModal[]>(this._pastEvents);
   pastEvents$ = this._pastEvents$.asObservable();
+
+  private _favEvents: EventFav[] = [];
+  private _favEvents$ = new BehaviorSubject<EventFav[]>(this._favEvents);
+  favEvents$ = this._favEvents$.asObservable();
 
   category: string[];
 
@@ -121,9 +126,10 @@ export class UserProfileService {
   }
 
   getFavourites(id: any) {
-    return this.http.get<any[]>(this._configService.favourites(id)).pipe(
+    return this.http.get<EventFav[]>(this._configService.favourites(id)).pipe(
       map((resp) => {
         console.log(resp);
+        this._favEvents$.next(resp);
       })
     );
   }

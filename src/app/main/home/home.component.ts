@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   getLocation(): void {
+    window.scroll(0, 0);
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         const longitude = position.coords.longitude;

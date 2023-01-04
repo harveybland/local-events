@@ -1,3 +1,10 @@
-<p>
-  favourites works!
-</p>
+<section>
+  <h1>Past Events</h1>
+  <div class="event-list">
+    <app-event-list *ngFor="let item of favEvents$ | async" [events]="item.event" [eventType]="2"
+      class="event"></app-event-list>
+    <div *ngIf="!(favEvents$ | async)?.length">
+      <div>You have no past Events</div>
+    </div>
+  </div>
+</section>

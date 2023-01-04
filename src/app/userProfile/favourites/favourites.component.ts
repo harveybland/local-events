@@ -8,14 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./favourites.component.scss'],
 })
 export class FavouritesComponent implements OnInit {
+  userId: any;
+
+  favEvents$ = this._userProfileService.favEvents$;
+
   constructor(
     private _userProfileService: UserProfileService,
     private _jwtService: JwtStorageService
   ) {}
 
-  userId: any;
-
   ngOnInit() {
+    window.scroll(0, 0);
     let Id = this._jwtService.getUserId();
     this.userId = Id;
     this._userProfileService.getFavourites(this.userId).subscribe();
