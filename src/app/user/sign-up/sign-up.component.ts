@@ -7,30 +7,25 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
-
-  email = new FormControl('', [
-    Validators.required,
-    Validators.email
-  ]);
-  password = new FormControl('', [
-    Validators.required
-  ]);
+  email = new FormControl('', [Validators.required, Validators.email]);
+  password = new FormControl('', [Validators.required]);
 
   signUpForm: FormGroup = new FormGroup({
     email: this.email,
-    password: this.password
+    password: this.password,
   });
 
   showSucessMessage: boolean;
   serverErrorMessages: string;
 
-  constructor(private _userService: UserService,
+  constructor(
+    private _userService: UserService,
     private _jwtService: JwtStorageService,
     public _router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     if (this._jwtService.isLoggedIn()) {
@@ -40,19 +35,21 @@ export class SignUpComponent implements OnInit {
 
   onSubmit() {
     let model = this.userModel();
-    this._userService.create(model).subscribe(res => {
-      return this._userService.login(model).subscribe(res => {
-        this._jwtService.setToken(res['token']);
-        this._router.navigateByUrl('/ui/profile');
-      })
-    },
-      err => {
+    this._userService.create(model).subscribe(
+      (res) => {
+        return this._userService.login(model).subscribe((res) => {
+          this._jwtService.setToken(res['token']);
+          this._router.navigateByUrl('/ui/profile');
+        });
+      },
+      (err) => {
         if (err.status === 422) {
           this.serverErrorMessages = err.error.join('<br/>');
-        }
-        else
-          this.serverErrorMessages = 'Something went wrong.Please contact admin.';
-      })
+        } else
+          this.serverErrorMessages =
+            'Something went wrong.Please contact admin.';
+      }
+    );
   }
 
   userModel() {
@@ -62,10 +59,10 @@ export class SignUpComponent implements OnInit {
       businessName: null,
       fullName: null,
       number: null,
-      address: null,
+      addressLine1: null,
+      addressLine2: null,
       town: null,
-      profileComplete: false
-    }
+      profileComplete: false,
+    };
   }
-
 }

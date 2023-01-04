@@ -12,6 +12,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserProfileComponent } from './userProfile.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
       {
         path: 'favourites',
         component: FavouritesComponent,
+      },
+      {
+        path: 'calendar',
+        component: CalendarComponent,
       },
       {
         path: 'myEvents/createEvent',
@@ -66,6 +71,7 @@ const routes: Routes = [
     EditCreateEventComponent,
     ViewEventComponent,
     FavouritesComponent,
+    CalendarComponent,
   ],
 })
 export class UserProfileModule {}

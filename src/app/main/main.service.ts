@@ -3,7 +3,7 @@ import { updateViewed } from './../core/interface/user.model';
 import { ConfigService } from './../core/config/config.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, tap, take } from 'rxjs/operators';
 import { EventModal } from 'src/app/core/interface/user.model';
 import { BehaviorSubject } from 'rxjs';
 
@@ -35,6 +35,32 @@ export class MainService {
 
   getEvent(id: string) {
     return this.http.get<EventModal>(this._configService.event(id));
+  }
+
+  private _orderBy$: string = '';
+
+  updateOrderBy(orderBy: string) {
+    this._orderBy$ = orderBy;
+  }
+
+  reorderTalent(val: string) {
+    const results$ = this._event$.pipe(
+      take(1),
+      tap((resp) => {
+        this.reorderTalentChoice(val, resp);
+        this._event$.next(resp);
+      })
+    );
+    return results$;
+  }
+
+  reorderTalentChoice(option: any, resp: EventModal[]) {
+    if (option === 'A - Z') {
+      resp.sort((a, b) => (a.title < b.title ? -1 : 1));
+    }
+    if (option === 'Z - A') {
+      resp.sort((a, b) => (a.title < b.title ? 1 : -1));
+    }
   }
 
   updateViews(id: string, model: updateViewed) {

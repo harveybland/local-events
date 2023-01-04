@@ -1,9 +1,16 @@
 <div>
     <div class="options">
         <button class="viewBtn" (click)="view = !view">View</button>
-        <select name="" id="">
-            <option value="">Sort By</option>
-        </select>
+        <div class="sort">
+            <select [formControl]="sortControl" id="sortBy">
+                <option disabled selected>Sort</option>
+                <option>A - Z</option>
+                <option>Z - A</option>
+                <option>Created</option>
+                <option>Latest</option>
+            </select>
+            <span class="material-icons" translate="no"> arrow_drop_down </span>
+        </div>
     </div>
     <div class="event-list" [ngClass]="view ? 'full' : ''">
         <app-event-list *ngFor="let item of event$ | async" [events]="item" [eventType]="3"
