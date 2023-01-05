@@ -37,6 +37,7 @@ export class EventListComponent implements OnInit {
   }
 
   removeFavourite(favouriteId: any) {
+    console.log(favouriteId);
     this._userProfileService.removeFavourite(favouriteId).subscribe();
   }
 }
