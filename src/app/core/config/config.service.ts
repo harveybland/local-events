@@ -47,6 +47,10 @@ export class ConfigService {
     return `${this.url}addFavourite/${userId}/${eventId}`;
   }
 
+  removeFavourite(eventId: any) {
+    return `${this.url}removeFavourite/${eventId}`;
+  }
+
   // All events
   events() {
     return `${this.url}events`;

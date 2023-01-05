@@ -146,6 +146,16 @@ export class UserProfileService {
     );
   }
 
+  removeFavourite(id: any) {
+    return this.http
+      .delete<EventFav[]>(this._configService.removeFavourite(id))
+      .pipe(
+        map((resp) => {
+          this._favEvents$.next(resp);
+        })
+      );
+  }
+
   getCategorys() {
     this.category = [
       'Conferences',

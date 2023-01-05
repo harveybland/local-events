@@ -1,0 +1,19 @@
+div {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #252936;
+  box-shadow: 0 4px 5px #00000021;
+  position: relative;
+  a {
+    color: #fff;
+  }
+  button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    span {
+      color: #fff;
+    }
+  }
+}
