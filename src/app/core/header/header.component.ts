@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { MainService } from './../../main/main.service';
 import { JwtStorageService } from './../service/jwt-storage.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
@@ -14,11 +15,10 @@ export class HeaderComponent implements OnInit {
 
   menu = false;
 
-  @Output() selectTheme = new EventEmitter();
-
   constructor(
     private _jwtService: JwtStorageService,
-    private _mainService: MainService
+    private _mainService: MainService,
+    private _router: Router
   ) {}
 
   ngOnInit() {
@@ -27,5 +27,8 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  onLogout() {}
+  onLogout() {
+    this._jwtService.deleteToken();
+    this._router.navigate(['/sign-in']);
+  }
 }

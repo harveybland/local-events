@@ -65,28 +65,42 @@ header {
 }
 
 .profile-icon {
-  padding: 6px 8px 6px 8px !important;
+  padding: 3px 6px 3px 8px !important;
   border: 2px solid #31abbd;
-  border-radius: 50%;
+  border-radius: 12px;
   fill: #31abbd;
   position: relative;
   cursor: pointer;
+  width: 100px;
 
-  svg {
-    width: 14px;
-    height: 14px;
-    display: block;
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    svg {
+      width: 14px;
+      height: 14px;
+      display: block;
+      margin-right: 12px;
+    }
+    p {
+      margin: 0;
+      font-size: 0.8rem;
+    }
   }
 
   .menu {
     position: absolute;
-    top: 37px;
+    top: 40px;
     right: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 5px #00000021;
 
     a {
       background-color: #fff;

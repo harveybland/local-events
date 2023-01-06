@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'On Events';
 
+  constructor(@Inject(DOCUMENT) private document: Document) {}
+
   ngOnInit(): void {
-    // let darkMode = false.toString();
-    // window.localStorage.setItem('darkMode', darkMode);
+    let darkmode = window.localStorage.getItem('darkMode');
+    if (darkmode == 'true') {
+      this.document.body.classList.add('dark-theme');
+    } else {
+      this.document.body.classList.remove('dark-theme');
+    }
   }
 }

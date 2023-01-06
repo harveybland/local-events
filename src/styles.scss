@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("https://fonts.googleapis.com/css?family=Poppins");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import "assets/styles/theme.scss";
 @import "assets/styles/grid.scss";
 @import "assets/styles/input.scss";
@@ -9,16 +9,21 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
 html {
   margin: 0;
+  // font-family: "Poppins", sans-serif;
 }
 
 body {
   font-family: "Poppins", sans-serif;
   height: 98vh;
   // background-color: #1f1d2b;
+}
+
+.material-icons {
 }
 
 button {
@@ -89,6 +94,10 @@ label.validation-message {
 
 .flex-center {
   justify-content: center;
+}
+
+.flex-a-c {
+  align-items: center;
 }
 
 html,

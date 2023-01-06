@@ -22,6 +22,28 @@
       }
     }
 
+    .profile-icon .menu {
+      a {
+        background-color: #fff !important;
+        color: #252936 !important;
+      }
+      a:hover {
+        background-color: #ff7551;
+      }
+    }
+
+    .profile--active {
+      background-color: #31abbd !important;
+      color: #fff !important;
+      fill: #fff;
+    }
+
+    .settings {
+      h2 {
+        color: #fff;
+      }
+    }
+
     .body {
       background-color: #1f1d2b;
     }
