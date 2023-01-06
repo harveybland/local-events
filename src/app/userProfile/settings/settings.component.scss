@@ -26,12 +26,13 @@
       margin-bottom: 12px;
       div {
         display: grid;
-        grid-template-columns: 160px 160px;
+        grid-template-columns: 160px 150px;
         align-items: center;
       }
     }
     h2 {
       margin: 0 10px 0 0;
+      font-size: 1.1rem;
     }
   }
 }

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AnimationService } from './../../core/service/animation.service';
 import { MainService } from './../main.service';
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +17,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private _mainService: MainService,
-    private _animation: AnimationService
+    private _animation: AnimationService,
+    private _router: Router
   ) {}
 
   ngOnInit() {
@@ -36,6 +38,15 @@ export class HomeComponent implements OnInit {
     } else {
       console.log('No support for geolocation');
     }
+  }
+
+  favourite() {
+    // let userId = this._jwtService.getUserId();
+    // if (!userId) {
+    this._router.navigateByUrl('/sign-in');
+    // } else {
+    //   this._userProfileService.addFavourites(userId, eventId).subscribe();
+    // }
   }
 
   callApi(Longitude: number, Latitude: number) {

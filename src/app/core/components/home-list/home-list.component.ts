@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { EventModal } from 'src/app/core/interface/user.model';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -9,7 +10,16 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HomeListComponent implements OnInit {
   @Input() event: EventModal;
 
-  constructor() {}
+  constructor(private _router: Router) {}
 
   ngOnInit() {}
+
+  favourite() {
+    // let userId = this._jwtService.getUserId();
+    // if (!userId) {
+    this._router.navigateByUrl('/sign-in');
+    // } else {
+    //   this._userProfileService.addFavourites(userId, eventId).subscribe();
+    // }
+  }
 }
