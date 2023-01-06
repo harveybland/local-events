@@ -21,10 +21,10 @@
       true}" *ngIf="!loggedIn">My Events</a>
     <a routerLink="/ui/myEvents/createEvent" routerLinkActive="header--active" [routerLinkActiveOptions]="{exact:
       true}" *ngIf="!loggedIn">Create Event</a>
-    <!-- <a [routerLink]="'/ui/favourites'" class="fav" routerLinkActive #fav="routerLinkActive" *ngIf="!loggedIn">
+    <a [routerLink]="'/ui/favourites'" class="fav" routerLinkActive #fav="routerLinkActive" *ngIf="!loggedIn">
       <span *ngIf="!fav.isActive" class="material-icons">favorite_border</span>
       <span *ngIf="fav.isActive" class="material-icons">favorite</span>
-    </a> -->
+    </a>
     <!-- <a routerLink="/ui/calendar" *ngIf="!loggedIn"><span class="material-icons">
         calendar_month
       </span></a> -->

@@ -82,15 +82,15 @@ export class EventModal {
   startTime?: string;
   endTime?: string;
   isDeleted?: boolean;
-  favourite?: boolean;
+  favourites?: EventModal[];
   viewed: number;
 }
 
-export class EventFav {
-  event: EventModal;
-  _id: string;
-  user: string;
-}
+// export class EventFav {
+//   event: EventModal;
+//   _id: string;
+//   user: string;
+// }
 
 export class updateViewed {
   viewed?: number;
