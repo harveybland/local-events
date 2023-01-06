@@ -7,6 +7,7 @@ export class ConfigService {
   constructor() {}
 
   // url = 'https://oneventsapi.azurewebsites.net/api/'
+  // url = 'https://eventsapi.azurewebsites.net/api/'
   url = 'http://localhost:8080/api/';
 
   // Account
@@ -35,8 +36,8 @@ export class ConfigService {
     return `${this.url}createEvent`;
   }
 
-  deleteEvent(id: string) {
-    return `${this.url}deleteEvent/${id}`;
+  deleteEvent(userId: any, id: string) {
+    return `${this.url}deleteEvent/${userId}/${id}`;
   }
 
   favourites(id: any) {

@@ -69,76 +69,53 @@ header {
   border: 2px solid #31abbd;
   border-radius: 50%;
   fill: #31abbd;
+  position: relative;
+  cursor: pointer;
+
   svg {
     width: 14px;
     height: 14px;
     display: block;
   }
+
+  .menu {
+    position: absolute;
+    top: 37px;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    a {
+      background-color: #fff;
+      width: 100px;
+    }
+
+    button {
+      background-color: #fff;
+      width: 100px;
+      padding: 11px 15px;
+      cursor: pointer;
+    }
+
+    a:hover {
+      background-color: #31abbd !important;
+      color: #fff !important;
+    }
+
+    button:hover {
+      background-color: #ff7551 !important;
+      color: #fff !important;
+    }
+  }
 }
 
 .profile--active {
-  background-color: #31abbd;
+  background-color: #31abbd !important;
   color: #fff !important;
   fill: #fff;
-}
-
-// dark / light mode
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 45px;
-  height: 24px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 19px;
-  width: 18px;
-  left: 4px;
-  bottom: 3px;
-  background-color: white;
-  transition: 0.4s;
-}
-
-input:checked + .slider {
-  background-color: #31abbd;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #31abbd;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(20px);
-  -ms-transform: translateX(20px);
-  transform: translateX(20px);
-}
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
 }
 
 @media screen and (max-width: 1270px) {

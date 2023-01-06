@@ -13,6 +13,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserProfileComponent } from './userProfile.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
       {
         path: 'favourites',
         component: FavouritesComponent,
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent,
       },
       {
         path: 'calendar',
@@ -72,6 +77,7 @@ const routes: Routes = [
     ViewEventComponent,
     FavouritesComponent,
     CalendarComponent,
+    SettingsComponent,
   ],
 })
 export class UserProfileModule {}

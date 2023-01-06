@@ -26,5 +26,6 @@ export class MyEventsComponent implements OnInit {
     let Id = this._jwtService.getUserId();
     this.userId = Id;
     this._userProfileService.userEvents(this.userId).subscribe();
+    // this._userProfileService.combineEvents().subscribe();
   }
 }

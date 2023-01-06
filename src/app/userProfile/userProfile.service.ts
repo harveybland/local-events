@@ -1,5 +1,5 @@
 import { map } from 'rxjs/operators';
-import { BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject, merge, of } from 'rxjs';
 import {
   profile,
   EventModal,
@@ -98,9 +98,9 @@ export class UserProfileService {
       );
   }
 
-  deleteEvent(model: EventModal) {
+  deleteEvent(userId: any, model: EventModal) {
     return this.http
-      .delete<EventModal[]>(this._configService.deleteEvent(model._id))
+      .delete<EventModal[]>(this._configService.deleteEvent(userId, model._id))
       .pipe(
         map((resp) => {
           this.storageService.clearItemTimeoutStorage(
@@ -141,6 +141,7 @@ export class UserProfileService {
   getFavourites(id: any) {
     return this.http.get<EventFav[]>(this._configService.favourites(id)).pipe(
       map((resp) => {
+        console.log(resp);
         this._favEvents$.next(resp);
       })
     );
@@ -155,6 +156,14 @@ export class UserProfileService {
         })
       );
   }
+
+  // combineEvents() {
+  //   return merge(this._favEvents$, this._myEvents$).pipe(
+  //     map((item) => {
+  //       console.log(item);
+  //     })
+  //   );
+  // }
 
   getCategorys() {
     this.category = [

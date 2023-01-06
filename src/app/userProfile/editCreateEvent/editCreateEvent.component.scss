@@ -6,3 +6,8 @@
   border-radius: 4px 4px 0 0;
   padding: 0em 0.75em 0 0.65em !important;
 }
+
+textarea {
+  resize: none;
+  max-height: 85px;
+}

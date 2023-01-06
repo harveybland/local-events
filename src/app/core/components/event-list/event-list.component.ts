@@ -23,8 +23,9 @@ export class EventListComponent implements OnInit {
   ngOnInit() {}
 
   deleteEvent(model: EventModal) {
+    let userId = this._jwtService.getUserId();
     model._id;
-    this._userProfileService.deleteEvent(model).subscribe();
+    this._userProfileService.deleteEvent(userId, model).subscribe();
   }
 
   favourite(eventId: any) {
@@ -37,7 +38,6 @@ export class EventListComponent implements OnInit {
   }
 
   removeFavourite(favouriteId: any) {
-    console.log(favouriteId);
     this._userProfileService.removeFavourite(favouriteId).subscribe();
   }
 }

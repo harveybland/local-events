@@ -43,21 +43,29 @@
     }
 
     // form
+    .col label:nth-child(1) {
+      color: #fff;
+    }
+
     .input {
       background: #252936;
-      color: #687575;
+      color: #fff;
       input {
         background: #252936;
-        color: #687575;
+        color: #fff;
       }
     }
     .ng-select.ng-select-single .ng-select-container {
       background: #252936;
+      color: #fff;
+    }
+    .mat-datepicker-toggle {
+      color: #fff;
     }
 
     .list-text {
       p {
-        color: #687575;
+        color: #fff;
       }
     }
 
@@ -87,14 +95,14 @@
     // options
     .options .viewBtn {
       border: 1px solid #687575 !important;
-      color: #687575;
+      color: #fff;
       background-color: #252936 !important;
     }
 
     .sort select {
       border: 1px solid #687575 !important;
       background: #252936 !important;
-      color: #687575;
+      color: #fff;
     }
 
     // buttons

@@ -1,0 +1,21 @@
+<div class="profile">
+    <div class="title">
+        <h2>Settings</h2>
+    </div>
+    <div class="flex flex-center">
+        Dark Mode
+        <label class="switch">
+            <input type="checkbox" [checked]="checkbox" (change)="darkMode($event)">
+            <span class="slider round"></span>
+        </label>
+    </div>
+</div>
+
+<div class="profile delete">
+    <div class="title">
+        <h2>Delete Profile</h2>
+    </div>
+    <div class="flex flex-center">
+        <button type="button" class="btn btn-r" (click)="delete()">Delete Account</button>
+    </div>
+</div>

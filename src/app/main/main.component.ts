@@ -9,8 +9,4 @@ export class MainComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-
-  public darkMode(mode: any) {
-    console.log(mode);
-  }
 }
