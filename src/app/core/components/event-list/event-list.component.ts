@@ -14,30 +14,32 @@ export class EventListComponent implements OnInit {
   @Input() eventType: number;
   @Input() favouritedata: any;
 
+  userId: any;
+
   constructor(
     private _userProfileService: UserProfileService,
     private _jwtService: JwtStorageService,
     public _router: Router
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userId = this._jwtService.getUserId();
+  }
 
   deleteEvent(model: EventModal) {
-    let userId = this._jwtService.getUserId();
     model._id;
-    this._userProfileService.deleteEvent(userId, model).subscribe();
+    this._userProfileService.deleteEvent(this.userId, model).subscribe();
   }
 
   favourite(eventId: any) {
-    let userId = this._jwtService.getUserId();
-    if (!userId) {
+    if (!this.userId) {
       this._router.navigateByUrl('/sign-in');
     } else {
-      this._userProfileService.addFavourites(userId, eventId).subscribe();
+      this._userProfileService.addFavourites(this.userId, eventId).subscribe();
     }
   }
 
-  removeFavourite(favouriteId: any) {
-    this._userProfileService.removeFavourite(favouriteId).subscribe();
+  removeFavourite(eventId: any) {
+    this._userProfileService.removeFavourite(this.userId, eventId).subscribe();
   }
 }

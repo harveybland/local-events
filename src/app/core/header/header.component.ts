@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { MainService } from './../../main/main.service';
 import { JwtStorageService } from './../service/jwt-storage.service';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   loggedIn: boolean = false;
   profile: boolean = false;
 
-  menu = false;
+  isMenuOpen = false;
 
   constructor(
     private _jwtService: JwtStorageService,

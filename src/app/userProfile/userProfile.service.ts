@@ -147,9 +147,9 @@ export class UserProfileService {
     );
   }
 
-  removeFavourite(id: any) {
+  removeFavourite(userId: any, eventId: any) {
     return this.http
-      .delete<EventFav[]>(this._configService.removeFavourite(id))
+      .delete<EventFav[]>(this._configService.removeFavourite(userId, eventId))
       .pipe(
         map((resp) => {
           this._favEvents$.next(resp);

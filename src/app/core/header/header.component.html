@@ -28,7 +28,7 @@
     <!-- <a routerLink="/ui/calendar" *ngIf="!loggedIn"><span class="material-icons">
         calendar_month
       </span></a> -->
-    <button class="profile-icon" (click)="menu = !menu" *ngIf="!loggedIn">
+    <button class="profile-icon" (click)="isMenuOpen = !isMenuOpen" *ngIf="!loggedIn">
       <span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
           <path
@@ -36,7 +36,7 @@
         </svg>
         <p>Profile</p>
       </span>
-      <div class="menu" *ngIf="menu">
+      <div class="menu" *ngIf="isMenuOpen">
         <a routerLinkActive="profile--active" routerLink="/ui/profile">Profile</a>
         <a routerLinkActive="profile--active" routerLink="/ui/settings">Settings</a>
         <button (click)="onLogout()">Logout</button>

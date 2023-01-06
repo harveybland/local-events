@@ -2,7 +2,7 @@
     <h2>{{ events.title }}</h2>
     <button *ngIf="eventType != 3 && 2" (click)="favourite(events._id)"><span
             class="material-icons">favorite_border</span></button>
-    <button *ngIf="eventType == 3" (click)="removeFavourite(favouritedata._id)"><span
+    <button *ngIf="eventType == 3" (click)="removeFavourite(events._id)"><span
             class="material-icons">favorite</span></button>
 </div>
 <div class="text">
