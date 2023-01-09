@@ -53,21 +53,13 @@ export class UserProfileService {
   userEvents(id: string) {
     return this.http.get<EventModal[]>(this._configService.userEvents(id)).pipe(
       map((resp) => {
+        console.log(resp);
         let now = new Date();
-        // this._myEvents$.next(resp)
         this._myEvents$.next(
-          resp.filter(
-            (item) =>
-              now < new Date(item.startDate as string) &&
-              item.isDeleted == false
-          )
+          resp.filter((item) => now < new Date(item.startDate as string))
         );
         this._pastEvents$.next(
-          resp.filter(
-            (item) =>
-              now > new Date(item.startDate as string) ||
-              item.isDeleted != false
-          )
+          resp.filter((item) => now > new Date(item.startDate as string))
         );
       })
     );
