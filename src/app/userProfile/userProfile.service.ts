@@ -158,14 +158,6 @@ export class UserProfileService {
       );
   }
 
-  // combineEvents() {
-  //   return merge(this._favEvents$, this._myEvents$).pipe(
-  //     map((item) => {
-  //       console.log(item);
-  //     })
-  //   );
-  // }
-
   getCategorys() {
     this.category = [
       'Conferences',

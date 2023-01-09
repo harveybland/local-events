@@ -86,12 +86,6 @@ export class EventModal {
   viewed: number;
 }
 
-// export class EventFav {
-//   event: EventModal;
-//   _id: string;
-//   user: string;
-// }
-
 export class updateViewed {
   viewed?: number;
 }
