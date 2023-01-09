@@ -82,7 +82,7 @@ export class EventModal {
   startTime?: string;
   endTime?: string;
   isDeleted?: boolean;
-  favourites?: EventModal[];
+  favourites: EventModal[];
   viewed: number;
 }
 

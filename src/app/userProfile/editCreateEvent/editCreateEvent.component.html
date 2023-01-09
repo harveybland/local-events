@@ -47,7 +47,10 @@
       rows="5" type="textarea"></textarea>
   </div>
 
-  <div class="col col-3"></div>
+  <div class="col col-3 visible">
+    <label for="visible">Private</label>
+    <input type="checkbox" formControlName="visible" id="visible" />
+  </div>
 
 
   <div class="col" [ngClass]="!hasEndDate ? 'col-3' : 'col-6'">
@@ -83,8 +86,6 @@
       </div>
     </label>
   </div>
-
-
 
   <div class="col col-3">
     <div>
