@@ -36,6 +36,10 @@ export class ConfigService {
     return `${this.url}createEvent`;
   }
 
+  deleteUser(id: any) {
+    return `${this.url}user/${id}`;
+  }
+
   deleteEvent(userId: any, id: string) {
     return `${this.url}deleteEvent/${userId}/${id}`;
   }

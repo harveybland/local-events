@@ -37,14 +37,11 @@ export class ProfileComponent implements OnInit {
     this._userProfileService.userProfile().subscribe((res) => {
       this.userDetails = res['user'];
       this.userId = this.userDetails._id;
-
       this.complete = this.userDetails.profileComplete;
 
       // adding to local storage
       this._jwtService.setUserId(this.userId);
       this._jwtService.setProfile(Boolean(this.complete));
-
-      // this._jwtService.setProfile(this.userDetails.createdEvent)
 
       let userModel: User = this.userDetails;
       this.form.patchValue(userModel);

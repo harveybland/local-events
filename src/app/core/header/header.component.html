@@ -1,11 +1,12 @@
 <header>
   <div class="dynamic-event">
     <div class="tasks">
-      <span *ngIf="!loggedIn || pills">{{ completeNum }} / 2 Complete</span>
+      <span *ngIf="!loggedIn && pills">{{ completeNum }} / 2 Complete</span>
       <div class="event" *ngIf="!loggedIn">
-        <a routerLink="/ui/profile" *ngIf="!profileComplete" title="Complete the fields on your profile">Complete
+        <a routerLink="/ui/profile" *ngIf="!profileComplete" matTooltip="Complete your profile">Complete
           Profile</a>
-        <a routerLink="/ui/myEvents/createEvent" *ngIf="!createdEvent" title="Create an Event">Create First Event</a>
+        <a routerLink="/ui/myEvents/createEvent" *ngIf="!createdEvent" matTooltip="Create an event">Create First
+          Event</a>
       </div>
     </div>
     <div class="event-list" *ngIf="profileComplete && createdEvent">

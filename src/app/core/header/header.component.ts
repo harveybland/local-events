@@ -27,7 +27,13 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     let storageProfile = this._jwtService.getProfile();
+    let event = this._jwtService.getEvent();
+    this.createdEvent = Boolean(event);
     this.profileComplete = Boolean(storageProfile);
+
+    console.log(this.pills);
+    console.log(this.profileComplete);
+    console.log(this.createdEvent);
 
     if (this.profileComplete && this.createdEvent) {
       this.pills = true;

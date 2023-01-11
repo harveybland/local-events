@@ -24,6 +24,15 @@ export class JwtStorageService {
     return localStorage.getItem('completeProfile');
   }
 
+  // event task
+  setEvent(event: any) {
+    localStorage.setItem('eventTask', event);
+  }
+
+  getEvent() {
+    return localStorage.getItem('eventTask');
+  }
+
   // user ID
   setUserId(id: string) {
     localStorage.setItem('id', id);

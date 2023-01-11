@@ -64,6 +64,10 @@ export class UserProfileService {
     );
   }
 
+  deleteUser(id: any) {
+    return this.http.delete<profile>(this._configService.deleteUser(id));
+  }
+
   userEvent(id: any) {
     return this.http.get<EventModal>(this._configService.event(id));
   }

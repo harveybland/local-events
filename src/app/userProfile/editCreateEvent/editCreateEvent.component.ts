@@ -77,6 +77,11 @@ export class EditCreateEventComponent implements OnInit {
 
   onSubmit() {
     let model = this.model();
+    this._jwtService.setEvent(true);
+    // let userModel = {
+    //   createdEvent: true,
+    // };
+    // this._userProfileService.editProfile(this.userId, userModel).subscribe();
     this._userProfileService.createEvent(model).subscribe((data: any) => {
       this._router.navigateByUrl('/ui/myEvents');
     });
@@ -114,7 +119,7 @@ export class EditCreateEventComponent implements OnInit {
       endDate: this.form.controls.endDate.value,
       startTime: this.form.controls.startTime.value,
       endTime: this.form.controls.endTime.value,
-      isDeleted: false,
+      createdEvent: true,
     };
   }
 }
