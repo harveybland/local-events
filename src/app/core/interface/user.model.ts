@@ -29,6 +29,7 @@ export class UpdateUser {
   town?: string;
   number?: number;
   profileComplete?: boolean;
+  createdEvent?: boolean;
 }
 
 export class profile {
@@ -84,6 +85,12 @@ export class EventModal {
   isDeleted?: boolean;
   favourites: EventModal[];
   viewed: number;
+  isSaved?: boolean;
+}
+
+export class EventFav {
+  event: EventModal[];
+  isSaved: Boolean;
 }
 
 export class updateViewed {

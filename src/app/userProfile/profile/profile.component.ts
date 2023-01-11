@@ -14,9 +14,7 @@ export class ProfileComponent implements OnInit {
   userDetails: any;
   userId: any;
   update = false;
-
-  // password: any;
-  // saltSecret: any;
+  complete: boolean;
 
   constructor(
     private _userProfileService: UserProfileService,
@@ -39,9 +37,16 @@ export class ProfileComponent implements OnInit {
     this._userProfileService.userProfile().subscribe((res) => {
       this.userDetails = res['user'];
       this.userId = this.userDetails._id;
-      // this.password = this.userDetails.password;
-      // this.saltSecret = this.userDetails.saltSecret;
+
+      this.complete = this.userDetails.profileComplete;
+
+      // adding to local storage
       this._jwtService.setUserId(this.userId);
+      let model = {
+        profileComplete: this.userDetails.profileComplete,
+        createdEvent: this.userDetails.createdEvent,
+      };
+
       let userModel: User = this.userDetails;
       this.form.patchValue(userModel);
     });
@@ -50,22 +55,23 @@ export class ProfileComponent implements OnInit {
   onSubmit() {
     let model = this.model();
     this._userProfileService.editProfile(this.userId, model).subscribe();
-
     this.update = true;
-    // setTimeout(() => {
-    // }, 3000);
   }
 
   model() {
+    // if( ) {
+    //   this.complete = false;
+    // } else {
+    //   this.complete = true;
+    // }
     return {
-      // password: this.password,
-      // saltSecret: this.saltSecret,
       businessName: this.form.controls.businessName.value,
       fullName: this.form.controls.fullName.value,
       addressLine1: this.form.controls.addressLine1.value,
       addressLine2: this.form.controls.addressLine2.value,
       town: this.form.controls.town.value,
       number: this.form.controls.number.value,
+      // profileComplete: this.complete
     };
   }
 

@@ -1,18 +1,21 @@
 <div class="event">
-  <h2>{{ event.title }}</h2>
+  <h2>{{ event?.title }}</h2>
   <div class="event-info">
-    <p>{{ event.description }}</p>
-    <p>{{ event.startDate | date }} </p>
-    <p>{{ event.city }}</p>
+    <p>{{ event?.description }}</p>
+    <p>Start Date: {{ event?.startDate | date }} </p>
+    <p>Location: {{ event?.city }}</p>
   </div>
 </div>
 
 <div class="event">
-  <h2>{{ event.user[0].fullName }}</h2>
+  <h2>Get in touch!</h2>
   <div class="event-info">
-    <p>{{ event.user[0].email }}</p>
-    <p>{{ event.user[0].addressLine1 }}</p>
-    <p>{{ event.user[0].addressLine2 }}</p>
-    <p>{{ event.user[0].town }}</p>
+    <h3>{{ event?.user[0].fullName }}</h3>
+    <p>{{ event?.user[0].email }}</p>
+    <div style="display: flex; gap: 5px;">
+      <p>{{ event?.user[0].addressLine1 }},</p>
+      <p>{{ event?.user[0].addressLine2 }},</p>
+      <p>{{ event?.user[0].town }}</p>
+    </div>
   </div>
 </div>

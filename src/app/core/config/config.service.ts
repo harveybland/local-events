@@ -28,7 +28,7 @@ export class ConfigService {
     return `${this.url}editProfile/${id}`;
   }
 
-  userEvents(id: string) {
+  userEvents(id: any) {
     return `${this.url}userEvents/${id}`;
   }
 

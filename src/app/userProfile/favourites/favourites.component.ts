@@ -18,6 +18,8 @@ export class FavouritesComponent implements OnInit {
   ngOnInit() {
     window.scroll(0, 0);
     let userId = this._jwtService.getUserId();
+    this._userProfileService.userEvents(userId).subscribe();
     this._userProfileService.getFavourites(userId).subscribe();
+    this._userProfileService.combine().subscribe();
   }
 }

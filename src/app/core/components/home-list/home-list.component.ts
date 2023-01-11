@@ -1,3 +1,5 @@
+import { UserProfileService } from './../../../userProfile/userProfile.service';
+import { JwtStorageService } from './../../service/jwt-storage.service';
 import { Router } from '@angular/router';
 import { EventModal } from 'src/app/core/interface/user.model';
 import { Component, OnInit, Input } from '@angular/core';
@@ -9,17 +11,24 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HomeListComponent implements OnInit {
   @Input() event: EventModal;
+  userId: any;
 
-  constructor(private _router: Router) {}
+  constructor(
+    private _router: Router,
+    private _jwtService: JwtStorageService,
+    private _userProfileService: UserProfileService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userId = this._jwtService.getUserId();
+  }
 
-  favourite() {
-    // let userId = this._jwtService.getUserId();
-    // if (!userId) {
-    this._router.navigateByUrl('/sign-in');
-    // } else {
-    //   this._userProfileService.addFavourites(userId, eventId).subscribe();
-    // }
+  favourite(eventId: any) {
+    if (!this.userId) {
+      this._router.navigateByUrl('/sign-in');
+    } else {
+      alert('Added to favourites');
+      this._userProfileService.addFavourites(this.userId, eventId).subscribe();
+    }
   }
 }

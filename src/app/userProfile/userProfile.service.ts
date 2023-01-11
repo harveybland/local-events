@@ -1,5 +1,5 @@
-import { map } from 'rxjs/operators';
-import { BehaviorSubject, merge, of } from 'rxjs';
+import { map, take, tap, switchMap } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, forkJoin, merge, of } from 'rxjs';
 import {
   profile,
   EventModal,
@@ -50,10 +50,9 @@ export class UserProfileService {
   }
 
   // User events
-  userEvents(id: string) {
+  userEvents(id: any) {
     return this.http.get<EventModal[]>(this._configService.userEvents(id)).pipe(
       map((resp) => {
-        console.log(resp);
         let now = new Date();
         this._myEvents$.next(
           resp.filter((item) => now < new Date(item.startDate as string))
@@ -132,7 +131,6 @@ export class UserProfileService {
   getFavourites(id: any) {
     return this.http.get<EventModal[]>(this._configService.favourites(id)).pipe(
       map((resp) => {
-        console.log(resp);
         this._favEvents$.next(resp);
       })
     );
@@ -148,6 +146,14 @@ export class UserProfileService {
           this._favEvents$.next(resp);
         })
       );
+  }
+
+  combine() {
+    return combineLatest([this._myEvents$, this._favEvents$]).pipe(
+      map((data) => {
+        return data;
+      })
+    );
   }
 
   getCategorys() {

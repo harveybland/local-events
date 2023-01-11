@@ -4,5 +4,5 @@
     <p>{{ event.startDate | date }} </p>
     <p> {{ event.city}}</p>
   </a>
-  <button (click)="favourite()"><span class="material-icons">favorite_border</span></button>
+  <button (click)="favourite(event._id)"><span class="material-icons">favorite_border</span></button>
 </div>

@@ -11,7 +11,9 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   event$ = this._mainService.event$;
   loggedIn: boolean = false;
-  profile: boolean = false;
+
+  profileComplete: boolean = false;
+  createdEvent: boolean = false;
 
   isMenuOpen = false;
 
