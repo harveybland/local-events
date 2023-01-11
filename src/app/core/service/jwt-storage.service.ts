@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class JwtStorageService {
-
-  constructor() { }
+  constructor() {}
 
   // helpers
   setToken(token: string) {
@@ -14,6 +13,15 @@ export class JwtStorageService {
 
   getToken() {
     return localStorage.getItem('token');
+  }
+
+  // complete profile
+  setProfile(complete: any) {
+    localStorage.setItem('completeProfile', complete);
+  }
+
+  getProfile() {
+    return localStorage.getItem('completeProfile');
   }
 
   // user ID
@@ -33,19 +41,14 @@ export class JwtStorageService {
   getUserPayload() {
     let token = this.getToken();
     if (token) {
-      let userPayload = atob(token.split('.')[1])
-      return JSON.parse(userPayload)
-    }
-    else
-      return null
+      let userPayload = atob(token.split('.')[1]);
+      return JSON.parse(userPayload);
+    } else return null;
   }
 
   isLoggedIn() {
     let userPayload = this.getUserPayload();
-    if (userPayload)
-      return userPayload.exp > Date.now() / 1000;
-    else
-      return false
+    if (userPayload) return userPayload.exp > Date.now() / 1000;
+    else return false;
   }
-
 }

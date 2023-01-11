@@ -42,10 +42,9 @@ export class ProfileComponent implements OnInit {
 
       // adding to local storage
       this._jwtService.setUserId(this.userId);
-      let model = {
-        profileComplete: this.userDetails.profileComplete,
-        createdEvent: this.userDetails.createdEvent,
-      };
+      this._jwtService.setProfile(Boolean(this.complete));
+
+      // this._jwtService.setProfile(this.userDetails.createdEvent)
 
       let userModel: User = this.userDetails;
       this.form.patchValue(userModel);
@@ -59,11 +58,19 @@ export class ProfileComponent implements OnInit {
   }
 
   model() {
-    // if( ) {
-    //   this.complete = false;
-    // } else {
-    //   this.complete = true;
-    // }
+    let completeProfile =
+      !!this.form.controls.fullName.value &&
+      !!this.form.controls.addressLine1.value &&
+      !!this.form.controls.addressLine2.value &&
+      !!this.form.controls.town.value &&
+      !!this.form.controls.number.value;
+
+    if (!!completeProfile) {
+      this.complete = true;
+    } else {
+      this.complete = false;
+    }
+
     return {
       businessName: this.form.controls.businessName.value,
       fullName: this.form.controls.fullName.value,
@@ -71,7 +78,7 @@ export class ProfileComponent implements OnInit {
       addressLine2: this.form.controls.addressLine2.value,
       town: this.form.controls.town.value,
       number: this.form.controls.number.value,
-      // profileComplete: this.complete
+      profileComplete: this.complete,
     };
   }
 

@@ -1,21 +1,21 @@
 <header>
   <div class="dynamic-event">
     <div class="tasks">
-      <span *ngIf="!loggedIn">0 / 2 Complete</span>
+      <span *ngIf="!loggedIn || pills">{{ completeNum }} / 2 Complete</span>
       <div class="event" *ngIf="!loggedIn">
         <a routerLink="/ui/profile" *ngIf="!profileComplete" title="Complete the fields on your profile">Complete
           Profile</a>
         <a routerLink="/ui/myEvents/createEvent" *ngIf="!createdEvent" title="Create an Event">Create First Event</a>
       </div>
     </div>
-    <!-- <div class="event-list">
-      <span>Events</span>
-      <div *ngFor="let item of (event$ | async)?.slice(0, 5)?.reverse()">
+    <div class="event-list" *ngIf="profileComplete && createdEvent">
+      <span>Latest Events</span>
+      <div *ngFor="let item of (event$ | async)?.slice(0, 3)?.reverse()">
         <div class="event">
           <a class="b" [routerLink]="'/main/events/' + item._id">{{ item.title }} - {{ item.city}}</a>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
   <nav>
     <a routerLink="/ui/myEvents" routerLinkActive="header--active" [routerLinkActiveOptions]="{exact:
@@ -26,9 +26,9 @@
       <span *ngIf="!fav.isActive" class="material-icons">favorite_border</span>
       <span *ngIf="fav.isActive" class="material-icons">favorite</span>
     </a>
-    <!-- <a routerLink="/ui/calendar" *ngIf="!loggedIn"><span class="material-icons">
+    <a routerLink="/ui/calendar" class="calendar" *ngIf="!loggedIn"><span class="material-icons">
         calendar_month
-      </span></a> -->
+      </span></a>
     <button class="profile-icon" (click)="isMenuOpen = !isMenuOpen" *ngIf="!loggedIn">
       <span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

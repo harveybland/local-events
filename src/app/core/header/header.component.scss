@@ -50,11 +50,14 @@ header {
       margin: 0 0 0 10px;
     }
     .fav {
-      padding: 0px 15px 0 5px;
+      padding: 0px 0px 0 5px;
       span {
         height: 23px;
         display: block;
       }
+    }
+    .calendar {
+      padding: 6px 15px 0px;
     }
   }
 }

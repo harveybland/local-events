@@ -52,7 +52,12 @@
       </div>
     </div>
   </form>
-  <div *ngIf="update" class="successful">
-    Updated Successful
+  <div style="display: flex; align-items: center; gap: 10px; justify-content: center;">
+    <div *ngIf="update" class="pill blue">
+      Updated Successful
+    </div>
+    <div *ngIf="!complete" class="pill red">
+      Complete your profile
+    </div>
   </div>
 </div>

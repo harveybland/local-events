@@ -30,11 +30,16 @@
   }
 }
 
-.successful {
+.pill {
   padding: 10px 20px;
-  background-color: #31abbd;
   margin-bottom: 20px;
   margin-top: -20px;
   color: #fff;
   border-radius: 10px;
+  &.blue {
+    background-color: #31abbd;
+  }
+  &.red {
+    background-color: #d22b2b;
+  }
 }

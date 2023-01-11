@@ -14,6 +14,8 @@ export class HeaderComponent implements OnInit {
 
   profileComplete: boolean = false;
   createdEvent: boolean = false;
+  pills: boolean = false;
+  completeNum = 0;
 
   isMenuOpen = false;
 
@@ -24,6 +26,19 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    let storageProfile = this._jwtService.getProfile();
+    this.profileComplete = Boolean(storageProfile);
+
+    if (this.profileComplete && this.createdEvent) {
+      this.pills = true;
+    } else if (!this.profileComplete && this.createdEvent) {
+      this.completeNum = 1;
+    } else if (this.profileComplete && !this.createdEvent) {
+      this.completeNum = 1;
+    } else {
+      this.completeNum = 0;
+    }
+
     if (!this._jwtService.isLoggedIn()) {
       this.loggedIn = true;
     }
