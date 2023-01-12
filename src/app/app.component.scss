@@ -1,6 +1,8 @@
 .main {
   display: flex;
   min-height: 100vh;
+  display: grid;
+  grid-template-columns: 200px 1fr;
 }
 
 .side-bar {
@@ -24,7 +26,10 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 730px) {
+  .main {
+    grid-template-columns: 65px 1fr;
+  }
   .side-bar {
     width: 65px;
   }

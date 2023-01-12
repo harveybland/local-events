@@ -14,28 +14,35 @@
   </div>
 
   <div>
-    <h2>This weekend near you </h2>
+    <h2>This weekend near you</h2>
     <div class="closest">
       <app-home-list *ngFor="let item of (event$ | async)?.slice(0, 5)" [event]="item"></app-home-list>
     </div>
   </div>
 
   <div>
-    <h2>Ending soon</h2>
+    <h2>Popular Events</h2>
     <div class="closest">
       <app-home-list *ngFor="let item of (event$ | async)?.slice(0, 5)" [event]="item"></app-home-list>
     </div>
   </div>
 
   <div>
-    <h2>Ending soon</h2>
+    <h2>Events under £30</h2>
     <div class="closest">
       <app-home-list *ngFor="let item of (event$ | async)?.slice(0, 5)" [event]="item"></app-home-list>
     </div>
   </div>
 
   <div>
-    <h2>Ending soon</h2>
+    <h2>Music Events</h2>
+    <div class="closest">
+      <app-home-list *ngFor="let item of (event$ | async)?.slice(0, 5)" [event]="item"></app-home-list>
+    </div>
+  </div>
+
+  <div>
+    <h2>Discover</h2>
     <div class="closest">
       <app-home-list *ngFor="let item of (event$ | async)?.slice(0, 5)" [event]="item"></app-home-list>
     </div>

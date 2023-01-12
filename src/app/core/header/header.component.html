@@ -19,9 +19,10 @@
     </div>
   </div>
   <nav>
-    <a routerLink="/ui/myEvents" routerLinkActive="header--active" [routerLinkActiveOptions]="{exact:
+    <a class="desktop" routerLink="/ui/myEvents" routerLinkActive="header--active" [routerLinkActiveOptions]="{exact:
       true}" *ngIf="!loggedIn">My Events</a>
-    <a routerLink="/ui/myEvents/createEvent" routerLinkActive="header--active" [routerLinkActiveOptions]="{exact:
+    <a class="desktop" routerLink="/ui/myEvents/createEvent" routerLinkActive="header--active"
+      [routerLinkActiveOptions]="{exact:
       true}" *ngIf="!loggedIn">Create Event</a>
     <a [routerLink]="'/ui/favourites'" class="fav" routerLinkActive #fav="routerLinkActive" *ngIf="!loggedIn">
       <span *ngIf="!fav.isActive" class="material-icons">favorite_border</span>
@@ -40,6 +41,9 @@
       </span>
       <div class="menu" *ngIf="isMenuOpen">
         <a routerLinkActive="profile--active" routerLink="/ui/profile">Profile</a>
+        <a class="mobile" routerLinkActive="profile--active" routerLink="/ui/myEvents">Events</a>
+        <a class="mobile" routerLinkActive="profile--active" routerLink="/ui/myEvents/createEvent">Create</a>
+        <a class="mobile" routerLinkActive="profile--active" routerLink="/ui/favourites">Favourites</a>
         <a routerLinkActive="profile--active" routerLink="/ui/settings">Settings</a>
         <button (click)="onLogout()">Logout</button>
       </div>

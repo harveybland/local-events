@@ -10,13 +10,13 @@
 <div class="event">
   <h2>Contact</h2>
   <div class="event-info">
-    <p>{{ event?.user[0].fullName }}</p>
-    <p>Email: {{ event?.user[0].email }}</p>
-    <p>Call: {{ event?.user[0].number }}</p>
+    <p>{{ event?.user[0]?.fullName }}</p>
+    <p>Email: {{ event?.user[0]?.email }}</p>
+    <p>Call: {{ event?.user[0]?.number }}</p>
     <div style="display: flex; gap: 5px;">
-      <p>{{ event?.user[0].addressLine1 }},</p>
-      <p>{{ event?.user[0].addressLine2 }},</p>
-      <p>{{ event?.user[0].town }}</p>
+      <p>{{ event?.user[0]?.addressLine1 }},</p>
+      <p>{{ event?.user[0]?.addressLine2 }},</p>
+      <p>{{ event?.user[0]?.town }}</p>
     </div>
   </div>
 </div>

@@ -122,6 +122,8 @@ header {
     width: 100px;
     padding: 11px 15px;
     cursor: pointer;
+    font-size: 1rem;
+    color: #9c8391;
   }
 
   a:hover {
@@ -141,7 +143,15 @@ header {
   fill: #fff;
 }
 
-@media screen and (max-width: 1270px) {
+.desktop {
+  display: block;
+}
+
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1300px) {
   header .dynamic-event .event-list {
     display: none;
   }
@@ -150,5 +160,23 @@ header {
 @media screen and (max-width: 1018px) {
   header .dynamic-event .tasks {
     display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    padding: 4px 10px;
+  }
+  .desktop {
+    display: none;
+  }
+  .fav {
+    display: none;
+  }
+  .calendar {
+    display: none;
+  }
+  .mobile {
+    display: block;
   }
 }
