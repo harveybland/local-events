@@ -30,23 +30,26 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this._userProfileService.userProfile().subscribe((res) => {
-      this.userDetails = res['user'];
-      this.profileComplete = this.userDetails.profileComplete;
-      this.createdEvent = this.userDetails.createdEvent;
-      if (this.profileComplete == false && this.createdEvent == false) {
-        this.completeNum = 0;
-        this.pills = true;
-      } else if (this.profileComplete == true && this.createdEvent == true) {
-        this.pills = false;
-      } else if (this.profileComplete == false && this.createdEvent == true) {
-        this.completeNum = 1;
-        this.pills = true;
-      } else if (this.profileComplete == true && this.createdEvent == false) {
-        this.completeNum = 1;
-        this.pills = true;
-      }
-    });
+    let token = this._jwtService.getToken();
+    if (!!token) {
+      this._userProfileService.userProfile().subscribe((res) => {
+        this.userDetails = res['user'];
+        this.profileComplete = this.userDetails.profileComplete;
+        this.createdEvent = this.userDetails.createdEvent;
+        if (this.profileComplete == false && this.createdEvent == false) {
+          this.completeNum = 0;
+          this.pills = true;
+        } else if (this.profileComplete == true && this.createdEvent == true) {
+          this.pills = false;
+        } else if (this.profileComplete == false && this.createdEvent == true) {
+          this.completeNum = 1;
+          this.pills = true;
+        } else if (this.profileComplete == true && this.createdEvent == false) {
+          this.completeNum = 1;
+          this.pills = true;
+        }
+      });
+    }
 
     if (!this._jwtService.isLoggedIn()) {
       this.loggedIn = true;
