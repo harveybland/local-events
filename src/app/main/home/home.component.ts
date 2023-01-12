@@ -54,10 +54,9 @@ export class HomeComponent implements OnInit {
   favourite(eventId: any) {
     let userId = this._jwtService.getUserId();
     if (!userId) {
-    this._router.navigateByUrl('/sign-in');
+      this._router.navigateByUrl('/user/sign-in');
     } else {
       this._userProfileService.addFavourites(userId, eventId).subscribe();
     }
   }
-
 }

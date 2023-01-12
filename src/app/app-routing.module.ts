@@ -4,26 +4,29 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'ui',
-    canActivateChild: [AuthGuard],
-    loadChildren: () => import('./userProfile/userProfile.module').then(o => o.UserProfileModule),
+    path: 'user',
+    loadChildren: () => import('./user/user.module').then((o) => o.UserModule),
   },
   {
-    path: 'main',
-    loadChildren: () => import('./main/main.module').then(o => o.MainModule),
+    path: 'ui',
+    canActivateChild: [AuthGuard],
+    loadChildren: () =>
+      import('./userProfile/userProfile.module').then(
+        (o) => o.UserProfileModule
+      ),
   },
   {
     path: '',
-    loadChildren: () => import('./user/user.module').then(o => o.UserModule),
+    loadChildren: () => import('./main/main.module').then((o) => o.MainModule),
   },
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

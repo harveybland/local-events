@@ -53,6 +53,6 @@ export class SettingsComponent implements OnInit {
   delete() {
     this._userProfileService.deleteUser(this.userId).subscribe();
     this._jwtService.deleteToken();
-    this._router.navigate(['/sign-in']);
+    this._router.navigate(['/user/sign-in']);
   }
 }

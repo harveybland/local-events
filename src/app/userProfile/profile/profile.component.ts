@@ -81,6 +81,6 @@ export class ProfileComponent implements OnInit {
 
   onLogout() {
     this._jwtService.deleteToken();
-    this._router.navigate(['/sign-in']);
+    this._router.navigate(['/user/sign-in']);
   }
 }

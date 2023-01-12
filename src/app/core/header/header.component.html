@@ -13,7 +13,7 @@
       <span>Latest Events</span>
       <div *ngFor="let item of (event$ | async)?.slice(0, 3)?.reverse()">
         <div class="event">
-          <a class="b" [routerLink]="'/main/events/' + item._id">{{ item.title }} - {{ item.city}}</a>
+          <a class="b" [routerLink]="'/events/' + item._id">{{ item.title }} - {{ item.city}}</a>
         </div>
       </div>
     </div>
@@ -44,7 +44,7 @@
         <button (click)="onLogout()">Logout</button>
       </div>
     </button>
-    <a routerLink="/sign-in" routerLinkActive="profile--active" *ngIf="loggedIn">Sign in</a>
-    <a routerLink="/sign-up" routerLinkActive="profile--active" *ngIf="loggedIn">Sign up</a>
+    <a routerLink="/user/sign-in" routerLinkActive="profile--active" *ngIf="loggedIn">Sign in</a>
+    <a routerLink="/user/sign-up" routerLinkActive="profile--active" *ngIf="loggedIn">Sign up</a>
   </nav>
 </header>

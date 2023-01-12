@@ -33,7 +33,7 @@ export class EventListComponent implements OnInit {
 
   favourite(eventId: any) {
     if (!this.userId) {
-      this._router.navigateByUrl('/sign-in');
+      this._router.navigateByUrl('/user/sign-in');
     } else {
       alert('Added to favourites');
       this._userProfileService.addFavourites(this.userId, eventId).subscribe();
