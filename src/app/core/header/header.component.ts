@@ -1,3 +1,4 @@
+import { UserProfileService } from './../../userProfile/userProfile.service';
 import { Router } from '@angular/router';
 import { MainService } from './../../main/main.service';
 import { JwtStorageService } from './../service/jwt-storage.service';
@@ -14,36 +15,38 @@ export class HeaderComponent implements OnInit {
 
   profileComplete: boolean = false;
   createdEvent: boolean = false;
-  pills: boolean = false;
+  pills: boolean = true;
   completeNum = 0;
 
   isMenuOpen = false;
 
+  userDetails: any;
+
   constructor(
     private _jwtService: JwtStorageService,
     private _mainService: MainService,
+    private _userProfileService: UserProfileService,
     private _router: Router
   ) {}
 
   ngOnInit() {
-    let storageProfile = this._jwtService.getProfile();
-    let event = this._jwtService.getEvent();
-    this.createdEvent = Boolean(event);
-    this.profileComplete = Boolean(storageProfile);
-
-    console.log(this.pills);
-    console.log(this.profileComplete);
-    console.log(this.createdEvent);
-
-    if (this.profileComplete && this.createdEvent) {
-      this.pills = true;
-    } else if (!this.profileComplete && this.createdEvent) {
-      this.completeNum = 1;
-    } else if (this.profileComplete && !this.createdEvent) {
-      this.completeNum = 1;
-    } else {
-      this.completeNum = 0;
-    }
+    this._userProfileService.userProfile().subscribe((res) => {
+      this.userDetails = res['user'];
+      this.profileComplete = this.userDetails.profileComplete;
+      this.createdEvent = this.userDetails.createdEvent;
+      if (this.profileComplete == false && this.createdEvent == false) {
+        this.completeNum = 0;
+        this.pills = true;
+      } else if (this.profileComplete == true && this.createdEvent == true) {
+        this.pills = false;
+      } else if (this.profileComplete == false && this.createdEvent == true) {
+        this.completeNum = 1;
+        this.pills = true;
+      } else if (this.profileComplete == true && this.createdEvent == false) {
+        this.completeNum = 1;
+        this.pills = true;
+      }
+    });
 
     if (!this._jwtService.isLoggedIn()) {
       this.loggedIn = true;

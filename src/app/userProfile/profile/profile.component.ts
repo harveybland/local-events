@@ -41,7 +41,6 @@ export class ProfileComponent implements OnInit {
 
       // adding to local storage
       this._jwtService.setUserId(this.userId);
-      this._jwtService.setProfile(Boolean(this.complete));
 
       let userModel: User = this.userDetails;
       this.form.patchValue(userModel);

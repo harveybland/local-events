@@ -1,3 +1,4 @@
+import { UpdateUser } from './../../core/interface/user.model';
 import { JwtStorageService } from './../../core/service/jwt-storage.service';
 import { EventModal } from 'src/app/core/interface/user.model';
 import { map, switchMap, tap } from 'rxjs/operators';
@@ -44,6 +45,8 @@ export class EditCreateEventComponent implements OnInit {
   page: boolean = false;
 
   ngOnInit() {
+    let Id = this._jwtService.getUserId();
+    this.userId = Id;
     this.category$ = this._userProfileService.getCategorys();
     if (this._router.url != '/ui/myEvents/createEvent') {
       this.page = true;
@@ -70,18 +73,16 @@ export class EditCreateEventComponent implements OnInit {
         )
         .subscribe();
     }
-
-    let Id = this._jwtService.getUserId();
-    this.userId = Id;
   }
 
   onSubmit() {
+    // on first event created
+    let userModel: UpdateUser = {
+      createdEvent: true,
+    };
+    this._userProfileService.eventTask(this.userId, userModel).subscribe();
+    // Create Event
     let model = this.model();
-    this._jwtService.setEvent(true);
-    // let userModel = {
-    //   createdEvent: true,
-    // };
-    // this._userProfileService.editProfile(this.userId, userModel).subscribe();
     this._userProfileService.createEvent(model).subscribe((data: any) => {
       this._router.navigateByUrl('/ui/myEvents');
     });
@@ -119,7 +120,6 @@ export class EditCreateEventComponent implements OnInit {
       endDate: this.form.controls.endDate.value,
       startTime: this.form.controls.startTime.value,
       endTime: this.form.controls.endTime.value,
-      createdEvent: true,
     };
   }
 }

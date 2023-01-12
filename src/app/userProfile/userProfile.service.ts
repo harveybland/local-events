@@ -72,6 +72,10 @@ export class UserProfileService {
     return this.http.get<EventModal>(this._configService.event(id));
   }
 
+  eventTask(id: string, model: UpdateUser) {
+    return this.http.put<User>(this._configService.eventTask(id), model);
+  }
+
   createEvent(model: newEvent) {
     return this.http
       .post<EventModal[]>(this._configService.createEvents(), model)

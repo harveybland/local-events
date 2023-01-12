@@ -1,5 +1,5 @@
 import { StorageService } from './../core/service/storage.service';
-import { updateViewed } from './../core/interface/user.model';
+// import { updateViewed } from './../core/interface/user.model';
 import { ConfigService } from './../core/config/config.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -63,12 +63,12 @@ export class MainService {
     }
   }
 
-  updateViews(id: string, model: updateViewed) {
-    return this.http.put<EventModal[]>(
-      this._configService.editViews(id),
-      model
-    );
-  }
+  // updateViews(id: string, model: updateViewed) {
+  //   return this.http.put<EventModal[]>(
+  //     this._configService.editViews(id),
+  //     model
+  //   );
+  // }
 
   searchEvent(
     title?: string,

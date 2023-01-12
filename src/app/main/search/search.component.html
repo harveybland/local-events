@@ -54,7 +54,7 @@
       <div class="col-C">{{ item.startDate | date }}</div>
       <div class="col-D">{{ item.city }}</div>
       <div class="col-E">
-        <a href="main/events/">View</a>
+        <a [routerLink]="'/events/' + [item._id]">View</a>
       </div>
     </div>
   </div>

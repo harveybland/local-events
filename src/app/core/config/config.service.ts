@@ -76,4 +76,8 @@ export class ConfigService {
   editViews(id: any) {
     return `${this.url}views/${id}`;
   }
+
+  eventTask(id: any) {
+    return `${this.url}eventTask/${id}`;
+  }
 }

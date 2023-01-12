@@ -93,6 +93,10 @@ export class EventFav {
   isSaved: Boolean;
 }
 
-export class updateViewed {
-  viewed?: number;
-}
+// export class updateViewed {
+//   viewed?: number;
+// }
+
+// export class eventTask {
+//   createdEvent?: boolean;
+// }
