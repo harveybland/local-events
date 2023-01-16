@@ -3,8 +3,7 @@
     <h1>Upcoming Events</h1>
   </div>
   <div class="event-list">
-    <app-event-list *ngFor="let item of myEvents$ | async" [events]="item" [eventType]="1"
-      class="event"></app-event-list>
+    <app-event-list *ngFor="let item of events$ | async" [events]="item" [eventType]="1" class="event"></app-event-list>
     <div *ngIf="!(myEvents$ | async)?.length" class="list-text">
       <p>You have no upcoming Events</p>
     </div>
@@ -12,7 +11,7 @@
 
   <h1>Past Events</h1>
   <div class="event-list">
-    <app-event-list *ngFor="let item of pastEvents$ | async" [events]="item" [eventType]="1"
+    <app-event-list *ngFor="let item of oldEvents$ | async" [events]="item" [eventType]="1"
       class="event"></app-event-list>
     <div *ngIf="!(pastEvents$ | async)?.length" class="list-text">
       <p>You have no past Events</p>

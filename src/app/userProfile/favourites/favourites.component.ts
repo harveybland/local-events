@@ -20,6 +20,5 @@ export class FavouritesComponent implements OnInit {
     let userId = this._jwtService.getUserId();
     this._userProfileService.userEvents(userId).subscribe();
     this._userProfileService.getFavourites(userId).subscribe();
-    this._userProfileService.combine().subscribe();
   }
 }

@@ -139,6 +139,7 @@ export class UserProfileService {
   getFavourites(id: any) {
     return this.http.get<EventModal[]>(this._configService.favourites(id)).pipe(
       map((resp) => {
+        console.log(resp);
         this._favEvents$.next(resp);
       })
     );
@@ -151,17 +152,14 @@ export class UserProfileService {
       )
       .pipe(
         map((resp) => {
+          console.log(resp);
           this._favEvents$.next(resp);
         })
       );
   }
 
   combine() {
-    return combineLatest([this._myEvents$, this._favEvents$]).pipe(
-      map((data) => {
-        return data;
-      })
-    );
+    return combineLatest([this._myEvents$, this._favEvents$]);
   }
 
   getCategorys() {

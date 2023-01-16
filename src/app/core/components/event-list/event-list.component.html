@@ -1,8 +1,8 @@
 <div class="title">
     <h2>{{ events.title }}</h2>
-    <button *ngIf="eventType != 3 && 2" (click)="favourite(events._id)" matTooltip="Add to favourites"
+    <button *ngIf="events.isSaved == false" (click)="favourite(events._id)" matTooltip="Add to favourites"
         matTooltipPosition="above"><span class="material-icons">favorite_border</span></button>
-    <button *ngIf="eventType == 3" (click)="removeFavourite(events._id)" matTooltip="Remove from favourites"
+    <button *ngIf="events.isSaved == true" (click)="removeFavourite(events._id)" matTooltip="Remove from favourites"
         matTooltipPosition="above"><span class="material-icons">favorite</span></button>
 </div>
 <div class="text">
