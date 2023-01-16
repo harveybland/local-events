@@ -1,9 +1,11 @@
+import { combineLatest } from 'rxjs';
 import { UserProfileService } from './../../userProfile/userProfile.service';
 import { JwtStorageService } from './../../core/service/jwt-storage.service';
 import { Router } from '@angular/router';
 import { AnimationService } from './../../core/service/animation.service';
 import { MainService } from './../main.service';
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +14,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   event$ = this._mainService.event$;
-  mostViewed$ = this._mainService.mostViewed$;
+  // mostViewed$ = this._mainService.mostViewed$;
+  favEvents$ = this._userProfileService.favEvents$;
   userId: any;
 
   public lat: string;
   public lng: string;
+
+  events$ = combineLatest([this.favEvents$, this.event$]).pipe(
+    map(([items1, items2]) => {
+      return items2.map((item2) => {
+        const savedItem = items1.find((item1) => item1._id === item2._id);
+        return savedItem ? { ...item2, isSaved: true } : item2;
+      });
+    })
+  );
 
   constructor(
     private _mainService: MainService,
@@ -30,6 +42,7 @@ export class HomeComponent implements OnInit {
     let Id = this._jwtService.getUserId();
     this.userId = Id;
     this._mainService.getEvents().subscribe();
+    this._userProfileService.getFavourites(this.userId).subscribe();
     this._animation.animation();
     // this.getLocation();
   }

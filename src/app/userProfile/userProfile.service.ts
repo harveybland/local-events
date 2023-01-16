@@ -105,6 +105,10 @@ export class UserProfileService {
             this._configService.userEvents(model._id)
           );
           let now = new Date();
+
+          // let combine = this.combine(this.myEvents$, this.favEvents$);
+          // console.log(combine)
+
           this._myEvents$.next(
             resp.filter(
               (item) =>
@@ -158,9 +162,16 @@ export class UserProfileService {
       );
   }
 
-  combine() {
-    return combineLatest([this._myEvents$, this._favEvents$]);
-  }
+  // combine(arr1: any, arr2: any) {
+  //   combineLatest([arr1, arr2]).pipe(
+  //     map(([items1, items2]) => {
+  //       return items2.map((item2) => {
+  //         const savedItem = items1.find((item1) => item1._id === item2._id);
+  //         return savedItem ? { ...item2, isSaved: true } : item2;
+  //       });
+  //     })
+  //   );
+  // }
 
   getCategorys() {
     this.category = [

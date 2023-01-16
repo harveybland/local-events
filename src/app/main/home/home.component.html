@@ -2,7 +2,7 @@
   <div>
     <h2>Latest Event</h2>
     <div class="latest">
-      <div *ngFor="let item of (event$ | async)?.slice(0, 2)?.reverse()">
+      <div *ngFor="let item of (events$ | async)?.slice(0, 2)?.reverse()">
         <a [routerLink]="'/events/' + [item._id]">
           <h3>{{ item.title }}</h3>
           <p>{{ item.startDate | date }} </p>
@@ -16,35 +16,35 @@
   <div>
     <h2>This weekend near you</h2>
     <div class="closest">
-      <app-home-list *ngFor="let item of (event$ | async)?.slice(0, 5)" [event]="item"></app-home-list>
+      <app-home-list *ngFor="let item of (events$ | async)?.slice(0, 5)" [event]="item"></app-home-list>
     </div>
   </div>
 
   <div>
     <h2>Popular Events</h2>
     <div class="closest">
-      <app-home-list *ngFor="let item of (event$ | async)?.slice(0, 5)" [event]="item"></app-home-list>
+      <app-home-list *ngFor="let item of (events$ | async)?.slice(0, 5)" [event]="item"></app-home-list>
     </div>
   </div>
 
   <div>
     <h2>Events under £30</h2>
     <div class="closest">
-      <app-home-list *ngFor="let item of (event$ | async)?.slice(0, 5)" [event]="item"></app-home-list>
+      <app-home-list *ngFor="let item of (events$ | async)?.slice(0, 5)" [event]="item"></app-home-list>
     </div>
   </div>
 
   <div>
     <h2>Music Events</h2>
     <div class="closest">
-      <app-home-list *ngFor="let item of (event$ | async)?.slice(0, 5)" [event]="item"></app-home-list>
+      <app-home-list *ngFor="let item of (events$ | async)?.slice(0, 5)" [event]="item"></app-home-list>
     </div>
   </div>
 
   <div>
     <h2>Discover</h2>
     <div class="closest">
-      <app-home-list *ngFor="let item of (event$ | async)?.slice(0, 5)" [event]="item"></app-home-list>
+      <app-home-list *ngFor="let item of (events$ | async)?.slice(0, 5)" [event]="item"></app-home-list>
     </div>
   </div>
 </div>

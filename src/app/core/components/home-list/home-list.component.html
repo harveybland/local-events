@@ -4,5 +4,8 @@
     <p>{{ event.startDate | date }} </p>
     <p> {{ event.city}}</p>
   </a>
-  <button (click)="favourite(event._id)"><span class="material-icons">favorite_border</span></button>
+  <button *ngIf="event.isSaved == false" (click)="favourite(event._id)" matTooltip="Add to favourites"
+    matTooltipPosition="above"><span class="material-icons">favorite_border</span></button>
+  <button *ngIf="event.isSaved == true" (click)="removeFavourite(event._id)" matTooltip="Remove from favourites"
+    matTooltipPosition="above"><span class="material-icons">favorite</span></button>
 </div>

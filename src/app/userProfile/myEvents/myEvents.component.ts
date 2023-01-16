@@ -3,7 +3,7 @@ import { JwtStorageService } from './../../core/service/jwt-storage.service';
 import { UserProfileService } from './../userProfile.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { combineLatest } from 'rxjs';
+import { combineLatest, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-myEvents',
