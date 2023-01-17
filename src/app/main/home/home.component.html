@@ -8,7 +8,10 @@
           <p>{{ item.startDate | date }} </p>
           <p> {{ item.city}}</p>
         </a>
-        <button (click)="favourite(item._id)"><span class="material-icons">favorite_border</span></button>
+        <button *ngIf="item.isSaved == false" (click)="favourite(item._id)" matTooltip="Add to favourites"
+          matTooltipPosition="above"><span class="material-icons">favorite_border</span></button>
+        <button *ngIf="item.isSaved == true" (click)="removeFavourite(item._id)" matTooltip="Remove from favourites"
+          matTooltipPosition="above"><span class="material-icons">favorite</span></button>
       </div>
     </div>
   </div>

@@ -143,7 +143,6 @@ export class UserProfileService {
   getFavourites(id: any) {
     return this.http.get<EventModal[]>(this._configService.favourites(id)).pipe(
       map((resp) => {
-        console.log(resp);
         this._favEvents$.next(resp);
       })
     );
@@ -156,7 +155,6 @@ export class UserProfileService {
       )
       .pipe(
         map((resp) => {
-          console.log(resp);
           this._favEvents$.next(resp);
         })
       );

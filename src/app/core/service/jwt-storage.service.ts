@@ -39,7 +39,8 @@ export class JwtStorageService {
 
   isLoggedIn() {
     let userPayload = this.getUserPayload();
-    if (userPayload) return userPayload.exp > Date.now() / 1000;
-    else return false;
+    if (userPayload) {
+      return userPayload.exp > Date.now() / 1000;
+    } else return false;
   }
 }

@@ -72,4 +72,8 @@ export class HomeComponent implements OnInit {
       this._userProfileService.addFavourites(userId, eventId).subscribe();
     }
   }
+
+  removeFavourite(eventId: any) {
+    this._userProfileService.removeFavourite(this.userId, eventId).subscribe();
+  }
 }

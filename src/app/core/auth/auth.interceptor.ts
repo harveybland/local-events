@@ -30,7 +30,8 @@ export class AuthInterceptor implements HttpInterceptor {
           (event) => {},
           (err) => {
             if (err.error.auth == false) {
-              this._router.navigateByUrl('/user/sign-in');
+              this._jwtService.deleteToken();
+              // this._router.navigateByUrl('/user/sign-in');
             }
           }
         )
