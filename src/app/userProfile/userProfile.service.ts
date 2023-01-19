@@ -53,6 +53,7 @@ export class UserProfileService {
   userEvents(id: any) {
     return this.http.get<EventModal[]>(this._configService.userEvents(id)).pipe(
       map((resp) => {
+        console.log(resp);
         let now = new Date();
         this._myEvents$.next(
           resp.filter((item) => now < new Date(item.startDate as string))
@@ -96,32 +97,18 @@ export class UserProfileService {
       );
   }
 
-  deleteEvent(userId: any, model: EventModal) {
+  deleteEvent(userId: any, eventId: any) {
     return this.http
-      .delete<EventModal[]>(this._configService.deleteEvent(userId, model._id))
+      .delete<EventModal[]>(this._configService.deleteEvent(userId, eventId))
       .pipe(
         map((resp) => {
-          this.storageService.clearItemTimeoutStorage(
-            this._configService.userEvents(model._id)
-          );
+          console.log(resp);
           let now = new Date();
-
-          // let combine = this.combine(this.myEvents$, this.favEvents$);
-          // console.log(combine)
-
           this._myEvents$.next(
-            resp.filter(
-              (item) =>
-                now < new Date(item.endDate as string) &&
-                item.isDeleted === false
-            )
+            resp.filter((item) => now < new Date(item.startDate as string))
           );
           this._pastEvents$.next(
-            resp.filter(
-              (item) =>
-                now > new Date(item.endDate as string) ||
-                item.isDeleted != false
-            )
+            resp.filter((item) => now > new Date(item.startDate as string))
           );
         })
       );

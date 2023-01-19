@@ -40,8 +40,8 @@ export class ConfigService {
     return `${this.url}user/${id}`;
   }
 
-  deleteEvent(userId: any, id: string) {
-    return `${this.url}deleteEvent/${userId}/${id}`;
+  deleteEvent(userId: any, eventId: string) {
+    return `${this.url}deleteEvent/${userId}/${eventId}`;
   }
 
   favourites(id: any) {

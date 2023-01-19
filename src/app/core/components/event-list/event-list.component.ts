@@ -28,7 +28,7 @@ export class EventListComponent implements OnInit {
 
   deleteEvent(model: EventModal) {
     model._id;
-    this._userProfileService.deleteEvent(this.userId, model).subscribe();
+    this._userProfileService.deleteEvent(this.userId, model._id).subscribe();
   }
 
   favourite(eventId: any) {
