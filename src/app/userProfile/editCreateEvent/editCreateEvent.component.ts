@@ -4,7 +4,12 @@ import { EventModal } from 'src/app/core/interface/user.model';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { UserProfileService } from './../userProfile.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  FormBuilder,
+  Validators,
+} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -21,18 +26,20 @@ export class EditCreateEventComponent implements OnInit {
     private _userProfileService: UserProfileService
   ) {}
 
+  submitted: boolean = false;
+
   form: FormGroup = this._formBuilder.group({
-    title: new FormControl(null),
-    category: new FormControl(null),
-    description: new FormControl(null),
+    title: new FormControl('', [Validators.required]),
+    category: new FormControl(null, [Validators.required]),
+    description: new FormControl('', [Validators.required]),
     visible: new FormControl(null),
-    addressLine1: new FormControl(null),
-    addressLine2: new FormControl(null),
-    city: new FormControl(null),
+    addressLine1: new FormControl('', [Validators.required]),
+    addressLine2: new FormControl('', [Validators.required]),
+    city: new FormControl('', [Validators.required]),
     age: new FormControl(null),
-    startDate: new FormControl(null),
+    startDate: new FormControl('', [Validators.required]),
     endDate: new FormControl(null),
-    startTime: new FormControl(null),
+    startTime: new FormControl('', [Validators.required]),
     endTime: new FormControl(null),
   });
 
@@ -82,19 +89,37 @@ export class EditCreateEventComponent implements OnInit {
     };
     this._userProfileService.eventTask(this.userId, userModel).subscribe();
     // Create Event
-    let model = this.model();
-    this._userProfileService.createEvent(model).subscribe((data: any) => {
-      this._router.navigateByUrl('/ui/myEvents');
-    });
+    this.submitted = true;
+    if (this.form.invalid) {
+      Object.keys(this.form.controls).forEach((key) => {
+        this.form.get(key)!.markAsDirty();
+      });
+    } else {
+      let model = this.model();
+      this._userProfileService.createEvent(model).subscribe((data: any) => {
+        this.submitted = false;
+        this._router.navigateByUrl('/ui/myEvents');
+      });
+    }
   }
 
   editEvent() {
-    let model = this.model();
-    this._userProfileService
-      .editEvent(this.eventId, model)
-      .subscribe((data: any) => {
-        this._router.navigateByUrl('/ui/myEvents');
+    this.submitted = true;
+    if (this.form.invalid) {
+      Object.keys(this.form.controls).forEach((key) => {
+        console.log(key);
+        this.form.get(key)!.markAsDirty();
       });
+      document.getElementById('formErrors')!.focus();
+    } else {
+      let model = this.model();
+      this._userProfileService
+        .editEvent(this.eventId, model)
+        .subscribe((data: any) => {
+          this.submitted = false;
+          this._router.navigateByUrl('/ui/myEvents');
+        });
+    }
   }
 
   endDate() {

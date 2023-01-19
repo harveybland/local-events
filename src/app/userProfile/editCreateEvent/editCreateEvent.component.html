@@ -1,15 +1,46 @@
 <form class="form-card" [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="col-12">
     <h2 style="margin: 0;">{{ this.page ? "Edit Event" : "Create Event" }}</h2>
+    <p style="margin-bottom: 5px;">Fields marked with a (*) are required</p>
   </div>
-  <div class="col col-2">
+
+  <div *ngIf="submitted" class="col-12" aria-live="polite" tabindex="-1" id="formErrors">
+    <ul id="error-list">
+      <li *ngIf="form.controls['title'].hasError('required')">
+        Title is required
+      </li>
+      <li *ngIf="form.controls['category'].hasError('required')">
+        Category is required
+      </li>
+      <li *ngIf="form.controls['addressLine1'].hasError('required')">
+        Address Line 1 is required
+      </li>
+      <li *ngIf="form.controls['addressLine2'].hasError('required')">
+        Address Line 2 is required
+      </li>
+      <li *ngIf="form.controls['city'].hasError('required')">
+        Town / City is required
+      </li>
+      <li *ngIf="form.controls['description'].hasError('required')">
+        Description is required
+      </li>
+      <li *ngIf="form.controls['startDate'].hasError('required')">
+        startDate is required
+      </li>
+      <li *ngIf="form.controls['startTime'].hasError('required')">
+        startTime is required
+      </li>
+    </ul>
+  </div>
+
+  <div class="col col-2" data-error="A title is required" appInputValid>
     <div>
       <label for="title">Event Name *</label>
       <input name="title" formControlName="title" id="title" class="input" placeholder="Event name" />
     </div>
   </div>
 
-  <div class="col col-3">
+  <div class="col col-3" data-error="A category is required" appInputValid>
     <label>Category *</label>
     <ng-select [items]="category$ | async" bindLabel="category" formControlName="category" placeholder="Pick a category"
       [clearable]="true" bindValue="id">

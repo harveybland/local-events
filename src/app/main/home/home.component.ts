@@ -42,7 +42,9 @@ export class HomeComponent implements OnInit {
     let Id = this._jwtService.getUserId();
     this.userId = Id;
     this._mainService.getEvents().subscribe();
-    this._userProfileService.getFavourites(this.userId).subscribe();
+    if (!!this.userId) {
+      this._userProfileService.getFavourites(this.userId).subscribe();
+    }
     this._animation.animation();
     // this.getLocation();
   }
