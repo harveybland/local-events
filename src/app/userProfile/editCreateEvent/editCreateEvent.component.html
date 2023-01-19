@@ -25,26 +25,32 @@
         Description is required
       </li>
       <li *ngIf="form.controls['startDate'].hasError('required')">
-        startDate is required
+        Start Date is required
       </li>
       <li *ngIf="form.controls['startTime'].hasError('required')">
-        startTime is required
+        Start Time is required
       </li>
     </ul>
   </div>
 
-  <div class="col col-2" data-error="A title is required" appInputValid>
+  <div class="col col-2">
     <div>
       <label for="title">Event Name *</label>
       <input name="title" formControlName="title" id="title" class="input" placeholder="Event name" />
     </div>
+    <div *ngIf="submitted">
+      <p *ngIf="form.controls['title'].hasError('required')" class="error">A title is required</p>
+    </div>
   </div>
 
-  <div class="col col-3" data-error="A category is required" appInputValid>
+  <div class="col col-3" data-error="A category is required">
     <label>Category *</label>
     <ng-select [items]="category$ | async" bindLabel="category" formControlName="category" placeholder="Pick a category"
       [clearable]="true" bindValue="id">
     </ng-select>
+    <div *ngIf="submitted">
+      <p *ngIf="form.controls['category'].hasError('required')" class="error">Category is required</p>
+    </div>
   </div>
 
   <div class="col-6"></div>
@@ -53,17 +59,26 @@
     <label for="Address">Address Line 1 *</label>
     <input name="addressLine1" formControlName="addressLine1" id="addressLine1" class="input"
       placeholder="Address Line 1" />
+    <div *ngIf="submitted">
+      <p *ngIf="form.controls['addressLine1'].hasError('required')" class="error">Address Line 1 is required</p>
+    </div>
   </div>
 
   <div class="col col-3">
     <label for="Address">Address Line 2 *</label>
     <input name="addressLine2" formControlName="addressLine2" id="addressLine2" class="input"
       placeholder="Address Line 2" />
+    <div *ngIf="submitted">
+      <p *ngIf="form.controls['addressLine2'].hasError('required')" class="error">Address Line2 is required</p>
+    </div>
   </div>
 
   <div class="col col-3">
     <label for="city">Town/City *</label>
     <input name="city" formControlName="city" id="city" class="input" placeholder="Town/City" />
+    <div *ngIf="submitted">
+      <p *ngIf="form.controls['city'].hasError('required')" class="error">City is required</p>
+    </div>
   </div>
 
   <div class="col col-3">
@@ -76,6 +91,9 @@
     <label for="email">Description *</label>
     <textarea name="Description" formControlName="description" class="input" placeholder="Description" cols="30"
       rows="5" type="textarea"></textarea>
+    <div *ngIf="submitted">
+      <p *ngIf="form.controls['description'].hasError('required')" class="error">Description is required</p>
+    </div>
   </div>
 
   <div class="col col-3 visible">
@@ -104,6 +122,9 @@
         <mat-datepicker #picker1></mat-datepicker>
       </div>
     </label>
+    <div *ngIf="submitted">
+      <p *ngIf="form.controls['startDate'].hasError('required')" class="error">Start Date is required</p>
+    </div>
   </div>
 
   <div class="col col-3" *ngIf="hasEndDate">
@@ -122,6 +143,9 @@
     <div>
       <label for="time">{{ !hasEndTime ? "Event Time *" : "Start Time *"}}</label>
       <input type="time" id="time" class="input" formControlName="startTime">
+    </div>
+    <div *ngIf="submitted">
+      <p *ngIf="form.controls['startTime'].hasError('required')" class="error">Start Time is required</p>
     </div>
   </div>
 

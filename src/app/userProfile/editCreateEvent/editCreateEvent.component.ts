@@ -92,7 +92,7 @@ export class EditCreateEventComponent implements OnInit {
     this.submitted = true;
     if (this.form.invalid) {
       Object.keys(this.form.controls).forEach((key) => {
-        this.form.get(key)!.markAsDirty();
+        this.form.get(key)!.hasError('required');
       });
     } else {
       let model = this.model();
@@ -107,10 +107,8 @@ export class EditCreateEventComponent implements OnInit {
     this.submitted = true;
     if (this.form.invalid) {
       Object.keys(this.form.controls).forEach((key) => {
-        console.log(key);
         this.form.get(key)!.markAsDirty();
       });
-      document.getElementById('formErrors')!.focus();
     } else {
       let model = this.model();
       this._userProfileService

@@ -34,15 +34,19 @@ textarea {
   }
 }
 
-.form-card {
-  input.ng-dirty {
-    border: 1px solid red;
-  }
-  .ng-select.ng-dirty {
-    border: 1px solid red;
-    border-radius: 4px;
-  }
-  textarea.ng-dirty {
-    border: 1px solid red;
-  }
+.error {
+  color: red;
+  margin: 2px 0 0 0;
 }
+
+// .form-card {
+//   input.ng-dirty {
+//   }
+//   .ng-select.ng-dirty {
+//     border: 1px solid red;
+//     border-radius: 4px;
+//   }
+//   textarea.ng-dirty {
+//     border: 1px solid red;
+//   }
+// }
