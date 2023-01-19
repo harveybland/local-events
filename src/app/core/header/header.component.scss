@@ -90,6 +90,7 @@ header {
     p {
       margin: 0;
       font-size: 0.8rem;
+      color: #000;
     }
   }
 }
@@ -164,8 +165,8 @@ header {
 }
 
 @media screen and (max-width: 600px) {
-  header {
-    padding: 4px 10px;
+  .profile-icon {
+    margin: 4px 0;
   }
   .desktop {
     display: none;
