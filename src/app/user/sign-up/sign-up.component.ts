@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class SignUpComponent implements OnInit {
   personal = false;
   submitted = false;
+  showSucessMessage: boolean;
+  serverErrorMessages: string;
 
   signUpForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -23,9 +25,6 @@ export class SignUpComponent implements OnInit {
     addressLine2: new FormControl('', [Validators.required]),
     town: new FormControl('', [Validators.required]),
   });
-
-  showSucessMessage: boolean;
-  serverErrorMessages: string;
 
   constructor(
     private _userService: UserService,
@@ -40,6 +39,11 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.personal) {
+      this.signUpForm.controls['businessName'].setValue('null');
+    } else {
+      this.signUpForm.controls['fullName'].setValue('null');
+    }
     this.submitted = true;
     if (this.signUpForm.invalid) {
       Object.keys(this.signUpForm.controls).forEach((key) => {
@@ -68,6 +72,7 @@ export class SignUpComponent implements OnInit {
 
   userModel() {
     if (this.personal) {
+      this.signUpForm.controls['businessName'].setValue('');
       return {
         email: this.signUpForm.controls.email.value,
         password: this.signUpForm.controls.password.value,
@@ -78,6 +83,7 @@ export class SignUpComponent implements OnInit {
         addressLine2: this.signUpForm.controls.addressLine2.value,
         town: this.signUpForm.controls.town.value,
         profileComplete: false,
+        personal: true,
       };
     } else {
       return {
@@ -90,6 +96,7 @@ export class SignUpComponent implements OnInit {
         addressLine2: this.signUpForm.controls.addressLine2.value,
         town: this.signUpForm.controls.town.value,
         profileComplete: false,
+        personal: false,
       };
     }
   }

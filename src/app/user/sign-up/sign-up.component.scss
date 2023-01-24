@@ -23,15 +23,16 @@ h2 {
 }
 
 .account-type {
-  display: flex;
+  display: grid;
   width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
+  grid-template-columns: 1fr 1fr;
   button {
-    margin: 0 2px;
     padding: 10px;
+    background-color: #eee;
     cursor: pointer;
+    &:hover {
+      transition: 0.3 ease-in-out;
+    }
     &.type {
       background-color: #ff7551;
       color: #fff;
@@ -39,7 +40,18 @@ h2 {
   }
 }
 
+.error {
+  color: red;
+  margin: 2px 0 0 0;
+}
+
 .a {
   color: #333;
   text-decoration: underline;
+}
+
+@media screen and (max-width: 1024px) {
+  .mobile {
+    display: none;
+  }
 }

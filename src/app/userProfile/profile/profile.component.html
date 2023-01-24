@@ -1,22 +1,21 @@
 <div class="profile" *ngIf="userDetails">
   <div class="title">
-    <div></div>
-    <h2>User Profile</h2>
+    <h2 *ngIf="!userDetails.personal">Business Profile</h2>
+    <h2 *ngIf="userDetails.personal">Personal Profile</h2>
     <p>{{ userDetails.email }}</p>
   </div>
-  <!-- <p *ngIf="this.form.value">Complete Profile</p> -->
-  <div *ngIf="!complete" class="complete">
+  <!-- <div *ngIf="!complete" class="complete">
     Complete your profile
-  </div>
+  </div> -->
   <form class="form-card" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <div class="col col-2">
+    <div *ngIf="!userDetails.personal" class="col col-2">
       <div>
         <label for="title">Business Name</label>
         <input name="businessName" id="BusinessName" formControlName="businessName" class="input"
           placeholder="Business Name" />
       </div>
     </div>
-    <div class="col col-2">
+    <div *ngIf="userDetails.personal" class="col col-2">
       <div>
         <label for="title">Full Name</label>
         <input name="fullName" formControlName="fullName" id="fullName" class="input" placeholder="Full Name" />
@@ -42,7 +41,7 @@
           placeholder="Address Line 2" />
       </div>
     </div>
-    <div class="col col-3">
+    <div class="col col-2">
       <div>
         <label for="title">City/Town</label>
         <input name="town" formControlName="town" id="town" class="input" placeholder="City/Town" />
