@@ -17,16 +17,29 @@ h2 {
   background-color: #31abbd;
   width: 100%;
   padding: 10px 0;
+  margin: 0;
   color: #fff;
   border-radius: 8px 8px 0 0;
 }
 
-form {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px 0;
+.account-type {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  button {
+    margin: 0 2px;
+    padding: 10px;
+    cursor: pointer;
+    &.type {
+      background-color: #ff7551;
+      color: #fff;
+    }
+  }
 }
 
-input {
-  margin: 0px 0 20px;
+.a {
+  color: #333;
+  text-decoration: underline;
 }

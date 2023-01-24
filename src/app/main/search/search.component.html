@@ -16,14 +16,14 @@
 
 
   <div class="col col-2">
-    <label>City</label>
+    <label>Town / City</label>
     <input name="city" formControlName="city" id="city" class="input" placeholder="Town/City" />
   </div>
 
   <div class="col col-3">
     <label for="">Start Date</label>
     <label class="input">
-      <input type="text" formControlName="startDate" placeholder="dd/mm/yyyy" id="startDate"
+      <input type="text" (focus)="picker1.open()" formControlName="startDate" placeholder="dd/mm/yyyy" id="startDate"
         [matDatepicker]="picker1" />
       <div>
         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>

@@ -17,10 +17,12 @@ textarea {
   align-items: center;
   label {
     margin-right: 10px;
+    top: 0;
   }
   input {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
   }
 }
 

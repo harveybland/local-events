@@ -1,18 +1,98 @@
 <div class="account">
   <h2>Create an account</h2>
-  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-    <div class="flex flex-col">
+  <div class="account-type">
+    <div>
+      Choose account type:
+    </div>
+    <div>
+      <button [ngClass]="!personal ? 'type' : ''" (click)="personal = false">Business</button>
+      <button [ngClass]="personal ? 'type' : '' " (click)="personal = true">Personal</button>
+    </div>
+    <div style="width: 150px;"></div>
+  </div>
+  <form class="form-card" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <div class="col col-2">
       <div>
-        <input type="text" name="email" placeholder="Email" formControlName="email" class="input" required />
-      </div>
-      <div>
-        <input type="password" name="password" placeholder="Password" formControlName="password" class="input" required
-          minlength="4" />
+        <label for="title">Business Name</label>
+        <input name="businessName" id="BusinessName" formControlName="businessName" class="input"
+          placeholder="Business Name" />
+        <div *ngIf="submitted">
+          <p *ngIf="signUpForm.controls['businessName'].hasError('required')" class="error">A business name is required
+          </p>
+        </div>
       </div>
     </div>
-    <div class="flex">
-      <button type="submit" class="btn m-r">Sign up</button>
-      <button type="button" routerLink="/user/sign-in" class="btn">Sign In</button>
+    <div *ngIf="personal" class="col col-2">
+      <div>
+        <label for="title">Full Name</label>
+        <input name="fullName" formControlName="fullName" id="fullName" class="input" placeholder="Full Name" />
+        <div *ngIf="submitted">
+          <p *ngIf="signUpForm.controls['fullName'].hasError('required')" class="error">A full name is required</p>
+        </div>
+      </div>
+    </div>
+    <div class="col col-2">
+      <label>Email</label>
+      <input type="text" name="email" placeholder="Email" formControlName="email" class="input" required />
+      <div *ngIf="submitted">
+        <p *ngIf="signUpForm.controls['email'].hasError('required')" class="error">A email is required</p>
+      </div>
+    </div>
+    <div class="col col-2">
+      <label>Password</label>
+      <input type="password" name="password" placeholder="Password" formControlName="password" class="input" required
+        minlength="4" />
+      <div *ngIf="submitted">
+        <p *ngIf="signUpForm.controls['password'].hasError('required')" class="error">A password is required</p>
+      </div>
+    </div>
+    <div class="col col-2">
+      <div>
+        <label for="title">Contact Number</label>
+        <input name="number" formControlName="number" id="number" class="input" placeholder="number" />
+        <div *ngIf="submitted">
+          <p *ngIf="signUpForm.controls['number'].hasError('required')" class="error">A number is required</p>
+        </div>
+      </div>
+    </div>
+    <div class="col col-3">
+      <div>
+        <label for="email">Address Line 1</label>
+        <input name="addressLine1" formControlName="addressLine1" id="addressLine1" class="input"
+          placeholder="Address Line 1" />
+        <div *ngIf="submitted">
+          <p *ngIf="signUpForm.controls['addressLine1'].hasError('required')" class="error">Address Line 1 is required
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col col-3">
+      <div>
+        <label for="email">Address Line 2</label>
+        <input name="addressLine2" formControlName="addressLine2" id="addressLine2" class="input"
+          placeholder="Address Line 2" />
+        <div *ngIf="submitted">
+          <p *ngIf="signUpForm.controls['addressLine2'].hasError('required')" class="error">Address Line 2 is required
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col col-3">
+      <div>
+        <label for="title">City/Town</label>
+        <input name="town" formControlName="town" id="town" class="input" placeholder="City/Town" />
+        <div *ngIf="submitted">
+          <p *ngIf="signUpForm.controls['town'].hasError('required')" class="error">A town is required</p>
+        </div>
+      </div>
+    </div>
+    <div class="col col-12">
+      <div class="flex flex-col flex-a-c">
+        <button type=" submit" class="btn btn-o m-b">Sign Up</button>
+        <div>
+          Already have an account? <a type="button" class="a" routerLink="/user/sign-in">Sign In</a>
+        </div>
+      </div>
     </div>
   </form>
 

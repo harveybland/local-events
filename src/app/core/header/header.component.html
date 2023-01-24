@@ -19,7 +19,7 @@
     </div>
   </div>
   <nav>
-    <a class="desktop" routerLink="/ui/myEvents" routerLinkActive="header--active" [routerLinkActiveOptions]="{exact:
+    <a routerLink="/ui/myEvents" routerLinkActive="header--active" [routerLinkActiveOptions]="{exact:
       true}" *ngIf="!loggedIn">My Events</a>
     <a class="desktop" routerLink="/ui/myEvents/createEvent" routerLinkActive="header--active"
       [routerLinkActiveOptions]="{exact:
@@ -41,7 +41,6 @@
       </span>
       <div class="menu" *ngIf="isMenuOpen">
         <a routerLinkActive="profile--active" routerLink="/ui/profile">Profile</a>
-        <a class="mobile" routerLinkActive="profile--active" routerLink="/ui/myEvents">Events</a>
         <a class="mobile" routerLinkActive="profile--active" routerLink="/ui/myEvents/createEvent">Create</a>
         <a class="mobile" routerLinkActive="profile--active" routerLink="/ui/favourites">Favourites</a>
         <a routerLinkActive="profile--active" routerLink="/ui/settings">Settings</a>

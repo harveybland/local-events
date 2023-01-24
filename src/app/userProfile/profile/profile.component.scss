@@ -30,6 +30,13 @@
   }
 }
 
+.complete {
+  color: #d22b2b;
+  font-size: 1rem;
+  padding-top: 15px;
+  margin-bottom: -5px;
+}
+
 .pill {
   padding: 10px 20px;
   margin-bottom: 20px;
@@ -38,9 +45,6 @@
   border-radius: 10px;
   &.blue {
     background-color: #31abbd;
-  }
-  &.red {
-    background-color: #d22b2b;
   }
 }
 
