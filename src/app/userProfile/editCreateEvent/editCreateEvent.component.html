@@ -107,7 +107,7 @@
       }}</button>
   </div>
 
-  <div class="col" [ngClass]="!hasEndDate ? 'col-9' : 'col-6'">
+  <div class="col row-14" [ngClass]="!hasEndDate ? 'col-9' : 'col-6'">
     <button class="btn btn-o" (click)="endTime()" type="button">{{ !hasEndTime ? "Add End Time" : "Remove End Time"
       }}</button>
   </div>
@@ -127,7 +127,7 @@
     </div>
   </div>
 
-  <div class="col col-3" *ngIf="hasEndDate">
+  <div class="col col-3 row-13" *ngIf="hasEndDate">
     <label>End Date</label>
     <label class="input">
       <input (focus)="picker2.open()" matInput type="text" formControlName="endDate" placeholder="dd/mm/yyyy"
@@ -139,7 +139,7 @@
     </label>
   </div>
 
-  <div class="col col-3">
+  <div class="col col-3 row-15">
     <div>
       <label for="time">{{ !hasEndTime ? "Event Time *" : "Start Time *"}}</label>
       <input type="time" id="time" class="input" formControlName="startTime">
@@ -149,14 +149,14 @@
     </div>
   </div>
 
-  <div class="col col-3" *ngIf="hasEndTime">
+  <div class="col col-3 row-16" *ngIf="hasEndTime">
     <div>
-      <label for="time">Event Time</label>
+      <label for="time">End Time</label>
       <input type="time" name="time" formControlName="endTime" id="time" class="input" placeholder="time" />
     </div>
   </div>
 
-  <div class="col col-12">
+  <div class="col col-12 row-17">
     <button class="btn btn-b" type="button" (click)="editEvent()" *ngIf="this.page">Update</button>
     <button class="btn btn-b" type="submit" *ngIf="!this.page">Create</button>
   </div>

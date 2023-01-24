@@ -52,3 +52,24 @@ textarea {
 //     border: 1px solid red;
 //   }
 // }
+
+@media screen and (max-width: 500px) {
+  .time-btn {
+    grid-row: 13;
+  }
+  .row-17 {
+    grid-row: 17;
+  }
+  .row-16 {
+    grid-row: 16;
+  }
+  .row-15 {
+    grid-row: 15;
+  }
+  .row-14 {
+    grid-row: 14;
+  }
+  .row-13 {
+    grid-row: 13;
+  }
+}
