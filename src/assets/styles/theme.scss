@@ -121,6 +121,12 @@
       color: #fff !important;
     }
 
+    .a {
+      &:hover {
+        color: #fff !important;
+      }
+    }
+
     // options
     .options .viewBtn {
       border: 1px solid #687575 !important;
@@ -128,10 +134,13 @@
       background-color: #252936 !important;
     }
 
-    .sort select {
-      border: 1px solid #687575 !important;
-      background: #252936 !important;
+    .sort {
       color: #fff;
+      select {
+        border: 1px solid #687575 !important;
+        background: #252936 !important;
+        color: #fff;
+      }
     }
 
     // buttons

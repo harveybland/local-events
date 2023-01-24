@@ -39,19 +39,32 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 50px;
   background-color: #fff;
   border-radius: 2px;
-  padding: 7px 20px;
+  padding: 4px 20px;
   min-height: 20px;
   font-size: 1rem;
   color: #545c63;
   position: relative;
 }
 
+.col-list {
+  display: flex;
+  align-items: center;
+}
+
 .btn--blue {
   background-color: #314152;
 }
 
+.view {
+  background-color: #31abbd;
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+}
+
 a {
-  color: #000;
+  color: #545c63;
 }
 
 @media screen and (max-width: 860px) {

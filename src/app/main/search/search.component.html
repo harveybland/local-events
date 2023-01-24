@@ -49,12 +49,12 @@
   </div>
   <div *ngFor="let item of event$ | async">
     <div class="search-list" *ngIf="list">
-      <div class="col-A">{{ item.title }}</div>
-      <div class="col-B">{{ item.category }}</div>
-      <div class="col-C">{{ item.startDate | date }}</div>
-      <div class="col-D">{{ item.city }}</div>
-      <div class="col-E">
-        <a [routerLink]="'/events/' + [item._id]">View</a>
+      <div class="col-list col-A">{{ item.title }}</div>
+      <div class="col-list col-B">{{ item.category }}</div>
+      <div class="col-list col-C">{{ item.startDate | date }}</div>
+      <div class="col-list col-D">{{ item.city }}</div>
+      <div class="col-list col-E">
+        <a class="view" [routerLink]="'/events/' + [item._id]">View</a>
       </div>
     </div>
   </div>

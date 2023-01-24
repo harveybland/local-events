@@ -29,6 +29,7 @@ h2 {
   button {
     padding: 10px;
     background-color: #eee;
+    color: #545c63;
     cursor: pointer;
     &:hover {
       transition: 0.3 ease-in-out;
@@ -45,9 +46,16 @@ h2 {
   margin: 2px 0 0 0;
 }
 
+.text {
+  color: #808191;
+}
+
 .a {
-  color: #333;
+  color: #808191;
   text-decoration: underline;
+  &:hover {
+    color: #545c63;
+  }
 }
 
 @media screen and (max-width: 1024px) {

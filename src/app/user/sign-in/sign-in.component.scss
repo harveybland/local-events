@@ -31,7 +31,14 @@ input {
   margin: 0px 0 20px;
 }
 
+.text {
+  color: #808191;
+}
+
 .a {
-  color: #333;
+  color: #808191;
   text-decoration: underline;
+  &:hover {
+    color: #545c63;
+  }
 }
