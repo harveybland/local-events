@@ -13,44 +13,16 @@ export class HeaderComponent implements OnInit {
   event$ = this._mainService.event$;
   loggedIn: boolean = false;
 
-  profileComplete: boolean = false;
-  createdEvent: boolean = false;
-  pills: boolean = true;
-  completeNum = 0;
-
   isMenuOpen = false;
-
-  userDetails: any;
 
   constructor(
     private _jwtService: JwtStorageService,
     private _mainService: MainService,
-    private _userProfileService: UserProfileService,
     private _router: Router
   ) {}
 
   ngOnInit() {
-    let token = this._jwtService.getToken();
-    if (!!token) {
-      this._userProfileService.userProfile().subscribe((res) => {
-        this.userDetails = res['user'];
-        this.profileComplete = this.userDetails.profileComplete;
-        this.createdEvent = this.userDetails.createdEvent;
-        if (this.profileComplete == false && this.createdEvent == false) {
-          this.completeNum = 0;
-          this.pills = true;
-        } else if (this.profileComplete == true && this.createdEvent == true) {
-          this.pills = false;
-        } else if (this.profileComplete == false && this.createdEvent == true) {
-          this.completeNum = 1;
-          this.pills = true;
-        } else if (this.profileComplete == true && this.createdEvent == false) {
-          this.completeNum = 1;
-          this.pills = true;
-        }
-      });
-    }
-
+    this._mainService.getEvents().subscribe();
     if (!this._jwtService.isLoggedIn()) {
       this.loggedIn = true;
     }

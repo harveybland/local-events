@@ -37,15 +37,13 @@
   margin-bottom: -5px;
 }
 
-.pill {
+.success {
   padding: 10px 20px;
   margin-bottom: 20px;
   margin-top: -20px;
-  color: #fff;
+  color: #008000;
+  background-color: #fff;
   border-radius: 10px;
-  &.blue {
-    background-color: #31abbd;
-  }
 }
 
 @media screen and (max-width: 1000px) {

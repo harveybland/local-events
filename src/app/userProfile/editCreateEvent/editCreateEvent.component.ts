@@ -83,11 +83,6 @@ export class EditCreateEventComponent implements OnInit {
   }
 
   onSubmit() {
-    // on first event created
-    let userModel: UpdateUser = {
-      createdEvent: true,
-    };
-    this._userProfileService.eventTask(this.userId, userModel).subscribe();
     // Create Event
     this.submitted = true;
     if (this.form.invalid) {

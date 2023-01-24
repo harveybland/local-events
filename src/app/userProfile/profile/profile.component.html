@@ -1,11 +1,10 @@
 <div class="profile" *ngIf="userDetails">
   <div class="title">
-    <h2 *ngIf="!userDetails.personal">Business Profile</h2>
-    <h2 *ngIf="userDetails.personal">Personal Profile</h2>
+    <h2>{{ !userDetails.personal ? "Business" : "Personal" }} Profile</h2>
     <p>{{ userDetails.email }}</p>
   </div>
   <!-- <div *ngIf="!complete" class="complete">
-    Complete your profile
+    Profile Incomplete
   </div> -->
   <form class="form-card" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div *ngIf="!userDetails.personal" class="col col-2">
@@ -48,14 +47,14 @@
       </div>
     </div>
     <div class="col col-12 col-n-m">
-      <div class="flex flex-center">
+      <div class="flex flex-center flex-gap">
         <button type="submit" class="btn btn-o m-r">Update</button>
         <button type="button" class="btn btn-b" (click)="onLogout()">Log out</button>
       </div>
     </div>
   </form>
-  <div style="display: flex; align-items: center; gap: 10px; justify-content: center;">
-    <div *ngIf="update" class="pill blue">
+  <div class="flex flex-center">
+    <div *ngIf="update" class="success">
       Updated Successful
     </div>
   </div>

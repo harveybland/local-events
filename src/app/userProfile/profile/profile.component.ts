@@ -14,7 +14,6 @@ export class ProfileComponent implements OnInit {
   userDetails: any;
   userId: any;
   update = false;
-  complete: boolean;
 
   constructor(
     private _userProfileService: UserProfileService,
@@ -37,8 +36,6 @@ export class ProfileComponent implements OnInit {
     this._userProfileService.userProfile().subscribe((res) => {
       this.userDetails = res['user'];
       this.userId = this.userDetails._id;
-      this.complete = this.userDetails.profileComplete;
-
       // adding to local storage
       this._jwtService.setUserId(this.userId);
 
@@ -54,19 +51,6 @@ export class ProfileComponent implements OnInit {
   }
 
   model() {
-    let completeProfile =
-      !!this.form.controls.fullName.value &&
-      !!this.form.controls.addressLine1.value &&
-      !!this.form.controls.addressLine2.value &&
-      !!this.form.controls.town.value &&
-      !!this.form.controls.number.value;
-
-    if (!!completeProfile) {
-      this.complete = true;
-    } else {
-      this.complete = false;
-    }
-
     return {
       businessName: this.form.controls.businessName.value,
       fullName: this.form.controls.fullName.value,
@@ -74,7 +58,6 @@ export class ProfileComponent implements OnInit {
       addressLine2: this.form.controls.addressLine2.value,
       town: this.form.controls.town.value,
       number: this.form.controls.number.value,
-      profileComplete: this.complete,
     };
   }
 

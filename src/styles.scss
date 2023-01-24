@@ -77,13 +77,6 @@ label.validation-message {
   margin-bottom: 15px;
 }
 
-.success {
-  padding: 20px;
-  background-color: #249424; /* Green */
-  color: white;
-  margin-bottom: 15px;
-}
-
 .flex {
   display: flex;
 }
@@ -102,6 +95,10 @@ label.validation-message {
 
 .flex-a-c {
   align-items: center;
+}
+
+.flex-gap {
+  gap: 10px;
 }
 
 html,

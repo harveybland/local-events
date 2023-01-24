@@ -72,7 +72,6 @@ export class SignUpComponent implements OnInit {
 
   userModel() {
     if (this.personal) {
-      this.signUpForm.controls['businessName'].setValue('');
       return {
         email: this.signUpForm.controls.email.value,
         password: this.signUpForm.controls.password.value,
