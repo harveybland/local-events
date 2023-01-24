@@ -5,6 +5,11 @@
   </div>
   <div class="event-info">
     <p>{{ event?.description }}</p>
+    <p>{{ event?.category }}</p>
+    <p>{{ event?.startDate | date }}</p>
+    <p *ngIf="event?.endDate">{{ event?.endDate | date }}</p>
+    <p>{{ event?.startTime }}</p>
+    <p *ngIf="event?.age">{{ event?.age }}</p>
     <p>{{ event?.city }}</p>
   </div>
   <!-- <a class="edit" [routerLink]="'editEvent/' + [event._id]">Edit</a> -->

@@ -53,7 +53,6 @@ export class UserProfileService {
   userEvents(id: any) {
     return this.http.get<EventModal[]>(this._configService.userEvents(id)).pipe(
       map((resp) => {
-        console.log(resp);
         let now = new Date();
         this._myEvents$.next(
           resp.filter((item) => now < new Date(item.startDate as string))
@@ -102,7 +101,6 @@ export class UserProfileService {
       .delete<EventModal[]>(this._configService.deleteEvent(userId, eventId))
       .pipe(
         map((resp) => {
-          console.log(resp);
           let now = new Date();
           this._myEvents$.next(
             resp.filter((item) => now < new Date(item.startDate as string))

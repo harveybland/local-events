@@ -48,13 +48,12 @@ h2 {
 
 .text {
   color: #808191;
-}
-
-.a {
-  color: #808191;
-  text-decoration: underline;
-  &:hover {
-    color: #545c63;
+  a {
+    color: #808191;
+    text-decoration: underline;
+    &:hover {
+      color: #545c63;
+    }
   }
 }
 

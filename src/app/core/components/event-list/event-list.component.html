@@ -10,7 +10,7 @@
         <p>Location: {{ events.city}}</p>
         <div class="flex">
             <p>Start Date: {{ events.startDate | date }}</p>
-            <p *ngIf="events.endDate"> - End Time:{{ events.endDate | date }}</p>
+            <p *ngIf="events.endDate"> - End Time: {{ events.endDate | date }}</p>
         </div>
         <div class="flex">
             <p>Start Time: {{ events.startTime }}</p>

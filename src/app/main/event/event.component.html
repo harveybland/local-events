@@ -2,8 +2,13 @@
   <h2>{{ event?.title }}</h2>
   <div class="event-info">
     <p>{{ event?.description }}</p>
+    <p>Category: {{ event?.category }}</p>
     <p>Start Date: {{ event?.startDate | date }} </p>
-    <p>Location: {{ event?.city }}</p>
+    <p *ngIf="event?.endDate">End Date: {{ event?.endDate | date }} </p>
+    <p>Start Time: {{ event?.startTime }} </p>
+    <p *ngIf="event?.endTime">Finish Time: {{ event?.endTime }} </p>
+    <p>Location: {{ event?.addressLine1 }}, {{ event?.addressLine2 }}, {{ event?.city }}</p>
+    <p *ngIf="event?.age">Age Range: {{ event?.age }} </p>
   </div>
 </div>
 
@@ -13,10 +18,8 @@
     <p>{{ event?.user[0]?.fullName }}</p>
     <p>Email: {{ event?.user[0]?.email }}</p>
     <p>Call: {{ event?.user[0]?.number }}</p>
-    <div style="display: flex; gap: 5px;">
-      <p>{{ event?.user[0]?.addressLine1 }},</p>
-      <p>{{ event?.user[0]?.addressLine2 }},</p>
-      <p>{{ event?.user[0]?.town }}</p>
+    <div *ngIf="event?.user[0]?.personal">
+      <p>{{ event?.user[0]?.addressLine1 }}, {{ event?.user[0]?.addressLine2 }}, {{ event?.user[0]?.town }}</p>
     </div>
   </div>
 </div>
