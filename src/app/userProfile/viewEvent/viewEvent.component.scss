@@ -19,13 +19,15 @@
 
     button {
       cursor: pointer;
+      display: flex;
+      align-items: center;
       span {
         color: #fff;
       }
     }
   }
   .event-info {
-    border: 1px solid #3eabbd;
+    border: 1px solid #444444;
     padding: 20px;
     border-radius: 0 0 10px 10px;
   }
