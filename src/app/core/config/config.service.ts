@@ -6,7 +6,9 @@ import { Injectable } from '@angular/core';
 export class ConfigService {
   constructor() {}
 
+  // Free
   // url = 'https://oneventsapi.azurewebsites.net/api/'
+  // Not Free
   // url = 'https://eventsapi.azurewebsites.net/api/';
   url = 'http://localhost:8080/api/';
 
