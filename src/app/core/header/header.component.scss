@@ -10,7 +10,7 @@ header {
   border-radius: 10px;
   margin-top: 20px;
   box-shadow: 0 4px 5px #00000021;
-  z-index: 1;
+  z-index: 3;
   .dynamic-event {
     display: flex;
     align-items: center;
@@ -31,6 +31,10 @@ header {
         border-radius: 12px;
         padding: 4px 10px;
         margin-right: 10px;
+        max-width: 230px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .b {
         background-color: #ff7551;
