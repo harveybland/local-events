@@ -7,7 +7,7 @@ import { Component, Inject } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'On Events';
+  title = 'Events';
 
   constructor(@Inject(DOCUMENT) private document: Document) {}
 
